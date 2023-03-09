@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 11:41:16 by alambert          #+#    #+#             */
-/*   Updated: 2023/03/03 13:51:04 by alambert         ###   ########.fr       */
+/*   Updated: 2023/03/06 17:05:25 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "Sample.class.hpp"
 
 Sample::Sample(void) {
-	// Depuis ce constructor, on peut aussi bien utiliser punlicFoo
+	// Depuis ce constructor, on peut aussi bien utiliser publicFoo
 	// que _privateFoo, de meme pour publicBar et _privateBar
 	// puisque, tout simplement nous sommes ici dans le code
 	// du constructor, qui est une fonction membre de mon objet
