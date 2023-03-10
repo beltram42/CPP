@@ -6,16 +6,32 @@
 #    By: alambert <alambert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/28 16:58:44 by alambert          #+#    #+#              #
-#    Updated: 2023/02/28 17:06:50 by alambert         ###   ########.fr        #
+#    Updated: 2023/03/09 12:04:50 by alambert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CXXFLAGS = -Wall -Werror -std=c++98
+# File name
+NAME = megaphone
 
-all: megaphone
+# Sources
+SRCS += Phonebook.class.cpp
 
-a.out: megaphone.cpp
-	$(CXX) $(CXXFLAGS) $< -o $@
+OBJS = ${SRCS:.cpp=.o}
+
+# Compilateurs
+CC = c++
+CFLAGS = -g -Wall -Wextra -Werror -std=c++98
+
+
+#RULES
+all: $(NAME)
+
+%.o: %.cpp
+	$(CC) -o $@ -c $< $(CFLAGS)
 
 clean:
-	rm -f megaphone
+	@rm -f megaphone
+
+re: clean all
+
+.PHONY: all clean  re
