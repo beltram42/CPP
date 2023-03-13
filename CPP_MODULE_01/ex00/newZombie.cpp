@@ -6,21 +6,21 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 15:19:15 by alambert          #+#    #+#             */
-/*   Updated: 2023/03/13 13:34:21 by alambert         ###   ########.fr       */
+/*   Updated: 2023/03/13 13:57:55 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
 // Member functions ********************************************************* //
-// ********************************************************* Member functions //
-
-
-// Non Member functions ***************************************************** //
 
 Zombie   *newZombie(std::string name) {
     Zombie *nZombie;
 	nZombie = new Zombie(name);
 	return (nZombie);
 }
+// ********************************************************* Member functions //
+
+
+// Non Member functions ***************************************************** //
 // ***************************************************** Non Member functions //
