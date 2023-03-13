@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 15:24:26 by alambert          #+#    #+#             */
-/*   Updated: 2023/03/13 19:46:19 by alambert         ###   ########.fr       */
+/*   Updated: 2023/03/13 23:08:32 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 
 // Classes ****************************************************************** //
 
-lass HumanB {
+class HumanB {
 
 private:
 
@@ -38,13 +38,13 @@ private:
 
 public:
 
-	HumanB(/* args */);
+	HumanB(std::string name);
 	~HumanB();
 
 	void		setName(std::string name);
 	std::string	getName(void) const;
+	void		setWeapon(Weapon& weapon);
 	void		attack(void);
-	void		setWeapon(Weapom& weapon);
 
 	
 };

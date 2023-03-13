@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 15:24:33 by alambert          #+#    #+#             */
-/*   Updated: 2023/03/13 19:43:13 by alambert         ###   ########.fr       */
+/*   Updated: 2023/03/13 23:06:47 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,9 @@ private:
 
 public:
 
-	HumanA(/* args */);
-	~HumanA();
+	HumanA(std::string name, Weapon& weapon);
+	~HumanA(void);
 
-	void		setName(std::string name);
 	std::string	getName(void) const;
 	void		attack(void);
 	
