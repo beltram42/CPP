@@ -6,13 +6,16 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 15:24:33 by alambert          #+#    #+#             */
-/*   Updated: 2023/03/11 15:59:22 by alambert         ###   ########.fr       */
+/*   Updated: 2023/03/13 19:43:13 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef HUMANA_H
+# define HUMANA_H
+
 // Libraries **************************************************************** //
 
-#include <fstream>
+#include "Weapon.hpp"
 // **************************************************************** Libraries //
 
 
@@ -25,4 +28,31 @@
 
 
 // Classes ****************************************************************** //
+
+class HumanA {
+
+private:
+
+	std::string	_privateName;
+	Weapon&		_privateWeapon;
+
+public:
+
+	HumanA(/* args */);
+	~HumanA();
+
+	void		setName(std::string name);
+	std::string	getName(void) const;
+	void		attack(void);
+	
+};
 // ****************************************************************** Classes //
+
+
+
+// Non Member functions ***************************************************** //
+// ***************************************************** Non Member functions //
+
+
+
+#endif // ********************************************************** HUMANA_H //

@@ -6,13 +6,16 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 15:24:17 by alambert          #+#    #+#             */
-/*   Updated: 2023/03/11 15:59:35 by alambert         ###   ########.fr       */
+/*   Updated: 2023/03/13 19:35:53 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef WEAPON_H
+# define WEAPON_H
+
 // Libraries **************************************************************** //
 
-#include <fstream>
+#include <iostream>
 // **************************************************************** Libraries //
 
 
@@ -25,4 +28,27 @@
 
 
 // Classes ****************************************************************** //
+
+class Weapon {
+
+    private:
+
+    std::string _privateType;
+
+
+    public:
+
+    Weapon(std::string instance_type);
+    ~Weapon(void);
+
+	const std::string& getType(void) const;
+    void               setType(std::string type);
 // ****************************************************************** Classes //
+
+
+// Non Member functions ***************************************************** //
+// ***************************************************** Non Member functions //
+
+
+
+#endif // ********************************************************** WEAPON_H //

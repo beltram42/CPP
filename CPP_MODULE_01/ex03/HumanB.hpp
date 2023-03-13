@@ -6,13 +6,16 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 15:24:26 by alambert          #+#    #+#             */
-/*   Updated: 2023/03/11 15:59:29 by alambert         ###   ########.fr       */
+/*   Updated: 2023/03/13 19:46:19 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef HUMANB_H
+# define HUMANB_H
+
 // Libraries **************************************************************** //
 
-#include <fstream>
+#include "Weapon.hpp"
 // **************************************************************** Libraries //
 
 
@@ -25,4 +28,33 @@
 
 
 // Classes ****************************************************************** //
+
+lass HumanB {
+
+private:
+
+	std::string	_privateName;
+	Weapon*		_privateWeapon;
+
+public:
+
+	HumanB(/* args */);
+	~HumanB();
+
+	void		setName(std::string name);
+	std::string	getName(void) const;
+	void		attack(void);
+	void		setWeapon(Weapom& weapon);
+
+	
+};
 // ****************************************************************** Classes //
+
+
+
+// Non Member functions ***************************************************** //
+// ***************************************************** Non Member functions //
+
+
+
+#endif // ********************************************************** HUMANB_H //
