@@ -6,13 +6,19 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 15:21:39 by alambert          #+#    #+#             */
-/*   Updated: 2023/03/11 15:59:53 by alambert         ###   ########.fr       */
+/*   Updated: 2023/03/13 17:48:13 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef ZOMBIE_H
+# define ZOMBIE_H
+
 // Libraries **************************************************************** //
 
-#include <fstream>
+#include <iostream>
+#include <ostream>
+#include <string>
+#include <cstdlib>
 // **************************************************************** Libraries //
 
 
@@ -25,4 +31,34 @@
 
 
 // Classes ****************************************************************** //
+
+class Zombie {
+
+private:
+
+	std::string	_privateName;
+
+
+public:
+
+	Zombie (void);
+	~Zombie(void);
+
+	void		setName(std::string token);
+	std::string	getName(void) const;
+	
+	void		announce(void);
+
+};
+
 // ****************************************************************** Classes //
+
+
+// Non Member functions ***************************************************** //
+
+	Zombie*		zombieHorde(int N, std::string name);
+// ***************************************************** Non Member functions //
+
+
+
+#endif // ********************************************************** ZOMBIE_H //

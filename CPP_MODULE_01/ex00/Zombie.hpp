@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 15:19:29 by alambert          #+#    #+#             */
-/*   Updated: 2023/03/13 13:34:01 by alambert         ###   ########.fr       */
+/*   Updated: 2023/03/13 14:49:33 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,6 @@ public:
 
 	std::string getName(void) const;
 
-
-	// newZombie.cpp -------------------------------------------------------- //
-	Zombie*		newZombie(std::string name);
 };
 
 // ****************************************************************** Classes //
@@ -60,6 +57,9 @@ public:
 
 // Non Member functions ***************************************************** //
 
+	// newZombie.cpp -------------------------------------------------------- //
+	Zombie*		newZombie(std::string name);
+	
 	// randomChump.cpp ------------------------------------------------------ //
 	void		randomChump(std::string name);
 
