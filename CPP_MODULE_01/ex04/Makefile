@@ -6,18 +6,18 @@
 #    By: alambert <alambert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/11 15:26:32 by alambert          #+#    #+#              #
-#    Updated: 2023/03/11 15:51:31 by alambert         ###   ########.fr        #
+#    Updated: 2023/03/14 00:37:19 by alambert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # File name
-NAME = Phonebook
+NAME = Replace
 
 # Sources
-SRCS += Zombie.cpp
+SRCS += Replace.cpp
 SRCS += main.cpp
 
-HEADER += Zombie.hpp
+HEADER += Replace.hpp
 
 OBJS = ${SRCS:.cpp=.o}
 
