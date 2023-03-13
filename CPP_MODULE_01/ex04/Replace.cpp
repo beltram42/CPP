@@ -6,17 +6,17 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 15:26:29 by alambert          #+#    #+#             */
-/*   Updated: 2023/03/14 00:37:35 by alambert         ###   ########.fr       */
+/*   Updated: 2023/03/14 00:56:52 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Replace.hpp"
 
 // Constructor Destructor *************************************************** //
-Sed::Replace(/* args */) {
+Replace::Replace(/* args */) {
 }
 
-Sed::~Replace() {
+Replace::~Replace() {
 }
 // *************************************************** Constructor Destructor //
 
@@ -24,7 +24,7 @@ Sed::~Replace() {
 
 // Member functions ********************************************************* //
 
-void    Sed::ft_Replace(std::string file, std::string str1, std::string str2)
+void    Replace::ft_Replace(std::string file, std::string str1, std::string str2)
 {
     std::string     str, buff, fileName;
     std::size_t     found(0);
