@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 15:28:02 by alambert          #+#    #+#             */
-/*   Updated: 2023/03/14 00:55:53 by alambert         ###   ########.fr       */
+/*   Updated: 2023/03/14 01:08:50 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 // Libraries **************************************************************** //
 
-#include <fstream>
+#include <iostream>
+#include <string>
 // **************************************************************** Libraries //
 
 
@@ -32,14 +33,19 @@
 class Harl
 {
 private:
-	/* data */
+	
+	void	_debug(void);
+	void	_info(void);
+	void	_warning(void);
+	void	_error(void);
+
 public:
+
 	Harl(/* args */);
 	~Harl();
+
+	void	complain(std::string level);
 };
-
-
-
 // ****************************************************************** Classes //
 
 
