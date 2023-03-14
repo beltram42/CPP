@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 15:27:56 by alambert          #+#    #+#             */
-/*   Updated: 2023/03/14 01:19:32 by alambert         ###   ########.fr       */
+/*   Updated: 2023/03/14 14:55:11 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 
 // Constructor Destructor *************************************************** //
 Harl::Harl(/* args */) {
+	std::cout << "Constructor called: now Harl's mouth open..." << std::endl;
 }
 
 Harl::~Harl() {
+	std::cout << "Destructor called: Harl's mouth shut." << std::endl;
 }
 // *************************************************** Constructor Destructor //
 
@@ -36,10 +38,9 @@ void	Harl::complain(std::string level) {
 
 	for (int i = 0; i < 4; i++)
 	{
-		if (level == complaints[i])
+		if (level == strokes[i])
 			return (this->*functPointer[i])();
  	}
-	std::cout << "I don't care of what you say!" << std::endl;
 }
 
 void    Harl::_debug(void) {
