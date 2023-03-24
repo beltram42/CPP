@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 15:26:29 by alambert          #+#    #+#             */
-/*   Updated: 2023/03/14 00:56:52 by alambert         ###   ########.fr       */
+/*   Updated: 2023/03/16 16:53:25 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,10 @@ void    Replace::ft_Replace(std::string file, std::string str1, std::string str2
         std::cout << "*** Error, file cannot be created" << std::endl;
         return;
     }
+	if (str1[0] == '\0') {
+		std::cout << "*** Error, s1 does not exist" << std::endl;
+		return;
+	}
     while (std::getline(inFile, str)) {
         buff.append(str.append("\n"));
     } 
