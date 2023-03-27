@@ -6,26 +6,30 @@
 #    By: alambert <alambert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/27 12:53:17 by alambert          #+#    #+#              #
-#    Updated: 2023/03/27 12:58:14 by alambert         ###   ########.fr        #
+#    Updated: 2023/03/27 14:47:37 by alambert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# File name
-NAME = Harl
 
-# Sources
-SRCS += Harl.cpp
+# File name ================================================================== #
+NAME = Fixed
+
+
+# Sources ==================================================================== #
+SRCS += Fixed.cpp
 SRCS += main.cpp
 
-HEADER += Harl.hpp
+HEADER += Fixed.hpp
 
 OBJS = ${SRCS:.cpp=.o}
 
-# Compilateurs
+
+# Compilateurs =============================================================== #
 CC = c++
 CFLAGS = -g -Wall -Wextra -Werror -std=c++98
 
-## RULES
+
+## RULES ==================================================================== ##
 all: $(NAME)
 
 $(NAME): $(OBJS)

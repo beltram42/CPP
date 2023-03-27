@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 12:53:08 by alambert          #+#    #+#             */
-/*   Updated: 2023/03/27 14:27:53 by alambert         ###   ########.fr       */
+/*   Updated: 2023/03/27 15:54:37 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,12 @@
 class	Fixed	{
 
 public:
-	Fixed();											// Cannonical
-	Fixed(const Fixed & origin);						// Cannonical
+	Fixed(void);													// Cannonical
+	Fixed(Fixed const & inst);										// Cannonical
 
-	~Fixed();											// Cannonical
+	~Fixed(void);													// Cannonical
 
-	Fixed &				operator=(Fixed const & rhs);	// Cannonical
+	Fixed &				operator=(Fixed const & rhs);				// Cannonical
 
 	void				setRawBits(int const raw);
 	int					getRawBits(void) const;
@@ -46,7 +46,7 @@ public:
 private:
 
 	int					_privateN;
-	static const int	_privateNrest = 8;
+	int static const	_privateNrest = 8;
 
 };
 // ****************************************************************** Classes //

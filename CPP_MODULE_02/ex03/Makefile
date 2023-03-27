@@ -6,18 +6,21 @@
 #    By: alambert <alambert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/27 12:53:17 by alambert          #+#    #+#              #
-#    Updated: 2023/03/27 12:58:09 by alambert         ###   ########.fr        #
+#    Updated: 2023/03/27 14:42:21 by alambert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # File name
-NAME = Harl
+NAME = Fixed
 
 # Sources
-SRCS += Harl.cpp
+SRCS += bsp.cpp
+SRCS += Fixed.cpp
+SRCS += Point.cpp
 SRCS += main.cpp
 
-HEADER += Harl.hpp
+HEADER += Fixed.hpp
+HEADER += Point.hpp
 
 OBJS = ${SRCS:.cpp=.o}
 
