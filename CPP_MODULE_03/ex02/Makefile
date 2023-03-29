@@ -5,30 +5,30 @@
 #                                                     +:+ +:+         +:+      #
 #    By: alambert <alambert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/03/27 12:53:17 by alambert          #+#    #+#              #
-#    Updated: 2023/03/27 14:42:21 by alambert         ###   ########.fr        #
+#    Created: 2023/03/29 16:34:50 by alambert          #+#    #+#              #
+#    Updated: 2023/03/29 16:40:09 by alambert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# File name
+# File name ================================================================== #
 NAME = Fixed
 
-# Sources
-SRCS += bsp.cpp
+
+# Sources ==================================================================== #
 SRCS += Fixed.cpp
-SRCS += Point.cpp
 SRCS += main.cpp
 
 HEADER += Fixed.hpp
-HEADER += Point.hpp
 
 OBJS = ${SRCS:.cpp=.o}
 
-# Compilateurs
+
+# Compilateurs =============================================================== #
 CC = c++
 CFLAGS = -g -Wall -Wextra -Werror -std=c++98
 
-## RULES
+
+## RULES ==================================================================== ##
 all: $(NAME)
 
 $(NAME): $(OBJS)
