@@ -29,6 +29,9 @@
 		"type_traits": "cpp",
 		"typeinfo": "cpp",
 		"complex": "cpp",
-		"sstream": "cpp"
+		"sstream": "cpp",
+		"cstring": "cpp",
+		"ctime": "cpp",
+		"iomanip": "cpp"
 	}
 }

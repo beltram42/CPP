@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 16:34:41 by alambert          #+#    #+#             */
-/*   Updated: 2023/03/29 18:53:25 by alambert         ###   ########.fr       */
+/*   Updated: 2023/03/30 15:07:09 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,15 @@ public:
 	void			takeDamage(unsigned int amount);
 	void			beRepaired(unsigned int amount);
 
-
+	void			setName(std::string name);
 	void			setHitPoints(int hp);
 	void			setEnergyPoints(int ep);
 	void			setAttackDamage(int ad);
-	unsigned int	getHitPoints(void);
-	unsigned int	getEnergyPoints(void);
-	unsigned int	getAttackDamage(void);
 
+	std::string		getName(void) const;
+	unsigned int	getHitPoints(void) const;
+	unsigned int	getEnergyPoints(void) const;
+	unsigned int	getAttackDamage(void) const;
 
 
 private:
@@ -77,7 +78,7 @@ private:
 
 
 // Non Member functions ***************************************************** //
-std::ostream &			operator<<(std::ostream & out, Fixed const & inst);
+std::ostream &			operator<<(std::ostream & out, ClapTrap const & inst);
 // ***************************************************** Non Member functions //
 
 
