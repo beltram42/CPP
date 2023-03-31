@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 16:35:37 by alambert          #+#    #+#             */
-/*   Updated: 2023/03/30 18:59:04 by alambert         ###   ########.fr       */
+/*   Updated: 2023/03/31 13:40:03 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void			ScavTrap::attack(const std::string& target)	{
 }
 
 void	ScavTrap::guardGate(void)	{
-	std::cout << "ScavTrap: " << this->getName() << " now in gate keeper mode." << std::endl;
+	std::cout << MAGENTA<< "ScavTrap: " << this->getName() << " now in gate keeper mode." << std::endl;
 }
 // ********************************************************* Member functions //
 

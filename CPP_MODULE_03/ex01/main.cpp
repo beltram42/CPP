@@ -6,79 +6,48 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 16:34:46 by alambert          #+#    #+#             */
-/*   Updated: 2023/03/30 18:56:29 by alambert         ###   ########.fr       */
+/*   Updated: 2023/03/31 16:14:41 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-int	main(){
+int main(void)
+{
+    ScavTrap Cartman("Eric");
+    ScavTrap Marsh("Stan");
 
-	ScavTrap	Toc("Toc");
-	
-	Toc.guardGate();
-	Toc.attack("someone else");
-	Toc.attack("someone else");
-	Toc.attack("someone else");
-	Toc.attack("someone else");
-	Toc.attack("someone else");
-	Toc.attack("someone else");
-	Toc.attack("someone else");
-	Toc.attack("someone else");
-	Toc.attack("someone else");
-	Toc.attack("someone else");
-	Toc.attack("someone else");
-	Toc.attack("someone else");
-	Toc.attack("someone else");
-	Toc.attack("someone else");
-	Toc.attack("someone else");
-	Toc.attack("someone else");
-	Toc.attack("someone else");
-	Toc.attack("someone else");
-	Toc.attack("someone else");
-	Toc.attack("someone else");
-	Toc.attack("someone else");
-	Toc.attack("someone else");
-	Toc.attack("someone else");
-	Toc.attack("someone else");
-	Toc.attack("someone else");
-	Toc.attack("someone else");
-	Toc.attack("someone else");
-	Toc.attack("someone else");
-	Toc.attack("someone else");
-	Toc.attack("someone else");
-	Toc.attack("someone else");
-	Toc.attack("someone else");
-	Toc.attack("someone else");
-	Toc.attack("someone else");
-	Toc.attack("someone else");
-	Toc.attack("someone else");
-	Toc.attack("someone else");
-	Toc.attack("someone else");
-	Toc.attack("someone else");
-	Toc.attack("someone else");
-	Toc.attack("someone else");
-	Toc.attack("someone else");
-	Toc.attack("someone else");
-	Toc.attack("someone else");
-	Toc.attack("someone else");
-	Toc.attack("someone else");
-	Toc.attack("someone else");
-	Toc.attack("someone else");
-	Toc.attack("someone else");
-	Toc.attack("someone else");
-	Toc.attack("someone else");
-	Toc.attack("someone else");
-	Toc.attack("someone else");
-	Toc.attack("someone else");
+    ClapTrap Kenny; //Default
 
-	ScavTrap	Tac(Toc);
+    std::cout << Cartman;
+    std::cout << Marsh;
 
-	std::cout << std::endl;
-	Tac.attack("someone");
+    Cartman.attack("Stan");
+    std::cout << Cartman;
+    std::cout << Marsh;
+    
+    Marsh.takeDamage(100);
+    std::cout << Marsh;
 
-	ScavTrap	Tic = Toc;
-	Tic.attack("someone");
+    /*for (int i = 0; i < 50; i++)
+    {
+        Marsh.attack("Cartman");
+    }
+    std::cout << Marsh;*/
 
-	return (0);
+    Marsh.attack("Eric");
+    Marsh.beRepaired(2);
+    Marsh.takeDamage(3);
+
+    Cartman.guardGate();
+
+	std::cout << MAGENTA << "********************************************" << std::endl;
+    std::cout << YELLOW << "                Assignation    " << std::endl;
+    Kenny = Cartman;
+    std::cout << Kenny;
+
+    Cartman.takeDamage(2);
+    std::cout << Cartman;
+    Cartman.beRepaired(2);
+    std::cout << Cartman;
 }

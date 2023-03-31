@@ -6,19 +6,24 @@
 #    By: alambert <alambert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/29 16:34:50 by alambert          #+#    #+#              #
-#    Updated: 2023/03/29 16:40:09 by alambert         ###   ########.fr        #
+#    Updated: 2023/03/31 12:02:55 by alambert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # File name ================================================================== #
-NAME = Fixed
+NAME = FragTrap
 
 
 # Sources ==================================================================== #
-SRCS += Fixed.cpp
+SRCS += ClapTrap.cpp
+SRCS += ScavTrap.cpp
+SRCS += FragTrap.cpp
 SRCS += main.cpp
 
-HEADER += Fixed.hpp
+HEADER += ClapTrap.hpp
+HEADER += ScavTrap.hpp
+HEADER += FragTrap.hpp
+
 
 OBJS = ${SRCS:.cpp=.o}
 
