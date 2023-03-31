@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 16:46:04 by alambert          #+#    #+#             */
-/*   Updated: 2023/03/31 19:35:18 by alambert         ###   ########.fr       */
+/*   Updated: 2023/03/31 20:49:12 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ public:
 
 
 
-	Cat &	operator=(cat const & rhs);						// Cannonical
+	Cat &	operator=(Cat const & rhs);						// Cannonical
 
 	void	makeSound(void) const;
 

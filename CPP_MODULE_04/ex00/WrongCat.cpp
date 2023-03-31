@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 19:54:08 by alambert          #+#    #+#             */
-/*   Updated: 2023/03/31 20:41:55 by alambert         ###   ########.fr       */
+/*   Updated: 2023/03/31 20:52:03 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 // Constructor Destructor *************************************************** //
 WrongCat::WrongCat(void) : WrongAnimal("WrongCat")	{
-	std::cout << CYAN << "WrongCat: Default constructor has been called for: " << YELLOW << this->getName() << std::endl;
+	std::cout << CYAN << "WrongCat: Default constructor has been called for: " << YELLOW << this->getType() << std::endl;
 }
 
-WrongCat::WrongCat(Cat const & inst) : WrongAnimal("WrongCat")	{
+WrongCat::WrongCat(WrongCat const & inst) : WrongAnimal("WrongCat")	{
 	*this = inst;
-	std::cout << CYAN << "WrongCat: Copy constructor has been called for: " << YELLOW << this->getName() << std::endl;
+	std::cout << CYAN << "WrongCat: Copy constructor has been called for: " << YELLOW << this->getType() << std::endl;
 }
 
 WrongCat::~WrongCat(void)	{
-	std::cout << CYAN << "WrongCat: Destructor called for: " << YELLOW << this->getName() << std::endl;
+	std::cout << CYAN << "WrongCat: Destructor called for: " << YELLOW << this->getType() << std::endl;
 }
 // *************************************************** Constructor Destructor //
 
