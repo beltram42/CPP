@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 19:54:08 by alambert          #+#    #+#             */
-/*   Updated: 2023/03/31 20:52:03 by alambert         ###   ########.fr       */
+/*   Updated: 2023/03/31 21:16:24 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ WrongCat&	WrongCat::operator=(WrongCat const & rhs)	{
 	return *this;
 }
 
-void		makeSound(void)	{
+void		WrongCat::makeSound(void) const	{
 	std::cout << CYAN << "meeeowrong" << CLEAR << std::endl;
 }
 // ********************************************************* Member functions //

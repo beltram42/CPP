@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 16:45:49 by alambert          #+#    #+#             */
-/*   Updated: 2023/03/31 20:50:25 by alambert         ###   ########.fr       */
+/*   Updated: 2023/03/31 21:16:03 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ Cat&		Cat::operator=(Cat const & rhs)	{
 	return *this;
 }
 
-void		makeSound(void)	{
+void		Cat::makeSound(void) const	{
 	std::cout << CYAN << "Cat: meeeowwwww" << CLEAR << std::endl;
 }
 // ********************************************************* Member functions //

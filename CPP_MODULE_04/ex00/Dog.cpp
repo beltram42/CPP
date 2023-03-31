@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 16:45:49 by alambert          #+#    #+#             */
-/*   Updated: 2023/03/31 20:50:58 by alambert         ###   ########.fr       */
+/*   Updated: 2023/03/31 21:16:09 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ Dog&		Dog::operator=(Dog const & rhs)	{
 	return *this;
 }
 
-void		makeSound(void)	{
+void		Dog::makeSound(void) const	{
 	std::cout << "Dog: woooof" << std::endl;
 }
 // ********************************************************* Member functions //

@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 16:43:16 by alambert          #+#    #+#             */
-/*   Updated: 2023/03/31 20:46:59 by alambert         ###   ########.fr       */
+/*   Updated: 2023/03/31 21:15:54 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ std::string		Animal::getType(void) const	{
 	return (this->_privateType);
 }
 
-void		makeSound(void)	{
+void		Animal::makeSound(void)	const {
 	std::cout << "**silence**" << std::endl;
 }
 // ********************************************************* Member functions //
