@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/31 16:46:04 by alambert          #+#    #+#             */
-/*   Updated: 2023/03/31 20:25:41 by alambert         ###   ########.fr       */
+/*   Created: 2023/03/31 19:54:14 by alambert          #+#    #+#             */
+/*   Updated: 2023/03/31 20:36:25 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#ifndef DOG_H
-#define DOG_H
+#ifndef WRONGCAT_H
+#define WRONGCAT_H
 
 // Libraries **************************************************************** //
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 // **************************************************************** Libraries //
 
 
@@ -31,18 +30,19 @@
 
 
 // Classes ****************************************************************** //
-class	Dog : public  Animal	{
+class	WrongCat : public  virtual WrongAnimal	{
 
 public:
-	Dog(void);												// Cannonical
-	Dog(Dog const & inst);									// Cannonical
-	Dog(std::string type);
+	WrongCat(void);													// Cannonical
+	WrongCat(WrongCat const & inst);								// Cannonical
 
-	~Dog(void);												// Cannonical
+	~WrongCat(void);												// Cannonical
 
-	Dog &		operator=(Dog const & rhs);					// Cannonical
 
-	void	makeSound(void) const;
+
+	WrongCat &	operator=(WrongCat const & rhs);					// Cannonical
+
+	void		makeSound(void) const;
 
 private:
 	/*aDATA*/
@@ -56,4 +56,4 @@ private:
 // ***************************************************** Non Member functions //
 
 
-#endif // ******************************************************** DOG_H //
+#endif // ******************************************************** WRONGCAT_H //

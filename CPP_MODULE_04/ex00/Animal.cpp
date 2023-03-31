@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 16:43:16 by alambert          #+#    #+#             */
-/*   Updated: 2023/03/31 17:52:17 by alambert         ###   ########.fr       */
+/*   Updated: 2023/03/31 20:46:59 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ Animal::Animal(Animal const & inst)	{
 
 Animal::Animal(std::string type)	{
 	std::cout << MAGENTA << "Animal constructor called for: " << YELLOW << this->getType() << std::endl;
+	this->setType(type);
 }
 
 Animal::~Animal(void)	{
@@ -35,7 +36,7 @@ Animal::~Animal(void)	{
 
 // Member functions ********************************************************* //
 Animal&		Animal::operator=(Animal const & rhs)	{
-	std::cout << MAGENTA << "Copy - Assignment operator overload called" << CLEAR << std::endl;
+	std::cout << MAGENTA << "Animal: Copy - Assignment operator overload called" << CLEAR << std::endl;
 	this->setType(rhs.getType());
 	return *this;
 }
@@ -49,7 +50,7 @@ std::string		Animal::getType(void) const	{
 }
 
 void		makeSound(void)	{
-	std::cout << "**Silence**" << std::endl;
+	std::cout << "**silence**" << std::endl;
 }
 // ********************************************************* Member functions //
 

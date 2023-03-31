@@ -6,7 +6,7 @@
 #    By: alambert <alambert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/29 16:34:50 by alambert          #+#    #+#              #
-#    Updated: 2023/03/31 16:41:55 by alambert         ###   ########.fr        #
+#    Updated: 2023/03/31 20:44:52 by alambert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,13 +16,17 @@ NAME = MakeSound
 
 # Sources ==================================================================== #
 SRCS += Animal.cpp
+SRCS += WrongAnimal.cpp
 SRCS += Cat.cpp
 SRCS += Dog.cpp
+SRCS += WrongCat.cpp
 SRCS += main.cpp
 
 HEADER += Animal.hpp
+HEADER += WrongAnimal.hpp
 HEADER += Cat.hpp
 HEADER += Dog.hpp
+HEADER += WrongCat.hpp
 
 
 OBJS = ${SRCS:.cpp=.o}

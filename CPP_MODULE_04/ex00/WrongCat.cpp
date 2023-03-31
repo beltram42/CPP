@@ -1,48 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/31 16:45:49 by alambert          #+#    #+#             */
-/*   Updated: 2023/03/31 20:46:38 by alambert         ###   ########.fr       */
+/*   Created: 2023/03/31 19:54:08 by alambert          #+#    #+#             */
+/*   Updated: 2023/03/31 20:41:55 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "WrongCat.hpp"
 
 // Constructor Destructor *************************************************** //
-Dog::Dog(void) : Animal("Dog")	{
-	std::cout << GREEN << "Dog: Default constructor has been called for: " << YELLOW << this->getName() << std::endl;
+WrongCat::WrongCat(void) : WrongAnimal("WrongCat")	{
+	std::cout << CYAN << "WrongCat: Default constructor has been called for: " << YELLOW << this->getName() << std::endl;
 }
 
-Dog::Dog(Dog const & inst)	{
+WrongCat::WrongCat(Cat const & inst) : WrongAnimal("WrongCat")	{
 	*this = inst;
-	std::cout << GREEN << "Dog: Copy constructor has been called for: " << YELLOW << this->getName() << std::endl;
+	std::cout << CYAN << "WrongCat: Copy constructor has been called for: " << YELLOW << this->getName() << std::endl;
 }
 
-Dog::Dog(std::string type)	{
-	std::cout << GREEN << "Dog: Constructor called for: " << YELLOW << this->getName() << std::endl;
-	this->setType(type);
-}
-
-Dog::~Dog(void)	{
-	std::cout << GREEN << "Dog: Destructor called for: " << YELLOW << this->getName() << std::endl;
+WrongCat::~WrongCat(void)	{
+	std::cout << CYAN << "WrongCat: Destructor called for: " << YELLOW << this->getName() << std::endl;
 }
 // *************************************************** Constructor Destructor //
 
 
 
 // Member functions ********************************************************* //
-Dog&		Dog::operator=(Dog const & rhs)	{
-	std::cout << GREEN "Dog: Copy - Assignment operator overload called" CLEAR << std::endl;
+WrongCat&	WrongCat::operator=(WrongCat const & rhs)	{
+	std::cout << CYAN "WrongCat: Copy - Assignment operator overload called" CLEAR << std::endl;
 	this->setType(rhs.getType());
 	return *this;
 }
 
 void		makeSound(void)	{
-	std::cout << "woooof" << std::endl;
+	std::cout << CYAN << "meeeowrong" << CLEAR << std::endl;
 }
 // ********************************************************* Member functions //
 
