@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 16:34:34 by alambert          #+#    #+#             */
-/*   Updated: 2023/03/31 11:46:17 by alambert         ###   ########.fr       */
+/*   Updated: 2023/03/31 19:12:31 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ unsigned int	ClapTrap::getAttackDamage(void) const	{
 }
 
 void			ClapTrap::attack(const std::string& target)	{ 
-	if (this->getEnergyPoints() > 0 && this->getHitPoints() > 0)	{
+	if (this->getEnergyPoints() > 0)	{
 		std::cout << YELLOW << "ClapTrap " << this->getName() << " attacks " << target << " causing " << this->getAttackDamage() << " points of damage." << std::endl;
 		this->setEnergyPoints(this->getEnergyPoints() - 1);
 		std::cout << this->getName() << " Energy points now at: " << this->getEnergyPoints() << CLEAR << std::endl;
