@@ -6,12 +6,12 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 14:49:02 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/01 16:10:50 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/01 18:17:29 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHARACTER_H
-# define CHARACTER_H
+#ifndef WARRIOR_H
+# define WARRIOR_H
 
 // Libraries **************************************************************** //
 #include "Character.hpp"
@@ -56,4 +56,4 @@ private:
 // ***************************************************** Non Member functions //
 
 
-#endif // ********************************************************** CHARACTER_H
+#endif // ********************************************************** WARRIOR_H

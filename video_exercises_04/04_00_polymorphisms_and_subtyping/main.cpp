@@ -6,11 +6,11 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 15:40:59 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/01 15:58:26 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/01 18:19:08 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Character.hpp"
+#include "Warrior.hpp"
 #include "Cat.hpp"
 
 int	main(void)	{
@@ -30,6 +30,9 @@ int	main(void)	{
 
 	a->sayHello("sturents");
 	b->sayHello("students");
+
+	delete(a);
+	delete(b);
 	return (0);
 
 }
