@@ -1,43 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.cpp                                       :+:      :+:    :+:   */
+/*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/31 19:54:08 by alambert          #+#    #+#             */
-/*   Updated: 2023/03/31 21:17:55 by alambert         ###   ########.fr       */
+/*   Created: 2023/04/01 14:48:51 by alambert          #+#    #+#             */
+/*   Updated: 2023/04/01 16:03:08 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongCat.hpp"
+#include "Character.hpp"
 
 // Constructor Destructor *************************************************** //
-WrongCat::WrongCat(void) : WrongAnimal("WrongCat")	{
-	std::cout << CYAN << "WrongCat: Default constructor has been called for: " << YELLOW << this->getType() << std::endl;
+Character::Character(void)	{
+	std::cout << "Character: Default constructor has been called" << std::endl;
 }
 
-WrongCat::WrongCat(WrongCat const & inst) : WrongAnimal("WrongCat")	{
+Character::Character(Character const & inst)	{
 	*this = inst;
-	std::cout << CYAN << "WrongCat: Copy constructor has been called for: " << YELLOW << this->getType() << std::endl;
+	std::cout << "Character: Copy constructor has been called" << std::endl;
 }
 
-WrongCat::~WrongCat(void)	{
-	std::cout << CYAN << "WrongCat: Destructor called for: " << YELLOW << this->getType() << std::endl;
+Character::~Character(void)	{
+	std::cout << "Character: Destructor called" << std::endl;
 }
 // *************************************************** Constructor Destructor //
 
 
 
 // Member functions ********************************************************* //
-WrongCat&	WrongCat::operator=(WrongCat const & rhs)	{
-	std::cout << CYAN "WrongCat: Copy - Assignment operator overload called" CLEAR << std::endl;
-	this->setType(rhs.getType());
-	return *this;
-}
-
-void		WrongCat::makeSound(void) const	{
-	std::cout << CYAN << "WongCat: meeeowrong" << CLEAR << std::endl;
+void		Character::sayHello(std::string const & target)	{
+	std::cout << "Hey you! " << target << std::endl;
 }
 // ********************************************************* Member functions //
 

@@ -1,43 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.cpp                                       :+:      :+:    :+:   */
+/*   Warrior.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/31 19:54:08 by alambert          #+#    #+#             */
-/*   Updated: 2023/03/31 21:17:55 by alambert         ###   ########.fr       */
+/*   Created: 2023/04/01 14:48:59 by alambert          #+#    #+#             */
+/*   Updated: 2023/04/01 15:49:53 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongCat.hpp"
+#include "Warrior.hpp"
 
 // Constructor Destructor *************************************************** //
-WrongCat::WrongCat(void) : WrongAnimal("WrongCat")	{
-	std::cout << CYAN << "WrongCat: Default constructor has been called for: " << YELLOW << this->getType() << std::endl;
+Warrior::Warrior(void)	{
+	std::cout << "Warrior: Default constructor has been called" << std::endl;
 }
 
-WrongCat::WrongCat(WrongCat const & inst) : WrongAnimal("WrongCat")	{
+Warrior::Warrior(Character const & inst)	{
 	*this = inst;
-	std::cout << CYAN << "WrongCat: Copy constructor has been called for: " << YELLOW << this->getType() << std::endl;
+	std::cout << "Warrior: Copy constructor has been called" << std::endl;
 }
 
-WrongCat::~WrongCat(void)	{
-	std::cout << CYAN << "WrongCat: Destructor called for: " << YELLOW << this->getType() << std::endl;
+Warrior::~Warrior(void)	{
+	std::cout << "Warrior: Destructor called" << std::endl;
 }
 // *************************************************** Constructor Destructor //
 
 
 
 // Member functions ********************************************************* //
-WrongCat&	WrongCat::operator=(WrongCat const & rhs)	{
-	std::cout << CYAN "WrongCat: Copy - Assignment operator overload called" CLEAR << std::endl;
-	this->setType(rhs.getType());
-	return *this;
-}
-
-void		WrongCat::makeSound(void) const	{
-	std::cout << CYAN << "WongCat: meeeowrong" << CLEAR << std::endl;
+void		Warrior::sayHello(std::string const & target)	{
+	std::cout << "F*** off " << target << ", I don't like you!" << std::endl;
 }
 // ********************************************************* Member functions //
 
