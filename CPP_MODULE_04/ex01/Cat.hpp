@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 16:46:04 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/02 11:25:32 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/02 14:35:00 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,23 +31,25 @@
 
 
 // Classes ****************************************************************** //
-class	Cat : public  ClapTrap	{
+class	Cat : public  Animal	{
 
 public:
-	Cat(void);												// Canonical
-	Cat(Cat const & inst);							// Canonical
-	Cat(std::string name);
-	Cat(std::string name, int HitP, int NrgP, int AttD);
+	Cat(void);													// Canonical
+	Cat(Cat const & inst);										// Canonical
+	Cat(std::string type);
 
-	~Cat(void);											// Canonical
+	~Cat(void);													// Canonical
 
-	Cat &		operator=(Cat const & rhs);			// Canonical
 
-	void	attack(std::string const & target);
-	void	guardGate(void);
+
+	Cat &	operator=(Cat const & rhs);							// Canonical
+
+	void	makeSound(void) const;
+	void	getIdeas(int const i) const;
+	Brain*	getBrain(void) const;
 
 private:
-	/*aDATA*/
+	Brain*	_privateBrain;
 
 };
 // ****************************************************************** Classes //

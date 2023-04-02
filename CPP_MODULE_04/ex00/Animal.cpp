@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 16:43:16 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/02 10:49:18 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/02 12:20:21 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,21 @@
 // Constructor Destructor *************************************************** //
 Animal::Animal(void)	{
 	this->setType("Default");
-	std::cout << MAGENTA << "Animal default constructor has been called for: " << YELLOW << this->getType() << std::endl;
+	std::cout << CLEAR << "Animal: default constructor has been called for: " << this->getType() << std::endl;
 }
 
 Animal::Animal(Animal const & inst)	{
 	*this = inst;
-	std::cout << MAGENTA << "Copy constructor has been called for: " << YELLOW << this->getType() << std::endl;
+	std::cout << CLEAR << "Animal: Copy constructor has been called for: "<< this->getType() << std::endl;
 }
 
 Animal::Animal(std::string type)	{
-	std::cout << MAGENTA << "Animal constructor called for: " << YELLOW << this->getType() << std::endl;
 	this->setType(type);
+	std::cout << CLEAR << "Animal: constructor called for: " << this->getType() << std::endl;
 }
 
 Animal::~Animal(void)	{
-	std::cout << MAGENTA << "Animal destructor called for: " << YELLOW << this->getType() << std::endl;
+	std::cout << CLEAR << "Animal: destructor called for: " << this->getType() << std::endl;
 }
 // *************************************************** Constructor Destructor //
 
@@ -37,7 +37,7 @@ Animal::~Animal(void)	{
 
 // Member functions ********************************************************* //
 Animal&		Animal::operator=(Animal const & rhs)	{
-	std::cout << MAGENTA << "Animal: Copy - Assignment operator overload called" << CLEAR << std::endl;
+	std::cout << CLEAR << "Animal: Copy - Assignment operator overload called" << std::endl;
 	this->setType(rhs.getType());
 	return *this;
 }
@@ -51,7 +51,7 @@ std::string		Animal::getType(void) const	{
 }
 
 void		Animal::makeSound(void)	const {
-	std::cout << "**silence**" << std::endl;
+	std::cout << CLEAR << "Alive and kicking!" << std::endl;
 }
 // ********************************************************* Member functions //
 

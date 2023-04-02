@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Animal.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 16:42:38 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/02 11:25:32 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/02 14:12:27 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#ifndef CLAPTRAP_H
-# define CLAPTRAP_H
+#ifndef ANIMAL_H
+# define ANIMAL_H
 
 // Libraries **************************************************************** //
-#include <iostream>
-#include <string>
+#include "Brain.hpp"
 // **************************************************************** Libraries //
 
 
 
 // Colours ****************************************************************** //
-#define CLEAR "\e[0m"
-#define RED "\e[0;31m"
-#define GREEN "\e[0;32m"
-#define YELLOW "\e[33m"
-#define MAGENTA "\e[35m"
-#define CYAN "\e[0;36m"
 // ****************************************************************** Colours //
 
 
@@ -42,36 +35,25 @@ class	Animal	{
 
 public:
 	Animal(void);												// Canonical
-	Animal(Animal const & inst);							// Canonical
-	Animal(std::string name);
-	Animal(std::string name, int HitP, int NrgP, int AttD);
+	Animal(Animal const & inst);								// Canonical
+	Animal(std::string type);
 
-	~Animal(void);											// Canonical
-
+	virtual ~Animal(void) = 0;									// Canonical
 
 
-	Animal &		operator=(Animal const & rhs);			// Canonical
 
-	void			attack(const std::string& target);
-	void			takeDamage(unsigned int amount);
-	void			beRepaired(unsigned int amount);
+	virtual Animal &		operator=(Animal const & rhs);	// Canonical
 
-	void			setName(std::string name);
-	void			setHitPoints(int hp);
-	void			setEnergyPoints(int ep);
-	void			setAttackDamage(int ad);
+	void				setType(std::string type);
+	std::string const	getType(void) const;
+	
+	virtual void		makeSound(void);
+	virtual void		getIdeas(int const i) const;
 
-	std::string		getName(void) const;
-	unsigned int	getHitPoints(void) const;
-	unsigned int	getEnergyPoints(void) const;
-	unsigned int	getAttackDamage(void) const;
 
 protected:
 
-	std::string		_privateName;
-	unsigned int	_privateHitPoints;
-	unsigned int	_privateEnergyPoints;
-	unsigned int	_privateAttackDamage;
+	std::string		_privateType;
 
 private:
 	/*aDATA*/
@@ -82,8 +64,7 @@ private:
 
 
 // Non Member functions ***************************************************** //
-std::ostream &			operator<<(std::ostream & out, Animal const & inst);
 // ***************************************************** Non Member functions //
 
 
-#endif // ********************************************************** CLAPTRAP_H //
+#endif // ********************************************************** ANIMAL_H //

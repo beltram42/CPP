@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.hpp                                       :+:      :+:    :+:   */
+/*   AAnimal.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/31 19:54:14 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/02 11:26:34 by alambert         ###   ########.fr       */
+/*   Created: 2023/03/31 16:42:38 by alambert          #+#    #+#             */
+/*   Updated: 2023/04/02 14:12:27 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGCAT_H
-#define WRONGCAT_H
+
+#ifndef AANIMAL_H
+# define AANIMAL_H
 
 // Libraries **************************************************************** //
-#include "WrongAnimal.hpp"
+#include "Brain.hpp"
 // **************************************************************** Libraries //
 
 
@@ -30,19 +31,29 @@
 
 
 // Classes ****************************************************************** //
-class	WrongCat : public  virtual WrongAnimal	{
+class	AAnimal	{
 
 public:
-	WrongCat(void);													// Canonical
-	WrongCat(WrongCat const & inst);								// Canonical
+	AAnimal(void);												// Canonical
+	AAnimal(AAnimal const & inst);								// Canonical
+	AAnimal(std::string type);
 
-	~WrongCat(void);												// Canonical
+	virtual ~AAnimal(void) = 0;									// Canonical
 
 
 
-	WrongCat &	operator=(WrongCat const & rhs);					// Canonical
+	virtual AAnimal &		operator=(AAnimal const & rhs) = 0;	// Canonical
 
-	void		makeSound(void) const;
+	void				setType(std::string type);
+	std::string const	getType(void) const;
+	
+	virtual void		makeSound(void) const = 0;
+	virtual Brain		*getIdea(void);
+
+
+protected:
+
+	std::string		_privateType;
 
 private:
 	/*aDATA*/
@@ -56,4 +67,4 @@ private:
 // ***************************************************** Non Member functions //
 
 
-#endif // ******************************************************** WRONGCAT_H //
+#endif // ********************************************************** AANIMAL_H //

@@ -1,57 +1,57 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
+/*   AAnimal.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/31 17:14:57 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/02 12:35:37 by alambert         ###   ########.fr       */
+/*   Created: 2023/03/31 16:43:16 by alambert          #+#    #+#             */
+/*   Updated: 2023/04/02 14:10:25 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongAnimal.hpp"
+#include "AAnimal.hpp"
 
 // Constructor Destructor *************************************************** //
-WrongAnimal::WrongAnimal(void)	{
+AAnimal::AAnimal(void)	{
 	this->setType("Default");
-	std::cout << CLEAR << "WrongAnimal: default constructor has been called for: "  << this->getType() << std::endl;
+	std::cout << CLEAR << "AAnimal: default constructor has been called for: " << this->getType() << std::endl;
 }
 
-WrongAnimal::WrongAnimal(WrongAnimal const & inst)	{
+AAnimal::AAnimal(AAnimal const & inst)	{
 	*this = inst;
-	std::cout << CLEAR << "WrongAnimal: Copy constructor has been called for: " << this->getType() << std::endl;
+	std::cout << CLEAR << "AAnimal: Copy constructor has been called for: "<< this->getType() << std::endl;
 }
 
-WrongAnimal::WrongAnimal(std::string type)	{
+AAnimal::AAnimal(std::string type)	{
 	this->setType(type);
-	std::cout << CLEAR << "WrongAnimal: constructor called for: " << this->getType() << std::endl;
+	std::cout << CLEAR << "AAnimal: constructor called for: " << this->getType() << std::endl;
 }
 
-WrongAnimal::~WrongAnimal(void)	{
-	std::cout << CLEAR << "WrongAnimal: destructor called for: " << this->getType() << std::endl;
+AAnimal::~AAnimal(void)	{
+	std::cout << CLEAR << "AAnimal: destructor called for: " << this->getType() << std::endl;
 }
 // *************************************************** Constructor Destructor //
 
 
 
 // Member functions ********************************************************* //
-WrongAnimal&	WrongAnimal::operator=(WrongAnimal const & rhs)	{
-	std::cout << CLEAR << "WrongAnimal: Copy - Assignment operator overload called" << std::endl;
+AAnimal&		AAnimal::operator=(AAnimal const & rhs)	{
+	std::cout << CLEAR << "AAnimal: Copy - Assignment operator overload called" << std::endl;
 	this->setType(rhs.getType());
 	return *this;
 }
 
-void			WrongAnimal::setType(std::string type)	{
+void			AAnimal::setType(std::string type)	{
 	this->_privateType = type;
 }
 
-std::string		WrongAnimal::getType(void) const	{
+std::string		AAnimal::getType(void) const	{
 	return (this->_privateType);
 }
 
-void		WrongAnimal::makeSound(void) const	{
-	std::cout << CLEAR << "WrongAnimal: Wooohoooooo!" << std::endl;
+void		AAnimal::makeSound(void)	const {
+	std::cout << CLEAR << "**AAlive and kicking A**!" << std::endl;
 }
 // ********************************************************* Member functions //
 

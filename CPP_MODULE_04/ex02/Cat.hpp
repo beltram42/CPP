@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.hpp                                       :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/31 19:54:14 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/02 11:26:34 by alambert         ###   ########.fr       */
+/*   Created: 2023/03/31 16:46:04 by alambert          #+#    #+#             */
+/*   Updated: 2023/04/02 11:24:02 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGCAT_H
-#define WRONGCAT_H
+
+#ifndef CAT_H
+#define CAT_H
 
 // Libraries **************************************************************** //
-#include "WrongAnimal.hpp"
+#include "Animal.hpp"
 // **************************************************************** Libraries //
 
 
@@ -30,19 +31,20 @@
 
 
 // Classes ****************************************************************** //
-class	WrongCat : public  virtual WrongAnimal	{
+class	Cat : public  Animal	{
 
 public:
-	WrongCat(void);													// Canonical
-	WrongCat(WrongCat const & inst);								// Canonical
+	Cat(void);													// Canonical
+	Cat(Cat const & inst);										// Canonical
+	Cat(std::string type);
 
-	~WrongCat(void);												// Canonical
+	~Cat(void);													// Canonical
 
 
 
-	WrongCat &	operator=(WrongCat const & rhs);					// Canonical
+	Cat &	operator=(Cat const & rhs);							// Canonical
 
-	void		makeSound(void) const;
+	void	makeSound(void) const;
 
 private:
 	/*aDATA*/
@@ -56,4 +58,4 @@ private:
 // ***************************************************** Non Member functions //
 
 
-#endif // ******************************************************** WRONGCAT_H //
+#endif // ******************************************************** CAT_H //

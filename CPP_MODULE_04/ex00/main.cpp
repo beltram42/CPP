@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 16:34:46 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/02 10:49:57 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/02 12:38:29 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,51 +14,62 @@
 #include "./Dog.hpp"
 #include "./WrongCat.hpp"
 
-int	main(void)
+int main()
 {
-	const Animal	*meta = new Animal();
-	const Animal	*i = new Cat();
-	const Animal	*j = new Dog();
+    // True Animal tests ======================================================
+    std::cout << GREEN << "************************ ANIMAL OBJECTS ***********************" << std::endl;
+	std::cout << std::endl;
 
-	const WrongAnimal	*wi = new WrongCat();
-	const WrongCat		*wc = new WrongCat();
+    std::cout << GREEN << "** Instantiating objects **************************************" << std::endl;
+    const Animal* animal = new Animal();
+    const Animal* parrot = new Animal("Parrot"); 
+    const Animal* dog = new Dog();
+    const Animal* cat = new Cat();
+	std::cout << std::endl;
 
-	Animal	_1;
-	Animal	_2(_1);
+    std::cout << GREEN << "**types *******************************************************" << CLEAR << std::endl;
+    std::cout << "Animal: Constructor by default = " << animal->getType() << "." << std::endl;
+    std::cout << "Animal: Constructor with string = " << parrot->getType() << "." << std::endl;
+    std::cout << "Dog: Constructor = "  << dog->getType() << "." << std::endl; 
+    std::cout << "Cat: Constructor = " << cat->getType() << "." << std::endl; 
+	std::cout << std::endl;
+	
+    std::cout << GREEN << "**Sounds ******************************************************" << CLEAR << std::endl;
+    std::cout << "Cat: sound : " ; cat->makeSound();
+    std::cout << "Dog: sound : " ; dog->makeSound(); 
+    std::cout << "Animal: default sound : " ; animal->makeSound();
+	std::cout << std::endl;
+	
+    std::cout << GREEN << "**************************************************************" << CLEAR << std::endl;
+    delete animal;
+    delete parrot;
+    delete cat;
+    delete dog;
+	std::cout << std::endl;
+	std::cout << std::endl;
+	
+    // Wrong Animals tests =====================================================
+    std::cout << MAGENTA << "********************** WRONG_ANIMAL OBJECTS ********************" << std::endl;
+	std::cout << std::endl;
 
-	Cat	a;
-	Cat	b(a);
+    std::cout << MAGENTA << "** Instantiating objects ***************************************" << std::endl;
+    const WrongAnimal* wrongAnimal = new WrongAnimal(); 
+    const WrongAnimal* wrongCat = new WrongCat();
+    const WrongCat* wrongwrongCat = new WrongCat();
+	std::cout << std::endl;
 
-	Dog z;
-	Dog	y(z);
+	std::cout << MAGENTA << "**Sounds *******************************************************" << CLEAR << std::endl;
+    wrongwrongCat->makeSound();
+    wrongAnimal->makeSound();
+    wrongCat->makeSound();
+	std::cout << std::endl;
 
-	std::cout << "type of meta : " << meta->getType() << std::endl;
-	std::cout << "type of i : " << i->getType() << std::endl;
-	std::cout << "type of j : " << j->getType() << std::endl;
-	std::cout << "type of _1 : " << _1.getType() << std::endl;
-	std::cout << "type of _2 : " << _2.getType() << std::endl;
-	std::cout << "type of a : " << a.getType() << std::endl;
-	std::cout << "type of b : " << b.getType() << std::endl;
-	std::cout << "type of z : " << z.getType() << std::endl;
-	std::cout << "type of y : " << y.getType() << std::endl;
-	std::cout << "meta : ";	meta->makeSound();
-	std::cout << "i : ";	i->makeSound();
-	std::cout << "j : ";	j->makeSound();
-	std::cout << "_1 : ";	_1.makeSound();
-	std::cout << "_2 : ";	_2.makeSound();
-	std::cout << "a : ";	a.makeSound();
-	std::cout << "b : ";	b.makeSound();
-	std::cout << "z : ";	z.makeSound();
-	std::cout << "y : ";	y.makeSound();
+    std::cout << MAGENTA << "****************************************************************" << CLEAR << std::endl;
+	std::cout << std::endl;
+	
+    delete wrongAnimal;
+    delete wrongwrongCat;
+    delete wrongCat;
 
-	std::cout << "wi : ";	wi->makeSound();
-	std::cout << "wc : ";	wc->makeSound();
-
-	delete meta;
-	delete i;
-	delete j;
-	delete wi;
-	delete wc;
-
-	return (0);
+    return (0); 
 }
