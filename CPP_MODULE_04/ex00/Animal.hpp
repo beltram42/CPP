@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 16:42:38 by alambert          #+#    #+#             */
-/*   Updated: 2023/03/31 20:26:20 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/02 11:23:27 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +41,15 @@
 class	Animal	{
 
 public:
-	Animal(void);												// Cannonical
-	Animal(Animal const & inst);								// Cannonical
+	Animal(void);												// Canonical
+	Animal(Animal const & inst);								// Canonical
 	Animal(std::string type);
 
-	virtual ~Animal(void);										// Cannonical
+	virtual ~Animal(void);										// Canonical
 
 
 
-	Animal &		operator=(Animal const & rhs);				// Cannonical
+	Animal &		operator=(Animal const & rhs);				// Canonical
 
 	void			setType(std::string type);
 	std::string		getType(void) const;

@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 16:46:04 by alambert          #+#    #+#             */
-/*   Updated: 2023/03/31 20:49:12 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/02 11:24:02 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,15 @@
 class	Cat : public  Animal	{
 
 public:
-	Cat(void);													// Cannonical
-	Cat(Cat const & inst);										// Cannonical
+	Cat(void);													// Canonical
+	Cat(Cat const & inst);										// Canonical
 	Cat(std::string type);
 
-	~Cat(void);													// Cannonical
+	~Cat(void);													// Canonical
 
 
 
-	Cat &	operator=(Cat const & rhs);						// Cannonical
+	Cat &	operator=(Cat const & rhs);							// Canonical
 
 	void	makeSound(void) const;
 

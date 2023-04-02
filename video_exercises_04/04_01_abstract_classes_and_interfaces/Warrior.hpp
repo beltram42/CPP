@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 14:49:02 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/01 19:08:01 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/02 11:25:32 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@
 class	Warrior	: public ACharacter {
 
 public:
-	Warrior(void);												// Cannonical
-	Warrior(Warrior const & inst);								// Cannonical
+	Warrior(void);												// Canonical
+	Warrior(Warrior const & inst);								// Canonical
 
-	~Warrior(void);												// Cannonical
+	~Warrior(void);												// Canonical
 
 	virtual void			attack(std::string const & target);
 

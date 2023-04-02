@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 19:54:14 by alambert          #+#    #+#             */
-/*   Updated: 2023/03/31 20:36:25 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/02 11:24:42 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,14 @@
 class	WrongCat : public  virtual WrongAnimal	{
 
 public:
-	WrongCat(void);													// Cannonical
-	WrongCat(WrongCat const & inst);								// Cannonical
+	WrongCat(void);													// Canonical
+	WrongCat(WrongCat const & inst);								// Canonical
 
-	~WrongCat(void);												// Cannonical
+	~WrongCat(void);												// Canonical
 
 
 
-	WrongCat &	operator=(WrongCat const & rhs);					// Cannonical
+	WrongCat &	operator=(WrongCat const & rhs);					// Canonical
 
 	void		makeSound(void) const;
 

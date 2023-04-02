@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 16:34:41 by alambert          #+#    #+#             */
-/*   Updated: 2023/03/30 15:07:09 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/02 11:25:32 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,15 @@
 class	ClapTrap	{
 
 public:
-	ClapTrap(void);												// Cannonical
-	ClapTrap(ClapTrap const & inst);							// Cannonical
+	ClapTrap(void);												// Canonical
+	ClapTrap(ClapTrap const & inst);							// Canonical
 	ClapTrap(std::string name);
 
-	~ClapTrap(void);											// Cannonical
+	~ClapTrap(void);											// Canonical
 
 
 
-	ClapTrap &		operator=(ClapTrap const & rhs);			// Cannonical
+	ClapTrap &		operator=(ClapTrap const & rhs);			// Canonical
 
 	void			attack(const std::string& target);
 	void			takeDamage(unsigned int amount);

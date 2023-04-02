@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 10:11:20 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/02 10:42:35 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/02 11:25:32 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@
 class	ICoffeeMaker	{
 
 public:
-	ICoffeeMaker(void);												// Cannonical
-	ICoffeeMaker(ICoffeeMaker const & inst);						// Cannonical
+	ICoffeeMaker(void);												// Canonical
+	ICoffeeMaker(ICoffeeMaker const & inst);						// Canonical
 
-	virtual ~ICoffeeMaker(void);									// Cannonical
+	virtual ~ICoffeeMaker(void);									// Canonical
 
 	virtual void		fillWaterTank(IWaterSource * target) = 0;
 	virtual ICoffee*	makeCoffee(std::string const & type) = 0;

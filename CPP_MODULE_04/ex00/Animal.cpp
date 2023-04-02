@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 16:43:16 by alambert          #+#    #+#             */
-/*   Updated: 2023/03/31 21:15:54 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/02 10:49:18 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 // Constructor Destructor *************************************************** //
 Animal::Animal(void)	{
+	this->setType("Default");
 	std::cout << MAGENTA << "Animal default constructor has been called for: " << YELLOW << this->getType() << std::endl;
 }
 

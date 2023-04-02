@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 14:48:55 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/01 18:55:46 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/02 11:25:32 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@
 class	Character	{
 
 public:
-	Character(void);												// Cannonical
-	Character(Character const & inst);								// Cannonical
+	Character(void);												// Canonical
+	Character(Character const & inst);								// Canonical
 
-	virtual ~Character(void);										// Cannonical
+	virtual ~Character(void);										// Canonical
 
 	virtual void			sayHello(std::string const & target);
 	// le linkage est dynamique.

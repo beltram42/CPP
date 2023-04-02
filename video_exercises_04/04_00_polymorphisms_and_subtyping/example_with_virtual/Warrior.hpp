@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 14:49:02 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/01 18:55:43 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/02 11:25:32 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@
 class	Warrior	: public Character {
 
 public:
-	Warrior(void);												// Cannonical
-	Warrior(Warrior const & inst);								// Cannonical
+	Warrior(void);												// Canonical
+	Warrior(Warrior const & inst);								// Canonical
 
-	~Warrior(void);												// Cannonical
+	~Warrior(void);												// Canonical
 
 	virtual void			sayHello(std::string const & target);
 	// le linkage est dynamique : il y a une resolution dynamique de l'appel de 

@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 17:14:24 by alambert          #+#    #+#             */
-/*   Updated: 2023/03/30 10:33:20 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/02 11:25:32 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ class Animal {
 	public:
 
 	
-	Animal(void);									// Cannonical
-	Animal(Sample const & src);						// Cannonical
-	~Animal(void);									// Cannonical
+	Animal(void);									// Canonical
+	Animal(Sample const & src);						// Canonical
+	~Animal(void);									// Canonical
 
-	Animal & 	operator=(Animal const & rhs);		// Cannonical
+	Animal & 	operator=(Animal const & rhs);		// Canonical
 
 
 	void	setLegs(int number);
@@ -57,11 +57,11 @@ class Cat : public Animal	{
 public:
 
 	
-	Cat(void);										// Cannonical
-	Cat(Sample const & src);						// Cannonical
-	~Cat(void);										// Cannonical
+	Cat(void);										// Canonical
+	Cat(Sample const & src);						// Canonical
+	~Cat(void);										// Canonical
 
-	Cat & 	operator=(Cat const & rhs);				// Cannonical
+	Cat & 	operator=(Cat const & rhs);				// Canonical
 
 	void	scornSomeone(std::string const & target);
 
@@ -72,11 +72,11 @@ class Otter : public Animal	{
 public:
 
 	
-	Otter(void);										// Cannonical
-	Otter(Sample const & src);						// Cannonical
-	~Otter(void);										// Cannonical
+	Otter(void);										// Canonical
+	Otter(Sample const & src);						// Canonical
+	~Otter(void);										// Canonical
 
-	Otter & 	operator=(Otter const & rhs);				// Cannonical
+	Otter & 	operator=(Otter const & rhs);				// Canonical
 
 };
 

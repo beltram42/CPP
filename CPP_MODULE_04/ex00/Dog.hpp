@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 16:46:04 by alambert          #+#    #+#             */
-/*   Updated: 2023/03/31 20:25:41 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/02 11:24:18 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,13 @@
 class	Dog : public  Animal	{
 
 public:
-	Dog(void);												// Cannonical
-	Dog(Dog const & inst);									// Cannonical
+	Dog(void);												// Canonical
+	Dog(Dog const & inst);									// Canonical
 	Dog(std::string type);
 
-	~Dog(void);												// Cannonical
+	~Dog(void);												// Canonical
 
-	Dog &		operator=(Dog const & rhs);					// Cannonical
+	Dog &		operator=(Dog const & rhs);					// Canonical
 
 	void	makeSound(void) const;
 

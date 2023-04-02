@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 12:53:08 by alambert          #+#    #+#             */
-/*   Updated: 2023/03/27 18:08:20 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/02 11:25:32 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,14 @@
 class	Fixed	{
 
 public:
-	Fixed(void);												// Cannonical
-	Fixed(Fixed const & inst);									// Cannonical
+	Fixed(void);												// Canonical
+	Fixed(Fixed const & inst);									// Canonical
 	Fixed(int const n);
 	Fixed(float const z);
 
-	~Fixed(void);												// Cannonical
+	~Fixed(void);												// Canonical
 
-	Fixed &				operator=(Fixed const & rhs);			// Cannonical
+	Fixed &				operator=(Fixed const & rhs);			// Canonical
 
 
 	void				setRawBits(int const raw);

@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 14:48:55 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/02 10:42:28 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/02 11:25:32 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@
 class	ACharacter	{
 
 public:
-	ACharacter(void);												// Cannonical
-	ACharacter(ACharacter const & inst);							// Cannonical
+	ACharacter(void);												// Canonical
+	ACharacter(ACharacter const & inst);							// Canonical
 
-	virtual ~ACharacter(void);										// Cannonical
+	virtual ~ACharacter(void);										// Canonical
 
 	void	sayHello(std::string const & target);
 	

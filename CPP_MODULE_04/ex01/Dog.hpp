@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 16:46:04 by alambert          #+#    #+#             */
-/*   Updated: 2023/03/31 16:52:13 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/02 11:25:32 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,14 @@
 class	Cat : public  ClapTrap	{
 
 public:
-	Cat(void);												// Cannonical
-	Cat(Cat const & inst);									// Cannonical
+	Cat(void);												// Canonical
+	Cat(Cat const & inst);									// Canonical
 	Cat(std::string name);
 	Cat(std::string name, int HitP, int NrgP, int AttD);
 
-	~Cat(void);												// Cannonical
+	~Cat(void);												// Canonical
 
-	Cat &		operator=(Cat const & rhs);					// Cannonical
+	Cat &		operator=(Cat const & rhs);					// Canonical
 
 	void	attack(std::string const & target);
 	void	guardGate(void);

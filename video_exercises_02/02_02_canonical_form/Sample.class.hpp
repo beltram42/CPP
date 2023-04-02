@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 17:14:24 by alambert          #+#    #+#             */
-/*   Updated: 2023/03/26 18:12:24 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/02 11:25:32 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ public:
 	
 	Sample(int const n);
 
-	Sample (void);								// Cannonical : constructeur par defaut.
+	Sample (void);								// Canonical : constructeur par defaut.
 												//				si on n'en a pas besoin
 												//				on le met en private.
 
-	Sample(Sample const & src);					// Cannonical : constructeur par copie,
+	Sample(Sample const & src);					// Canonical : constructeur par copie,
 												//				c-a-d un constructeur
 												//				prenant en parametre une
 												//				instance de la classe qu'on
@@ -40,10 +40,10 @@ public:
 												//				une copie de cette classe
 												//				(nouvelle instance de creee).
 												
-	~Sample(void);								// Cannonical : destructeur par defaut,
+	~Sample(void);								// Canonical : destructeur par defaut,
 												//				pour l'instant non virtuel.
 
-	Sample & 	operator=(Sample const & rhs);	// Cannonical : l'operateur = d'assignation,
+	Sample & 	operator=(Sample const & rhs);	// Canonical : l'operateur = d'assignation,
 												//				qui permettra de faire une
 												//				assignation a partir d'une
 												//				autre instance de cette

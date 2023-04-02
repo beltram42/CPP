@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 16:36:24 by alambert          #+#    #+#             */
-/*   Updated: 2023/03/31 12:04:22 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/02 11:25:32 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,14 @@
 class	FragTrap : public  ClapTrap	{
 
 public:
-	FragTrap(void);												// Cannonical
-	FragTrap(FragTrap const & inst);							// Cannonical
+	FragTrap(void);												// Canonical
+	FragTrap(FragTrap const & inst);							// Canonical
 	FragTrap(std::string name);
 	FragTrap(std::string name, int HitP, int NrgP, int AttD);
 
-	~FragTrap(void);											// Cannonical
+	~FragTrap(void);											// Canonical
 
-	FragTrap &		operator=(FragTrap const & rhs);			// Cannonical
+	FragTrap &		operator=(FragTrap const & rhs);			// Canonical
 
 	void	attack(std::string const & target);
 	void 	highFivesGuys(void);

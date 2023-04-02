@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 17:15:01 by alambert          #+#    #+#             */
-/*   Updated: 2023/03/31 20:17:43 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/02 11:24:29 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,15 @@
 class	WrongAnimal	{
 
 public:
-	WrongAnimal(void);											// Cannonical
-	WrongAnimal(WrongAnimal const & inst);						// Cannonical
+	WrongAnimal(void);											// Canonical
+	WrongAnimal(WrongAnimal const & inst);						// Canonical
 	WrongAnimal(std::string type);
 
-	virtual ~WrongAnimal(void);									// Cannonical
+	virtual ~WrongAnimal(void);									// Canonical
 
 
 
-	WrongAnimal &	operator=(WrongAnimal const & rhs);			// Cannonical
+	WrongAnimal &	operator=(WrongAnimal const & rhs);			// Canonical
 
 	void			setType(std::string type);
 	std::string		getType(void) const;

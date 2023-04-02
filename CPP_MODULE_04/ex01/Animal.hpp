@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 16:42:38 by alambert          #+#    #+#             */
-/*   Updated: 2023/03/31 16:44:48 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/02 11:25:32 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,16 @@
 class	Animal	{
 
 public:
-	Animal(void);												// Cannonical
-	Animal(Animal const & inst);							// Cannonical
+	Animal(void);												// Canonical
+	Animal(Animal const & inst);							// Canonical
 	Animal(std::string name);
 	Animal(std::string name, int HitP, int NrgP, int AttD);
 
-	~Animal(void);											// Cannonical
+	~Animal(void);											// Canonical
 
 
 
-	Animal &		operator=(Animal const & rhs);			// Cannonical
+	Animal &		operator=(Animal const & rhs);			// Canonical
 
 	void			attack(const std::string& target);
 	void			takeDamage(unsigned int amount);

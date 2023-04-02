@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 17:14:24 by alambert          #+#    #+#             */
-/*   Updated: 2023/03/30 10:33:24 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/02 11:25:32 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ class Cat {
 public:
 
 	
-	Cat(void);								// Cannonical
-	Cat(Sample const & src);				// Cannonical
-	~Cat(void);								// Cannonical
+	Cat(void);								// Canonical
+	Cat(Sample const & src);				// Canonical
+	~Cat(void);								// Canonical
 
-	Cat & 	operator=(Cat const & rhs);		// Cannonical
+	Cat & 	operator=(Cat const & rhs);		// Canonical
 
 
 	void	setLegs(int number);
