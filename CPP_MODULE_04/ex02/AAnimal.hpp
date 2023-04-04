@@ -5,22 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/31 16:42:38 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/02 14:12:27 by alambert         ###   ########.fr       */
+/*   Created: 2023/04/03 16:41:44 by alambert          #+#    #+#             */
+/*   Updated: 2023/04/03 16:41:45 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+
 
 
 #ifndef AANIMAL_H
 # define AANIMAL_H
 
 // Libraries **************************************************************** //
-#include "Brain.hpp"
+#include <iostream>
 // **************************************************************** Libraries //
 
 
 
 // Colours ****************************************************************** //
+#define CLEAR "\e[0m"
+#define RED "\e[0;31m"
+#define GREEN "\e[0;32m"
+#define YELLOW "\e[33m"
+#define MAGENTA "\e[35m"
+#define CYAN "\e[0;36m"
 // ****************************************************************** Colours //
 
 
@@ -38,18 +46,16 @@ public:
 	AAnimal(AAnimal const & inst);								// Canonical
 	AAnimal(std::string type);
 
-	virtual ~AAnimal(void) = 0;									// Canonical
+	virtual ~AAnimal(void);										// Canonical
 
 
-
-	virtual AAnimal &		operator=(AAnimal const & rhs) = 0;	// Canonical
+	AAnimal &		operator=(AAnimal const & rhs);				// Canonical
 
 	void				setType(std::string type);
 	std::string const	getType(void) const;
 	
 	virtual void		makeSound(void) const = 0;
-	virtual Brain		*getIdea(void);
-
+	virtual void		getIdeas(void) const = 0;
 
 protected:
 

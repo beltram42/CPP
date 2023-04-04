@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 16:46:04 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/02 11:24:18 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/03 16:33:16 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 #define DOG_H
 
 // Libraries **************************************************************** //
-#include "Animal.hpp"
+#include "AAnimal.hpp"
+#include "Brain.hpp"
 // **************************************************************** Libraries //
 
 
@@ -31,7 +32,7 @@
 
 
 // Classes ****************************************************************** //
-class	Dog : public  Animal	{
+class	Dog : public  AAnimal	{
 
 public:
 	Dog(void);												// Canonical
@@ -40,12 +41,14 @@ public:
 
 	~Dog(void);												// Canonical
 
-	Dog &		operator=(Dog const & rhs);					// Canonical
+	Dog &			operator=(Dog const & rhs);				// Canonical
 
-	void	makeSound(void) const;
+	void			makeSound(void) const;
+	void			getIdeas(void) const;
 
 private:
-	/*aDATA*/
+	Brain*	_privateBrain;
+
 
 };
 // ****************************************************************** Classes //

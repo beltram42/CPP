@@ -6,22 +6,22 @@
 #    By: alambert <alambert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/29 16:34:50 by alambert          #+#    #+#              #
-#    Updated: 2023/04/02 13:47:57 by alambert         ###   ########.fr        #
+#    Updated: 2023/04/03 16:44:20 by alambert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # File name ================================================================== #
-NAME = MakeSound
+NAME = MakeSoundAbstract
 
 
 # Sources ==================================================================== #
-SRCS += Animal.cpp
+SRCS += AAnimal.cpp
 SRCS += Brain.cpp
 SRCS += Cat.cpp
 SRCS += Dog.cpp
 SRCS += main.cpp
 
-HEADER += Animal.hpp
+HEADER += AAnimal.hpp
 HEADER += Brain.hpp
 HEADER += Cat.hpp
 HEADER += Dog.hpp

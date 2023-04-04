@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 16:46:04 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/02 11:24:02 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/03 16:33:14 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 #define CAT_H
 
 // Libraries **************************************************************** //
-#include "Animal.hpp"
+#include "AAnimal.hpp"
+#include "Brain.hpp"
 // **************************************************************** Libraries //
 
 
@@ -31,23 +32,22 @@
 
 
 // Classes ****************************************************************** //
-class	Cat : public  Animal	{
+class	Cat : public  AAnimal	{
 
 public:
 	Cat(void);													// Canonical
 	Cat(Cat const & inst);										// Canonical
-	Cat(std::string type);
-
+	
 	~Cat(void);													// Canonical
-
-
 
 	Cat &	operator=(Cat const & rhs);							// Canonical
 
-	void	makeSound(void) const;
+
+	void			makeSound(void) const;
+	void			getIdeas() const;
 
 private:
-	/*aDATA*/
+	Brain*		_privateBrain;
 
 };
 // ****************************************************************** Classes //

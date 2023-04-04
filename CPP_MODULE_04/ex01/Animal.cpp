@@ -46,17 +46,18 @@ void			Animal::setType(std::string type)	{
 	this->_privateType = type;
 }
 
-std::string		Animal::getType(void) const	{
+std::string	const	Animal::getType(void) const	{
 	return (this->_privateType);
 }
 
 void		Animal::makeSound(void)	const {
-	std::cout << CLEAR << "**Alive and kicking**!" << std::endl;
+	std::cout << CLEAR << "**Common Animal: Alive and kicking**!" << std::endl;
 }
 
-void		Animal::getIdeas(int const i) const	{
-	(void)i;
+void		Animal::getIdeas(void)	const {
+	std::cout << CLEAR << "**Common Animal: Thinking**!" << std::endl;
 }
+
 // ********************************************************* Member functions //
 
 

@@ -15,12 +15,18 @@
 # define ANIMAL_H
 
 // Libraries **************************************************************** //
-#include "Brain.hpp"
+#include <iostream>
 // **************************************************************** Libraries //
 
 
 
 // Colours ****************************************************************** //
+#define CLEAR "\e[0m"
+#define RED "\e[0;31m"
+#define GREEN "\e[0;32m"
+#define YELLOW "\e[33m"
+#define MAGENTA "\e[35m"
+#define CYAN "\e[0;36m"
 // ****************************************************************** Colours //
 
 
@@ -38,18 +44,16 @@ public:
 	Animal(Animal const & inst);								// Canonical
 	Animal(std::string type);
 
-	virtual ~Animal(void) = 0;									// Canonical
+	virtual ~Animal(void);										// Canonical
 
 
-
-	virtual Animal &		operator=(Animal const & rhs);	// Canonical
+	Animal &		operator=(Animal const & rhs);		// Canonical
 
 	void				setType(std::string type);
 	std::string const	getType(void) const;
 	
-	virtual void		makeSound(void);
-	virtual void		getIdeas(int const i) const;
-
+	virtual void		makeSound(void) const;
+	virtual void		getIdeas(void) const;
 
 protected:
 
