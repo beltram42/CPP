@@ -6,25 +6,19 @@
 #    By: alambert <alambert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/29 16:34:50 by alambert          #+#    #+#              #
-#    Updated: 2023/04/03 16:44:20 by alambert         ###   ########.fr        #
+#    Updated: 2023/04/04 13:13:54 by alambert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # File name ================================================================== #
-NAME = MakeSoundAbstract
+NAME = Bureaucrat
 
 
 # Sources ==================================================================== #
-SRCS += AAnimal.cpp
-SRCS += Brain.cpp
-SRCS += Cat.cpp
-SRCS += Dog.cpp
+SRCS += Bureaucrat.cpp
 SRCS += main.cpp
 
-HEADER += AAnimal.hpp
-HEADER += Brain.hpp
-HEADER += Cat.hpp
-HEADER += Dog.hpp
+HEADER += Bureaucrat.hpp
 
 
 OBJS = ${SRCS:.cpp=.o}

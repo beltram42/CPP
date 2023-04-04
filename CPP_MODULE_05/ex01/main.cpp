@@ -6,61 +6,74 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 16:34:46 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/03 16:51:53 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/04 17:44:31 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./Cat.hpp"
-#include "./Dog.hpp"
-#include "./Brain.hpp"
+#include "Bureaucrat.hpp"
 
-int	main()	{
+int main()	{       
+    //-------------   Tests with valid _grade -----------------------------
+    {
+        std::cout << YELLOW "------------------------------" << std::endl;
+        std::cout << " Tests with valid grade "  << std::endl;
+        std::cout <<  "------------------------------" CLEAR << std::endl;
+        try	{
+            Bureaucrat bureaucrat("Elen", 10);
+            std::cout << "Before operations: " CLEAR << bureaucrat;
+            bureaucrat.operator++();
+            std::cout << "After increment: " CLEAR << bureaucrat;
+            bureaucrat.operator--();
+            std::cout << "After decrement: " CLEAR << bureaucrat;
+        }
+        catch(const std::exception& e)	{
+            std::cerr << e.what() << '\n';
+        }
+    }
+    // Test with invalid grade at construction
+    {
+        std::cout << YELLOW "-----------------------------------------" << std::endl;
+        std::cout << " Tests with invalid grade at contruction "  << std::endl;
+        std::cout <<  "-----------------------------------------" << CLEAR << std::endl;
+        try	{
+            Bureaucrat bureaucrat1("Elen", 0);
+        }
+        catch(const std::exception& e)	{
+            std::cerr << e.what() << '\n';
+        }
+        try	{
+           Bureaucrat bureaucrat2("Tom", 151);
+        }
+        catch(const std::exception& e)	{
+            std::cerr << e.what() << '\n';
+        }
+        
+    }
+    //---------- Test with invalid grade following decrement or increment ----------
+    {
+        std::cout << YELLOW "-----------------------------------------------------" << std::endl;
+        std::cout << " Test with invalid grade after decrement or increment "  << std::endl;
+        std::cout <<  "-----------------------------------------------------" << CLEAR << std::endl;
+        try	{
+            Bureaucrat bureaucrat1("Elen", 150);
+            std::cout << "Before decrement: " <<  bureaucrat1;
+            bureaucrat1.operator--();
+            std::cout << bureaucrat1;
+        }
+        catch(const std::exception& e)	{
+            std::cerr << e.what() << '\n';
+        }
+        try	{
+            Bureaucrat bureaucrat2("Elen", 1);
+            std::cout << "Before increment: " << bureaucrat2;
+            bureaucrat2.operator++();
+            std::cout << bureaucrat2;
+        }
+        catch(const std::exception& e)	{
+            std::cerr << e.what() << '\n';
+        }
+        
+    }
 
-    int size = 6; 
-	const AAnimal	*CatsAndDogs[size];
-	
-	// const AAnimal *mj = new AAnimal(); // Impossible car classe abstraite, l'objet ne peut etre instancie
-
-    for (int i = 0; i < (size / 2); i++)
-    {
-        CatsAndDogs[i] = new Cat();
-    }
-    std::cout << std::endl;
-    for (int i = (size / 2); i < size; i++)
-    {
-        CatsAndDogs[i] = new Dog();
-    }
-    std::cout << std::endl;
-	for (int i = 0; i < size; i++){
-
-		CatsAndDogs[i]->makeSound();
-		// std::cout << "#######" << std::endl;
-       	// CatsAndDogs[i]->getIdeas();
-		// std::cout << "#######" << std::endl;
-	}
-    std::cout << std::endl;
-	for (int j = 0; j < size; j++)
-    {
-		delete CatsAndDogs[j];
-	}
-	return (0);
-}
-
-// Test de copie profonde + LEAKS 
-/*int main()
-{
-    Cat test3;
-    {
-        Cat test1 = test3;
-    }
-    Dog test;
-    {
-        Dog test1 = test;
-    }
-    {
-        Cat cat1;
-        Cat cat2;
-        cat1 = cat2;
-    }
     return (0);
-}*/
+}

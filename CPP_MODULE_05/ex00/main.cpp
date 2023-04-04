@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 16:34:46 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/04 17:18:42 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/04 17:44:31 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ int main()	{
         std::cout <<  "------------------------------" CLEAR << std::endl;
         try	{
             Bureaucrat bureaucrat("Elen", 10);
-            std::cout << YELLOW "Before operations: " CLEAR << bureaucrat;
+            std::cout << "Before operations: " CLEAR << bureaucrat;
             bureaucrat.operator++();
-            std::cout << YELLOW  "After increment: " CLEAR << bureaucrat;
+            std::cout << "After increment: " CLEAR << bureaucrat;
             bureaucrat.operator--();
-            std::cout << YELLOW  "After decrement: " CLEAR << bureaucrat;
+            std::cout << "After decrement: " CLEAR << bureaucrat;
         }
         catch(const std::exception& e)	{
             std::cerr << e.what() << '\n';
@@ -56,7 +56,7 @@ int main()	{
         std::cout <<  "-----------------------------------------------------" << CLEAR << std::endl;
         try	{
             Bureaucrat bureaucrat1("Elen", 150);
-            std::cout << YELLOW "Before decrement: " <<  bureaucrat1;
+            std::cout << "Before decrement: " <<  bureaucrat1;
             bureaucrat1.operator--();
             std::cout << bureaucrat1;
         }
@@ -65,7 +65,7 @@ int main()	{
         }
         try	{
             Bureaucrat bureaucrat2("Elen", 1);
-            std::cout << YELLOW "Before increment: " << bureaucrat2;
+            std::cout << "Before increment: " << bureaucrat2;
             bureaucrat2.operator++();
             std::cout << bureaucrat2;
         }

@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:05:25 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/04 17:27:37 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/04 17:40:57 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _privateName(name), _priva
 	if (!exceptionHandler(grade))	{
 		this->setGrade(grade);
 	}
-	std::cout << "Bureaucrat: copy constructor called for: " << this->getName() << ", " << this->getGrade() << std::endl;	
+	std::cout << "Bureaucrat: constructor called for: " << this->getName() << ", " << this->getGrade() << std::endl;	
 }
 
 Bureaucrat::~Bureaucrat(void)	{
