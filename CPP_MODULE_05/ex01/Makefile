@@ -6,19 +6,21 @@
 #    By: alambert <alambert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/29 16:34:50 by alambert          #+#    #+#              #
-#    Updated: 2023/04/04 13:13:54 by alambert         ###   ########.fr        #
+#    Updated: 2023/04/05 17:15:00 by alambert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # File name ================================================================== #
-NAME = Bureaucrat
+NAME = Form
 
 
 # Sources ==================================================================== #
 SRCS += Bureaucrat.cpp
+SRCS += Form.cpp
 SRCS += main.cpp
 
 HEADER += Bureaucrat.hpp
+HEADER += Form.hpp
 
 
 OBJS = ${SRCS:.cpp=.o}

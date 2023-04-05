@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:05:25 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/04 17:40:57 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/05 16:52:04 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,12 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _privateName(name), _priva
 
 Bureaucrat::~Bureaucrat(void)	{
 	std::cout << "Bureaucrat: destructor called for: " << this->getName() << ", " << this->getGrade() << std::endl;
+}
+
+Bureaucrat::GradeTooHighException::~GradeTooHighException() throw() {
+}
+
+Bureaucrat::GradeTooLowException::~GradeTooLowException() throw() {
 }
 // *************************************************** Constructor Destructor //
 
@@ -81,12 +87,23 @@ bool			Bureaucrat::exceptionHandler(int grade)	{
 	return (false);
 }
 
+void	Bureaucrat::signForm(Form & toSign)	{
+	try	{
+		std::cout << this->getName() << " signed: " << toSign.getName() << " form" << std::endl;
+		toSign.beSigned(*this);
+	}
+	catch (Form::GradeTooLowException &e)	{
+		std::cout << this->getName() << " couldn't sign form: " << toSign.getName() << ", because " << e.what() << std::endl;
+	}
+	return;
+}
+
 char const *	Bureaucrat::GradeTooHighException::what(void) const throw()	{
-	return ((char *)"Error: Bureaucrat: grade is too high!");
+	return ((char *)"Bureaucrat: Error: Bureaucrat: grade is too high!");
 }
 
 char const *	Bureaucrat::GradeTooLowException::what(void) const throw()	{
-	return ((char *)"Error: Bureaucrat: grade is too low!");
+	return ((char *)"Bureaucrat: Error: Bureaucrat: grade is too low!");
 }
 // ********************************************************* Member functions //
 

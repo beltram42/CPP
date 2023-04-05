@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:05:31 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/04 17:07:07 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/05 17:00:44 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 // Libraries **************************************************************** //
 #include <iostream>
 #include <stdexcept>
+# include "Form.hpp"
 // **************************************************************** Libraries //
 
 
@@ -39,6 +40,8 @@
 
 
 // Classes ****************************************************************** //
+class	Form;
+
 class Bureaucrat	{
 	public:
 		Bureaucrat(void);										// Canonical
@@ -55,16 +58,20 @@ class Bureaucrat	{
 		void		setGrade(int grade);
 		int			getGrade(void) const;
 		bool		exceptionHandler(int grade);
+		void		signForm(Form & toSign);
 
+	// -- Exception classes ------------------------------------------------- //
 		class GradeTooHighException : public std::exception	{
-            public:
-            	virtual const char* what() const throw();
+        public:
+            virtual const char* what() const throw();
+			~GradeTooHighException() throw();
         };
         class GradeTooLowException: public std::exception	{
-            public:
-            	virtual const char* what() const throw();
+        public:
+            virtual const char* what() const throw();
+			~GradeTooLowException() throw();
         };
-	
+	// ------------------------------------------------- Exception classes -- //
 	protected:
 		/*dATA*/
 	

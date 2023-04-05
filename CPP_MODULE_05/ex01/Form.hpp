@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:06:17 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/04 18:45:36 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/05 18:29:14 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # define FORM_H
 
 // Libraries **************************************************************** //
-#include "Bureaucrat.hpp"
+# include "Bureaucrat.hpp"
 // **************************************************************** Libraries //
 
 
@@ -31,25 +31,32 @@
 
 
 // Classes ****************************************************************** //
+class Bureaucrat;
+
 class Form	{
 	
 public:
 	Form(void);													// Canonical
 	Form(Form const & inst);									// Canonical
 	
-	Form(std::string name, unsigned int gradeToSign, unsigned int gradeToExecute);
+	Form(std::string const name, int signeeGrade, int execGrade) ;
 
 	virtual	~Form();											// Canonical
 
 	Form &				operator=(Form const & rhs);			// Canonical
 
-	std::string 		getName()const;
+	std::string	const	getName()const;
+	void				setIsSigned(bool yn);
 	bool				getIsSigned()const;
-	int					getGTS()const;
-	int					getGTE()const;
+	void				setSRG(int srg);
+	int					getSRG()const;
+	void				setERG(int erg);
+	int					getERG()const;
 
 	void				beSigned(Bureaucrat & rhs);
 
+
+	// -- Exception classes ------------------------------------------------- //
 	class	GradeTooHighException : public std::exception	{
 			
 	public:
@@ -62,19 +69,19 @@ public:
 		virtual const char *what() const throw();
 	};
 
-	class	AlreadySignedException : public std::exception	{
-
+	class 	FormSignedOff : public std::exception			{
+		
 	public:
-		virtual char const 	*what(void) const throw();
+		virtual const char *what() const throw();
 	}
-
+	
+	// ------------------------------------------------- Exception classes -- //
 
 private:
-	Form(void);
 	std::string const	_privateName;
 	bool				_privateIsSigned;
-	int					_privateGradeToSign;
-	int					_privateGradeToExecute;
+	int					_privateSigneeReqGrade;
+	int					_privateExecReqGrade;
 };
 
 // ****************************************************************** Classes //
@@ -82,7 +89,7 @@ private:
 
 
 // Non Member functions ***************************************************** //
-std::ostream &operator<<( std::ostream &out, Bureaucrat const &input );
+std::ostream&	operator<<( std::ostream & out, Form const & src);
 // ***************************************************** Non Member functions //
 
 

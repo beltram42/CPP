@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:05:31 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/04 17:07:07 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/05 11:17:39 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,15 +56,18 @@ class Bureaucrat	{
 		int			getGrade(void) const;
 		bool		exceptionHandler(int grade);
 
+	// -- Exception classes ------------------------------------------------- //
 		class GradeTooHighException : public std::exception	{
-            public:
-            	virtual const char* what() const throw();
+        public:
+            virtual const char* what() const throw();
+			~GradeTooHighException() throw();
         };
         class GradeTooLowException: public std::exception	{
-            public:
-            	virtual const char* what() const throw();
+        public:
+            virtual const char* what() const throw();
+			~GradeTooLowException() throw();
         };
-	
+	// ------------------------------------------------- Exception classes -- //
 	protected:
 		/*dATA*/
 	
