@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 16:34:46 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/05 17:24:36 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/06 10:45:19 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main()	{
         std::cout <<  "------------------------------" CLEAR << std::endl;
         try	{
             Bureaucrat bureaucrat("Helen", 10);
-        	Form form("cerfa-4210", 10, 2);
+        	Form form("cerfa-42C", 10, 2);
 
        		std::cout << bureaucrat;
         	std::cout << form;
@@ -37,7 +37,8 @@ int main()	{
 			std::cout << std::endl;
         }
         catch(const std::exception& e)	{
-            std::cerr << "Error: " << e.what() << '\n';
+            std::cerr << "Error: " << e.what() << std::endl;
+			std::cout << std::endl;
         }
     }
     // Test with invalid grade at construction
@@ -46,7 +47,7 @@ int main()	{
         std::cout << " Tests with invalid grade "  << std::endl;
         std::cout <<  "-----------------------------------------" << CLEAR << std::endl;
         Bureaucrat bureaucrat("Helen", 11);
-        Form form("Cerfa-4210", 10, 2);
+        Form form("Cerfa-42C", 10, 2);
 		std::cout << std::endl;
 
         std::cout << bureaucrat;

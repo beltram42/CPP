@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:06:13 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/06 10:23:01 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/06 19:26:42 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
 // Constructor Destructor *************************************************** //
 Form::Form( void ) : _privateName("Placeholder")	{
@@ -27,7 +27,7 @@ Form::Form(Form const & inst) : _privateName(inst._privateName)	{
 	std::cout << "Form: constructor by copy called for: " << this->getName() << std::endl;
 }
 
-Form::Form(std::string const name, int signeeGrade, int execGrade) : _privateName(name) {
+Form::Form(std::string const name, int signeeGrade, int execGrade, std::string target) : _privateName(name) {
 	this->setIsSigned(false);
 	this->setSRG(signeeGrade);
 	this->setERG(execGrade);
@@ -79,6 +79,14 @@ int				Form::getERG()const	{
 	return (this->_privateExecReqGrade);
 }
 
+void			Form::setTarget(std::string target)	{
+	this->_privateTarget = target;
+}
+
+std::string 	Form::getTarget(void)	const	{
+	return (this->_privateTarget);
+}
+
 void			Form::beSigned(Bureaucrat & rhs)	{
 	if (rhs.getGrade() > this->getSRG()) {
 		throw Form::GradeTooLowException();
@@ -110,7 +118,8 @@ char const *	Form::FormSignedOff::what(void) const throw()	{
 // Non Member functions ***************************************************** //
 std::ostream&	operator<<( std::ostream & out, Form const & src)	{
 	out << "Form: " << src.getName() << ", required grade for Signee clearance: " << src.getSRG();
-	out << ", required grade for Exec clearance: " << src.getERG() << ", sign status: " << src.getIsSigned() << std::endl;
+	out << ", required grade for Exec clearance: " << src.getERG() << ", sign status: " << src.getIsSigned();
+	out << ", target: " << src.getTarget() << std::endl;
 	return (out);
 }
 // ***************************************************** Non Member functions //

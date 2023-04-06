@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:06:17 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/06 10:21:19 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/06 19:24:48 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ public:
 	Form(void);													// Canonical
 	Form(Form const & inst);									// Canonical
 	
-	Form(std::string const name, int signeeGrade, int execGrade) ;
+	Form(std::string const name, int signeeGrade, int execGrade, std::string target);
 
 	virtual	~Form();											// Canonical
 
@@ -52,8 +52,11 @@ public:
 	int					getSRG()const;
 	void				setERG(int erg);
 	int					getERG()const;
+	void				setTarget(std::string target);
+	int					getTarget()const;
 
 	void				beSigned(Bureaucrat & rhs);
+	virtual void		execute(Bureaucrat const & rhs) const = 0;
 
 
 	// -- Exception classes ------------------------------------------------- //
@@ -82,8 +85,8 @@ private:
 	bool				_privateIsSigned;
 	int					_privateSigneeReqGrade;
 	int					_privateExecReqGrade;
+	std::string			_privateTarget;
 };
-
 // ****************************************************************** Classes //
 
 

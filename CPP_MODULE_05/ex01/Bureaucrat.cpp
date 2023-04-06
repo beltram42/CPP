@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:05:25 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/05 16:52:04 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/06 10:46:09 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _privateName(name), _priva
 
 Bureaucrat::~Bureaucrat(void)	{
 	std::cout << "Bureaucrat: destructor called for: " << this->getName() << ", " << this->getGrade() << std::endl;
+	std::cout << std::endl;
 }
 
 Bureaucrat::GradeTooHighException::~GradeTooHighException() throw() {
@@ -89,8 +90,8 @@ bool			Bureaucrat::exceptionHandler(int grade)	{
 
 void	Bureaucrat::signForm(Form & toSign)	{
 	try	{
-		std::cout << this->getName() << " signed: " << toSign.getName() << " form" << std::endl;
 		toSign.beSigned(*this);
+		std::cout << this->getName() << " signed: " << toSign.getName() << " form" << std::endl;
 	}
 	catch (Form::GradeTooLowException &e)	{
 		std::cout << this->getName() << " couldn't sign form: " << toSign.getName() << ", because " << e.what() << std::endl;
