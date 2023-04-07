@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:08:42 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/06 18:38:36 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/07 15:39:39 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define PRESIDENTIALPARDONFORM_H
 
 // Libraries **************************************************************** //
-# include "Form.hpp"
+# include "AForm.hpp"
 // **************************************************************** Libraries //
 
 
@@ -30,7 +30,7 @@
 
 
 // Classes ****************************************************************** //
-class PresidentialPardonForm : public Form	{
+class PresidentialPardonForm : public AForm	{
 	
 public:
 	PresidentialPardonForm(void);									// Canonical
@@ -40,7 +40,7 @@ public:
 
 	PresidentialPardonForm	&operator=(PresidentialPardonForm const & rhs); // Canonical
 
-	void					execute(Bureaucrat const & rhs);
+	void					execute(Bureaucrat const & rhs) const;
 
 
 private:

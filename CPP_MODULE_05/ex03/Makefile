@@ -6,25 +6,27 @@
 #    By: alambert <alambert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/29 16:34:50 by alambert          #+#    #+#              #
-#    Updated: 2023/04/03 16:44:20 by alambert         ###   ########.fr        #
+#    Updated: 2023/04/07 15:05:35 by alambert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # File name ================================================================== #
-NAME = MakeSoundAbstract
+NAME = AForm
 
 
 # Sources ==================================================================== #
-SRCS += AAnimal.cpp
-SRCS += Brain.cpp
-SRCS += Cat.cpp
-SRCS += Dog.cpp
+SRCS += Bureaucrat.cpp
+SRCS += AForm.cpp
+SRCS += PresidentialPardonForm.cpp
+SRCS += RobotomyRequestForm.cpp
+SRCS += ShrubberyCreationForm.cpp
 SRCS += main.cpp
 
-HEADER += AAnimal.hpp
-HEADER += Brain.hpp
-HEADER += Cat.hpp
-HEADER += Dog.hpp
+HEADER += Bureaucrat.hpp
+HEADER += AForm.hpp
+HEADER += PresidentialPardonForm.hpp
+HEADER += RobotomyRequestForm.hpp
+HEADER += ShrubberyCreationForm.hpp
 
 
 OBJS = ${SRCS:.cpp=.o}

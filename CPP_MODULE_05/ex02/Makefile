@@ -6,21 +6,27 @@
 #    By: alambert <alambert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/29 16:34:50 by alambert          #+#    #+#              #
-#    Updated: 2023/04/05 17:15:00 by alambert         ###   ########.fr        #
+#    Updated: 2023/04/07 15:05:35 by alambert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # File name ================================================================== #
-NAME = Form
+NAME = AForm
 
 
 # Sources ==================================================================== #
 SRCS += Bureaucrat.cpp
-SRCS += Form.cpp
+SRCS += AForm.cpp
+SRCS += PresidentialPardonForm.cpp
+SRCS += RobotomyRequestForm.cpp
+SRCS += ShrubberyCreationForm.cpp
 SRCS += main.cpp
 
 HEADER += Bureaucrat.hpp
-HEADER += Form.hpp
+HEADER += AForm.hpp
+HEADER += PresidentialPardonForm.hpp
+HEADER += RobotomyRequestForm.hpp
+HEADER += ShrubberyCreationForm.hpp
 
 
 OBJS = ${SRCS:.cpp=.o}

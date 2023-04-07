@@ -6,23 +6,23 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:08:45 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/07 11:34:33 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/07 16:04:15 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
 // Constructor Destructor *************************************************** //
-RobotomyRequestForm::RobotomyRequestForm(void) : Form("Robotomy form", 0, 72, 45, "undefined target")	{
+RobotomyRequestForm::RobotomyRequestForm(void) : AForm("Robotomy form", 0, 72, 45, "undefined target")	{
 	std::cout << "RobotomyRequestForm: default constructor called for: " << this->getTarget() << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const & inst): Form(inst.getName(), inst.getIsSigned(), inst.getSRG(), inst.getERG(), inst.getTarget())	{
+RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const & inst): AForm(inst.getName(), inst.getIsSigned(), inst.getSRG(), inst.getERG(), inst.getTarget())	{
 	std::cout << "RobotomyRequestForm: constructor by copy called for: " << this->getTarget() << std::endl;
 	*this = inst;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target) : Form("Robotomy form", 0, 72, 45, target)	{
+RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("Robotomy form", 0, 72, 45, target)	{
 	std::cout << "RobotomyRequestForm: constructor called for: " << this->getTarget() << std::endl;
 }
 
@@ -39,7 +39,7 @@ RobotomyRequestForm	&	RobotomyRequestForm::operator=(RobotomyRequestForm const &
 	return *this;
 }
 
-void					RobotomyRequestForm::execute(Bureaucrat const & rhs)	{
+void					RobotomyRequestForm::execute(Bureaucrat const & rhs) const	{
 	try	{
 		if (!this->getIsSigned())
 			throw FormSignedOff();
@@ -52,9 +52,9 @@ void					RobotomyRequestForm::execute(Bureaucrat const & rhs)	{
 	std::cout << "BRrrrrrrrrrrrrrrrrrrriiiiiiiiiiiiiiiiiii" << std::endl;
 	srand (time(NULL));
 	if (rand() % 2)
-		std::cout << "BRRRRRIIIIIIIIiiii Zzzrrrr! " << this->_target << "'s robotomisation success!" << std::endl;
+		std::cout << "BRRRRRIIIIIIIIiiii Zzzrrrr! " << this->getTarget() << "'s robotomisation success!" << std::endl;
 	else
-		std::cout << "BRrrriii brrrrii brri... " << this->_target << "'s robotomisation failed" << std::endl;
+		std::cout << "BRrrriii brrrrii brri... " << this->getTarget() << "'s robotomisation failed" << std::endl;
 }
 // ********************************************************* Member functions //
 

@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:08:57 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/06 18:58:56 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/07 16:13:04 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 # define SHRUBBERRYCREATIONFORM_H
 
 // Libraries **************************************************************** //
-# include "Form.hpp"
+# include "AForm.hpp"
+#include <ios>
+#include <iostream>
+#include <fstream>
 // **************************************************************** Libraries //
 
 
@@ -30,7 +33,7 @@
 
 
 // Classes ****************************************************************** //
-class ShrubberyCreationForm : public Form	{
+class ShrubberyCreationForm : public AForm	{
 	
 public:
 	ShrubberyCreationForm(void);									// Canonical
@@ -40,7 +43,7 @@ public:
 
 	ShrubberyCreationForm	&operator=(ShrubberyCreationForm const & rhs);// Canonical
 
-	void					execute(Bureaucrat const & rhs);
+	void					execute(Bureaucrat const & rhs) const;
 
 
 private:

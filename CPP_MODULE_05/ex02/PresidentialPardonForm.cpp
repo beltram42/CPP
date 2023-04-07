@@ -6,27 +6,27 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:08:37 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/07 11:28:26 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/07 15:56:44 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
 // Constructor Destructor *************************************************** //
-PresidentialPardonForm(void) : Form("President pardon form", 0, 25, 5, "undefined target")	{
+PresidentialPardonForm::PresidentialPardonForm() : AForm("President pardon form", 0, 25, 5, "undefined target")	{
 	std::cout << "PresidentialPardonForm: default constructor called for: " << this->getTarget() << std::endl;
 }
 
-PresidentialPardonForm(PresidentialPardonForm const & inst) : Form(inst.getName(), inst.getIsSigned(), inst.getSRG(), inst.getERG(), _privateTarget(inst.getTarget()))	{
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const & inst) : AForm(inst.getName(), inst.getIsSigned(), inst.getSRG(), inst.getERG(), inst.getTarget()) {
 	std::cout << "PresidentialPardonForm: constructor by copy called for: " << this->getTarget() << std::endl;
 	*this = inst;
 }
 
-PresidentialPardonForm(std::string target) : Form("President pardon form", 0, 25, 5, target)	{
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("President pardon form", 0, 25, 5, target)	{
 	std::cout << "PresidentialPardonForm: constructor called for: " << this->getTarget() << std::endl;
 }
 
-~PresidentialPardonForm(void)	{
+PresidentialPardonForm::~PresidentialPardonForm(void)	{
 	std::cout << "PresidentialPardonForm: destructor called for: " << this->getTarget() << std::endl;
 }
 // *************************************************** Constructor Destructor //
@@ -39,7 +39,7 @@ PresidentialPardonForm	&PresidentialPardonForm::operator=(PresidentialPardonForm
 	return *this;
 }
 
-void		PresidentialPardonForm::execute(Bureaucrat const & rhs){
+void		PresidentialPardonForm::execute(Bureaucrat const & rhs) const	{
 	try	{
 		if (!this->getIsSigned())
 			throw FormSignedOff();

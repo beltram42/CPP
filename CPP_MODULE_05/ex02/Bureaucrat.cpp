@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:05:25 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/06 10:46:09 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/07 17:33:22 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,15 +88,27 @@ bool			Bureaucrat::exceptionHandler(int grade)	{
 	return (false);
 }
 
-void	Bureaucrat::signForm(Form & toSign)	{
+void	Bureaucrat::signForm(AForm & toSign)	{
 	try	{
 		toSign.beSigned(*this);
-		std::cout << this->getName() << " signed: " << toSign.getName() << " form" << std::endl;
+		std::cout << this->getName() << " signed: " << toSign.getName() << std::endl;
 	}
-	catch (Form::GradeTooLowException &e)	{
+	catch (AForm::GradeTooLowException &e)	{
 		std::cout << this->getName() << " couldn't sign form: " << toSign.getName() << ", because " << e.what() << std::endl;
 	}
 	return;
+}
+
+void	Bureaucrat::executeForm(AForm const & toExec)	{
+	try	{
+		toExec.execute(*this);
+	}
+	catch (std::exception &e)	{
+		std::cout << this->getName() << " not able to execute " << toExec.getName()
+			<< " : " << e.what() << std::endl;
+		return ;
+	}
+	std::cout << this->getName() << " executed " << toExec.getName() << std::endl;
 }
 
 char const *	Bureaucrat::GradeTooHighException::what(void) const throw()	{

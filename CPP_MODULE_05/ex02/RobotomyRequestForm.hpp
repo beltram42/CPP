@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:08:49 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/07 10:54:55 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/07 16:00:58 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 # define ROBOTOMYREQUESTFORM_H
 
 // Libraries **************************************************************** //
-# include "Form.hpp"
+# include "AForm.hpp"
+# include <cstdlib>
 // **************************************************************** Libraries //
 
 
@@ -31,7 +32,7 @@
 
 
 // Classes ****************************************************************** //
-class RobotomyRequestForm : public Form	{
+class RobotomyRequestForm : public AForm	{
 	
 public:
 	RobotomyRequestForm(void);										// Canonical
@@ -41,7 +42,7 @@ public:
 
 	RobotomyRequestForm	&operator=(RobotomyRequestForm const & rhs);// Canonical
 
-	void					execute(Bureaucrat const & rhs);
+	void					execute(Bureaucrat const & rhs) const;
 
 
 private:

@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:05:31 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/05 17:00:44 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/07 16:33:53 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 // Libraries **************************************************************** //
 #include <iostream>
 #include <stdexcept>
-# include "Form.hpp"
+# include "AForm.hpp"
 // **************************************************************** Libraries //
 
 
@@ -40,7 +40,7 @@
 
 
 // Classes ****************************************************************** //
-class	Form;
+class	AForm;
 
 class Bureaucrat	{
 	public:
@@ -58,7 +58,8 @@ class Bureaucrat	{
 		void		setGrade(int grade);
 		int			getGrade(void) const;
 		bool		exceptionHandler(int grade);
-		void		signForm(Form & toSign);
+		void		signForm(AForm & toSign);
+		void	executeForm(AForm const & toExec);
 
 	// -- Exception classes ------------------------------------------------- //
 		class GradeTooHighException : public std::exception	{
