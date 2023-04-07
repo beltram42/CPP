@@ -6,7 +6,7 @@
 #    By: alambert <alambert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/29 16:34:50 by alambert          #+#    #+#              #
-#    Updated: 2023/04/07 15:05:35 by alambert         ###   ########.fr        #
+#    Updated: 2023/04/07 18:31:53 by alambert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ SRCS += AForm.cpp
 SRCS += PresidentialPardonForm.cpp
 SRCS += RobotomyRequestForm.cpp
 SRCS += ShrubberyCreationForm.cpp
+SRCS += intern.cpp
 SRCS += main.cpp
 
 HEADER += Bureaucrat.hpp
@@ -27,6 +28,7 @@ HEADER += AForm.hpp
 HEADER += PresidentialPardonForm.hpp
 HEADER += RobotomyRequestForm.hpp
 HEADER += ShrubberyCreationForm.hpp
+HEADER += Intern.hpp
 
 
 OBJS = ${SRCS:.cpp=.o}

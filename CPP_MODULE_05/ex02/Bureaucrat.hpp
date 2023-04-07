@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:05:31 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/07 16:33:53 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/07 18:03:14 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ class Bureaucrat	{
 		int			getGrade(void) const;
 		bool		exceptionHandler(int grade);
 		void		signForm(AForm & toSign);
-		void	executeForm(AForm const & toExec);
+		void		executeForm(AForm const & toExec);
 
 	// -- Exception classes ------------------------------------------------- //
 		class GradeTooHighException : public std::exception	{
