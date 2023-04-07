@@ -6,23 +6,23 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:08:45 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/06 18:20:13 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/07 11:34:33 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
 // Constructor Destructor *************************************************** //
-RobotomyRequestForm::RobotomyRequestForm(void) : Form("Robotomy form", 0, 72, 45), _privateTarget("undefined target")	{
+RobotomyRequestForm::RobotomyRequestForm(void) : Form("Robotomy form", 0, 72, 45, "undefined target")	{
 	std::cout << "RobotomyRequestForm: default constructor called for: " << this->getTarget() << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const & inst): Form(inst.getName(), inst.getIsSigned(), inst.getSRG(), inst.getERG()), _privateTarget(inst.getTarget())	{
+RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const & inst): Form(inst.getName(), inst.getIsSigned(), inst.getSRG(), inst.getERG(), inst.getTarget())	{
 	std::cout << "RobotomyRequestForm: constructor by copy called for: " << this->getTarget() << std::endl;
 	*this = inst;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(std::string name) : Form("Robotomy form", 0, 72, 45), _privateTarget(target)	{
+RobotomyRequestForm::RobotomyRequestForm(std::string target) : Form("Robotomy form", 0, 72, 45, target)	{
 	std::cout << "RobotomyRequestForm: constructor called for: " << this->getTarget() << std::endl;
 }
 
@@ -35,15 +35,26 @@ RobotomyRequestForm::~RobotomyRequestForm(void)	{
 
 // Member functions ********************************************************* //
 RobotomyRequestForm	&	RobotomyRequestForm::operator=(RobotomyRequestForm const & rhs)	{
-
-}
-
-std::string const		RobotomyRequestForm::getTarget(void) const	{
-
+	this->setTarget(rhs.getTarget());
+	return *this;
 }
 
 void					RobotomyRequestForm::execute(Bureaucrat const & rhs)	{
-	
+	try	{
+		if (!this->getIsSigned())
+			throw FormSignedOff();
+		if (rhs.getGrade() > this->getERG())
+			throw GradeTooLowException();
+	}
+	catch(const std::exception& e)	{
+		std::cerr << e.what() << '\n';
+	}
+	std::cout << "BRrrrrrrrrrrrrrrrrrrriiiiiiiiiiiiiiiiiii" << std::endl;
+	srand (time(NULL));
+	if (rand() % 2)
+		std::cout << "BRRRRRIIIIIIIIiiii Zzzrrrr! " << this->_target << "'s robotomisation success!" << std::endl;
+	else
+		std::cout << "BRrrriii brrrrii brri... " << this->_target << "'s robotomisation failed" << std::endl;
 }
 // ********************************************************* Member functions //
 

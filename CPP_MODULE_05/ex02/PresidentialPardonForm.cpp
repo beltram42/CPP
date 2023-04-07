@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:08:37 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/06 19:24:20 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/07 11:28:26 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,21 @@ PresidentialPardonForm(std::string target) : Form("President pardon form", 0, 25
 
 // Member functions ********************************************************* //
 PresidentialPardonForm	&PresidentialPardonForm::operator=(PresidentialPardonForm const & rhs)	{
-	Form::operator=(rhs);
-	
+	this->setTarget(rhs.getTarget());
+	return *this;
 }
 
 void		PresidentialPardonForm::execute(Bureaucrat const & rhs){
-    if (!this->getIsSigned())
-		throw FormSignedOff();
-    if (rhs.getGrade() > this->getERG())
-        throw GradeTooLowException();
-    std::cout << "Target: " << this->getTarget() << ", was forgiven by Zaphod Beeblebrox" << std::endl;
+	try	{
+		if (!this->getIsSigned())
+			throw FormSignedOff();
+		if (rhs.getGrade() > this->getERG())
+			throw GradeTooLowException();
+	}
+	catch(const std::exception& e)	{
+		std::cerr << e.what() << '\n';
+	}
+    std::cout << "PresidentialPardonForm: Target: " << this->getTarget() << " forgiven by Zaphod Beeblebrox! Yooohooo!" << std::endl;
 }
 // ********************************************************* Member functions //
 

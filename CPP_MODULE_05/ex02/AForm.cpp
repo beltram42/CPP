@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:06:13 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/06 19:26:42 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/07 11:09:48 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ Form::~Form( void )	{
 
 // Member functions ********************************************************* //
 Form &			Form::operator=(Form const & rhs)	{
-	this->_privateIsSigned = rhs._privateIsSigned;
+	this->_setIsSigned(rhs.getIsSigned());
 	return *this;
 }
 

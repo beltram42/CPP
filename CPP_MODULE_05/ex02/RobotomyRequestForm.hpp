@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:08:49 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/06 18:58:04 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/07 10:54:55 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ class RobotomyRequestForm : public Form	{
 public:
 	RobotomyRequestForm(void);										// Canonical
 	RobotomyRequestForm(RobotomyRequestForm const & inst);			// Canonical
-	RobotomyRequestForm(std::string name);
+	RobotomyRequestForm(std::string target);
 	virtual ~RobotomyRequestForm(void);								// Canonical
 
 	RobotomyRequestForm	&operator=(RobotomyRequestForm const & rhs);// Canonical
