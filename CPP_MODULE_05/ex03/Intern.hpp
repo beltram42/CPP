@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:10:08 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/07 21:36:19 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/08 11:44:43 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define INTERN_H
 
 // Libraries **************************************************************** //
-#include <map>
 #include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
@@ -39,19 +38,23 @@ class	AForm;
 class Intern {
 public:
 		Intern(void);										// Canonical
-		Intern(Bureaucrat const & inst);					// Canonical
-		Intern(std::string name, int grade);
+		Intern(Intern const & inst);						// Canonical
 
 		virtual ~Intern(void);								// Canonical
 
 		Intern	&operator=(Intern const & rhs);				// Canonical
 
-		AForm*	makeForm(std::string& form_name, std::string& target) const;
+		AForm*	makeForm(std::string formName, std::string target);
+		AForm*	shrubbery(std::string target);
+        AForm*	presidential(std::string target);
+        AForm*	robotomy(std::string target);
 		
+
+		class NonExistentFormException : public std::exception	{
+            public:
+            virtual char const * what() const throw();
+        };
 		
-protected:
-	/*dATA*/
-	
 private:
 	/*dATA*/	
 };

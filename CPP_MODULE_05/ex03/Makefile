@@ -6,12 +6,12 @@
 #    By: alambert <alambert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/29 16:34:50 by alambert          #+#    #+#              #
-#    Updated: 2023/04/07 18:31:53 by alambert         ###   ########.fr        #
+#    Updated: 2023/04/08 11:06:17 by alambert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # File name ================================================================== #
-NAME = AForm
+NAME = Intern
 
 
 # Sources ==================================================================== #
@@ -20,7 +20,7 @@ SRCS += AForm.cpp
 SRCS += PresidentialPardonForm.cpp
 SRCS += RobotomyRequestForm.cpp
 SRCS += ShrubberyCreationForm.cpp
-SRCS += intern.cpp
+SRCS += Intern.cpp
 SRCS += main.cpp
 
 HEADER += Bureaucrat.hpp

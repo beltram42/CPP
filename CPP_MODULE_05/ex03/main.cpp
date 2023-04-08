@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 16:34:46 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/07 18:28:49 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/08 11:40:26 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ int main()
         std::cout << GREEN << " Intern Creation "<< CLEAR << std::endl;
         std::cout << YELLOW << "---------------------------------------" << CLEAR << std::endl;
         Intern intern;
-        Form *RobotomyForm;
-        Form* ShrubberyForm;
-        Form* PresidentialForm;
+        AForm *RobotomyForm;
+        AForm* ShrubberyForm;
+        AForm* PresidentialForm;
 
         std::cout << YELLOW << "---------------------------------------" << CLEAR << std::endl;
         std::cout << GREEN << " Forms Creation "<< CLEAR << std::endl;
@@ -84,7 +84,7 @@ int main()
     try
     {   
         Intern intern;
-        Form* RobotomyForm;
+        AForm* RobotomyForm;
 
         RobotomyForm = intern.makeForm("I don't exists", "Bender");
         

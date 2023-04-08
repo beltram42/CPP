@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:10:04 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/07 21:35:50 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/08 11:43:43 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,20 +31,45 @@ Intern::~Intern(void)	{
 
 // Member functions ********************************************************* //
 Intern &	Intern::operator=(Intern const & rhs)	{
-	*this = rhs;
+	if (this != &rhs)
+		*this = rhs;
 	return *this;
 }
 
-AForm *		makeForm(std::string & formName, std::string & target) const	{
-	ShrubberyCreationForm	shrub(target);
-	RobotomyRequestForm		robot(target);
-	PresidentialPardonForm	pres(target);
+AForm*	Intern::shrubbery(std::string target)
+{
+	return new ShrubberyCreationForm(target);
+}
 
-	std::map<std::string, AForm*>	forms;
-	forms.insert(std::make_pair("shrubbery creation", &shrub));
-	forms.insert(std::make_pair("robotomy request", &robot));
-	forms.insert(std::make_pair("presidential pardon", &pres));
-	return (forms[name]);
+AForm*	Intern::presidential(std::string target)
+{
+	return new PresidentialPardonForm(target);
+}
+
+AForm*	Intern::robotomy(std::string target)
+{
+	return new RobotomyRequestForm(target);
+}
+
+AForm*	Intern::makeForm(std::string formName, std::string target)
+{
+	typedef AForm* (Intern::*function)(std::string target);
+
+	function array[3] = {&Intern::shrubbery, &Intern::presidential, &Intern::robotomy};
+
+	std::string	formType[3] = {"shrubbery creation", "presidential pardon", "robotomy request"};
+	for (int i = 0; i < 3; i++)	{
+		if (formType[i] == formName)	{
+			std::cout << "Intern creates " << formType[i] << " form" << std::endl;
+			return (this->*array[i])(target);
+		}
+	}
+	throw NonExistentFormException();
+	return 0;
+}
+
+char const * Intern::NonExistentFormException::what(void) const throw() {
+                return("Form does not exist");
 }
 // ********************************************************* Member functions //
 
