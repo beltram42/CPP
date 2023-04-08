@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:10:04 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/08 11:43:43 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/08 11:48:51 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,23 +36,19 @@ Intern &	Intern::operator=(Intern const & rhs)	{
 	return *this;
 }
 
-AForm*	Intern::shrubbery(std::string target)
-{
+AForm*	Intern::shrubbery(std::string target)	{
 	return new ShrubberyCreationForm(target);
 }
 
-AForm*	Intern::presidential(std::string target)
-{
+AForm*	Intern::presidential(std::string target)	{
 	return new PresidentialPardonForm(target);
 }
 
-AForm*	Intern::robotomy(std::string target)
-{
+AForm*	Intern::robotomy(std::string target)	{
 	return new RobotomyRequestForm(target);
 }
 
-AForm*	Intern::makeForm(std::string formName, std::string target)
-{
+AForm*	Intern::makeForm(std::string formName, std::string target)	{
 	typedef AForm* (Intern::*function)(std::string target);
 
 	function array[3] = {&Intern::shrubbery, &Intern::presidential, &Intern::robotomy};
