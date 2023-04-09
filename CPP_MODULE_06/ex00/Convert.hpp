@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*   Convert.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:05:31 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/07 18:03:14 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/09 11:18:09 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUREAUCRAT_H
-# define BUREAUCRAT_H
-
-#define HIGHEST_GRADE 1
-#define LOWEST_GRADE 150
+#ifndef CONVERT_H
+# define CONVERT_H
 
 // Libraries **************************************************************** //
 #include <iostream>
+#include <string>
 #include <stdexcept>
-# include "AForm.hpp"
+#include <cstdlib>
+#include <cerrno>
 // **************************************************************** Libraries //
 
 
@@ -40,53 +39,58 @@
 
 
 // Classes ****************************************************************** //
-class	AForm;
-
-class Bureaucrat	{
+class Convert	{
 	public:
-		Bureaucrat(void);										// Canonical
-		Bureaucrat(Bureaucrat const & inst);					// Canonical
-		Bureaucrat(std::string name, int grade);
+		Convert(void);										// Canonical
+		Convert(Bureaucrat const & inst);					// Canonical
+		Convert(std::string str);
 
-		virtual ~Bureaucrat(void);								// Canonical
+		virtual ~Convert(void);								// Canonical
 
-		Bureaucrat	&operator=(Bureaucrat const & rhs);			// Canonical
-		Bureaucrat	&operator++(void);
-		Bureaucrat	&operator--(void);
+		Convert	&operator=(Convert const & rhs);			// Canonical
 
-		std::string	getName(void) const;
-		void		setGrade(int grade);
-		int			getGrade(void) const;
-		bool		exceptionHandler(int grade);
-		void		signForm(AForm & toSign);
-		void		executeForm(AForm const & toExec);
+		void		setStr(std::string);
+		std::string	getStr(void) const;
+
+		void		setChar(char c);
+		char		getChar(void) const;
+		void		setInt(int i);
+		int			getInt(void) const;
+		void		setFloat(float f);
+		float		getFloat(void) const;
+		void		setDouble(double d);
+		double		getDouble(void) const;
+
+
+		char		toChar(std::string);
+		int			toInt(std::string);
+		float		toFloat(std::string);
+		double		toDouble(std::string);
+		void		toNumeral(std::string);
+
+		
 
 	// -- Exception classes ------------------------------------------------- //
-		class GradeTooHighException : public std::exception	{
-        public:
-            virtual const char* what() const throw();
-			~GradeTooHighException() throw();
-        };
-        class GradeTooLowException: public std::exception	{
-        public:
-            virtual const char* what() const throw();
-			~GradeTooLowException() throw();
-        };
 	// ------------------------------------------------- Exception classes -- //
 	protected:
 		/*dATA*/
 	
 	private:
-		std::string	const	_privateName;
-		int 				_privateGrade;
+		std::string		_privateNumber;
+		char *			_startPtr;
+		char *			_endPtr;
+		char			_c;
+		int				_i;
+		float			_f;
+		double			_d;
 };
 // ****************************************************************** Classes //
 
 
 
 // Non Member functions ***************************************************** //
-std::ostream &operator<<( std::ostream &out, Bureaucrat const &input );
+std::ostream &operator<<( std::ostream &out, Convert const &input );
 // ***************************************************** Non Member functions //
 
 
-#endif // ********************************************************** BUREAUCRAT_H //
+#endif // ********************************************************** CONVERT_H //

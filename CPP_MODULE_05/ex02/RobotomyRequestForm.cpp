@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:08:45 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/07 16:04:15 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/09 15:20:02 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,15 @@ RobotomyRequestForm	&	RobotomyRequestForm::operator=(RobotomyRequestForm const &
 void					RobotomyRequestForm::execute(Bureaucrat const & rhs) const	{
 	try	{
 		if (!this->getIsSigned())
-			throw FormSignedOff();
+			throw UnsignedForm();
 		if (rhs.getGrade() > this->getERG())
 			throw GradeTooLowException();
 	}
 	catch(const std::exception& e)	{
 		std::cerr << e.what() << '\n';
+		return;
 	}
+	std::cout << rhs.getName() << " executed " << this->getName() << std::endl;
 	std::cout << "BRrrrrrrrrrrrrrrrrrrriiiiiiiiiiiiiiiiiii" << std::endl;
 	srand (time(NULL));
 	if (rand() % 2)

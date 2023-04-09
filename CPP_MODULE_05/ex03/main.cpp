@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 16:34:46 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/08 11:40:26 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/09 15:57:42 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,9 @@ int main()
         std::cout << YELLOW << "---------------------------------------" << CLEAR << std::endl;
         std::cout << GREEN << " Forms Creation "<< CLEAR << std::endl;
         std::cout << YELLOW << "---------------------------------------" << CLEAR << std::endl;
-        RobotomyForm = intern.makeForm("robotomy request", "Tom");
-        ShrubberyForm = intern.makeForm("shrubbery creation", "Laurie");
-        PresidentialForm = intern.makeForm("presidential pardon", "Manon");
+        RobotomyForm = intern.makeForm("robotomy request", "Deep Thought");
+        ShrubberyForm = intern.makeForm("shrubbery creation", "Benjie Mouse Park");
+        PresidentialForm = intern.makeForm("presidential pardon", "Arthuur Dent");
 
         std::cout << YELLOW << "---------------------------------------" << CLEAR << std::endl;
         std::cout << GREEN << " Bureaucrat Creation "<< CLEAR << std::endl;
@@ -86,7 +86,7 @@ int main()
         Intern intern;
         AForm* RobotomyForm;
 
-        RobotomyForm = intern.makeForm("I don't exists", "Bender");
+        RobotomyForm = intern.makeForm("I don't exist", "Bender");
         
         delete RobotomyForm;
     }

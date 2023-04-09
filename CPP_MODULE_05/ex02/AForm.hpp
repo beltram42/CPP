@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:06:17 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/07 15:53:24 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/09 14:55:27 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,12 @@ public:
 		
 	public:
 		virtual const char *what() const throw();
+	};
+
+	class 	UnsignedForm : public std::exception			{
+
+		public:
+			virtual const char *what() const throw();
 	};
 	
 	// ------------------------------------------------- Exception classes -- //

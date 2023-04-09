@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:05:25 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/07 17:33:22 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/09 15:16:55 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,6 @@ void	Bureaucrat::executeForm(AForm const & toExec)	{
 			<< " : " << e.what() << std::endl;
 		return ;
 	}
-	std::cout << this->getName() << " executed " << toExec.getName() << std::endl;
 }
 
 char const *	Bureaucrat::GradeTooHighException::what(void) const throw()	{

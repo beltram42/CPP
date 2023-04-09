@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 16:34:46 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/07 17:43:44 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/09 15:26:33 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,19 +110,21 @@ int main()
         std::cout << ShcrubberyAgreement;
 
     }
-    catch(const std::exception& e)
-    {
+    catch(const std::exception& e)	{
         std::cerr << e.what() << '\n';
     }
     }
     // Test with unsigned form
     {
-        try
-        {
+        try	{
+			std::cout << MAGENTA << "---------------------------------------" << std::endl;
+    		std::cout << " Tests with unsigned form " << std::endl;
+    		std::cout << "---------------------------------------" << CLEAR << std::endl;
+
             std::cout << YELLOW << "---------------------------------------" << CLEAR << std::endl;
             std::cout << GREEN << " Bureaucrat Creation "<< CLEAR << std::endl;
             std::cout << YELLOW << "---------------------------------------" << CLEAR << std::endl;
-            Bureaucrat Helen("Helen", 146);
+            Bureaucrat Helen("Helen", 50);
 
             std::cout << YELLOW << "---------------------------------------" << CLEAR << std::endl;
             std::cout << GREEN << " Forms Creation "<< CLEAR << std::endl;
@@ -151,8 +153,7 @@ int main()
             std::cout << GREEN << " Objects Destruction "<< CLEAR << std::endl;
             std::cout << YELLOW << "---------------------------------------" << CLEAR << std::endl;
         }
-        catch(const std::exception& e)
-        {
+        catch(const std::exception& e)	{
             std::cerr << e.what() << '\n';
         }
         // Tests with invalid Exec grade
@@ -170,7 +171,7 @@ int main()
                 std::cout << PresidentialAgreement;
                 Tom.signForm(PresidentialAgreement);
                 std::cout << PresidentialAgreement;
-
+				std::cout << Helen.getName() << " will try to execute form." << std::endl;
                 Helen.executeForm(PresidentialAgreement);
             }
             catch(const std::exception& e)

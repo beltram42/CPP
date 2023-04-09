@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:06:13 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/07 15:55:39 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/09 14:52:55 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,11 @@ char const *	AForm::GradeTooLowException::what(void) const throw()	{
 char const *	AForm::FormSignedOff::what(void) const throw()	{
 	return ((char *)"AForm: Error: Form: already signed off!");
 }
+
+char const *	AForm::UnsignedForm::what(void) const throw()	{
+	return ((char *)"AForm: Error: Form: not signed!");
+}
+
 // ********************************************************* Member functions //
 
 

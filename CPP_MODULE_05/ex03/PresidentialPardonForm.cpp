@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:08:37 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/07 15:56:44 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/09 15:19:37 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,15 @@ PresidentialPardonForm	&PresidentialPardonForm::operator=(PresidentialPardonForm
 void		PresidentialPardonForm::execute(Bureaucrat const & rhs) const	{
 	try	{
 		if (!this->getIsSigned())
-			throw FormSignedOff();
-		if (rhs.getGrade() > this->getERG())
+			throw UnsignedForm();
+		else if (rhs.getGrade() > this->getERG())
 			throw GradeTooLowException();
 	}
 	catch(const std::exception& e)	{
 		std::cerr << e.what() << '\n';
+		return;
 	}
+	std::cout << rhs.getName() << " executed " << this->getName() << std::endl;
     std::cout << "PresidentialPardonForm: Target: " << this->getTarget() << " forgiven by Zaphod Beeblebrox! Yooohooo!" << std::endl;
 }
 // ********************************************************* Member functions //
