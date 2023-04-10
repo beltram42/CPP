@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 16:34:46 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/03 16:18:07 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/10 17:58:03 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ return 0;
 
 
 // Test
-int	main()
+/*int	main()
 {
     int size = 6; 
 	const Animal	*CatsAndDogs[size];
@@ -54,23 +54,23 @@ int	main()
 		delete CatsAndDogs[j];
 	}
 	return (0);
-}
+}*/
 
 // Test de copie profonde + LEAKS 
-/* int main()
+ int main()
 {
     Cat test3;
     {
         Cat test1 = test3;
     }
-    Dog test;
-    {
-        Dog test1 = test;
-    }
-    {
-        Cat cat1;
-        Cat cat2;
-        cat1 = cat2;
-    }
+    // Dog test;
+    // {
+    //     Dog test1 = test;
+    // }
+    // {
+    //     Cat cat1;
+    //     Cat cat2;
+    //     cat1 = cat2;
+    // }
     return (0);
-} */
+} 

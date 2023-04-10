@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:05:31 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/09 11:18:09 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/10 17:26:20 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 #include <string>
 #include <stdexcept>
 #include <cstdlib>
+#include <cmath>
+#include <clocale>
 #include <cerrno>
 // **************************************************************** Libraries //
 
@@ -42,7 +44,7 @@
 class Convert	{
 	public:
 		Convert(void);										// Canonical
-		Convert(Bureaucrat const & inst);					// Canonical
+		Convert(Convert const & inst);					// Canonical
 		Convert(std::string str);
 
 		virtual ~Convert(void);								// Canonical
@@ -61,24 +63,26 @@ class Convert	{
 		void		setDouble(double d);
 		double		getDouble(void) const;
 
-
-		char		toChar(std::string);
-		int			toInt(std::string);
-		float		toFloat(std::string);
-		double		toDouble(std::string);
-		void		toNumeral(std::string);
+		void		findType(void);
 
 		
 
 	// -- Exception classes ------------------------------------------------- //
+	class	ConvertionImpossible : public std::exception	{
+		public:
+		virtual const char *what() const throw();
+	};
+
+	class	NotDisplayable : public std::exception	{
+		public:
+		virtual const char *what() const throw();
+	};
 	// ------------------------------------------------- Exception classes -- //
 	protected:
 		/*dATA*/
 	
 	private:
 		std::string		_privateNumber;
-		char *			_startPtr;
-		char *			_endPtr;
 		char			_c;
 		int				_i;
 		float			_f;

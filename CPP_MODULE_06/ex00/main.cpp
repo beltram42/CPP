@@ -6,11 +6,16 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 16:34:46 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/08 16:45:01 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/10 16:56:18 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "
+#include "Convert.hpp"
+
 int	main(void)	{
+	Convert	i("2147483648");
+	//Convert		i("3.402823466e+38F");
+	
+	i.findType();
 	
 }
