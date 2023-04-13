@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:05:31 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/12 19:10:42 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/13 18:20:32 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,30 @@
 
 
 // Enums ******************************************************************** //
+typedef enum e_char	{
+	truechar,
+	nondisplayable
+}			t_char;
+
+typedef enum e_int	{
+	trueint,
+	erange,
+	notdisplayable
+}			t_int;
+
+typedef enum e_float	{
+	truefloat,
+	neginff,
+	posinff,
+	nanf
+}			t_float;
+
+typedef enum e_double	{
+	truedouble,
+	neginf,
+	posinf,
+	nan
+}			t_double;
 // ******************************************************************** Enums //
 
 
@@ -54,6 +78,8 @@ class Convert	{
 
 		void		setStr(std::string);
 		std::string	getStr(void) const;
+		void		setType(char c);
+		char		getType(void) const;
 
 		void		setChar(char c);
 		char		getChar(void) const;
@@ -63,13 +89,20 @@ class Convert	{
 		float		getFloat(void) const;
 		void		setDouble(double d);
 		double		getDouble(void) const;
-		void		setType(char c);
-		char		getType(void) const;
+
+		void		setCharSt(bool b);
+		bool		getCharSt(void) const;
+		void		setIntSt(bool b);
+		bool		getIntSt(void) const;
+		void		setFloatSt(int i);
+		int			getFloatSt(void) const;
+		void		setDoubleSt(int i);
+		int			getDoubleSt(void) const;
 
 		void		tryChar(void);
 		void		tryInt(void);
 		void		tryFloating(void);
-		void		tryType(void);
+		void		tryElse(void);
 		void		tryConvertion(void);
 
 		void		findType(void);
@@ -105,10 +138,16 @@ class Convert	{
 		
 		std::string		_privateNumber;
 		char			_type;
+		
 		char			_c;
 		int				_i;
 		float			_f;
 		double			_d;
+
+		bool			_char;
+		int				_int;
+		int				_float;
+		int				_double;
 };
 // ****************************************************************** Classes //
 
