@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:05:31 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/14 12:14:45 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/14 18:42:20 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 // Libraries **************************************************************** //
 #include <iostream>
 #include <iomanip>
+#include <climits>
 #include <string>
 #include <string.h>
 #include <stdexcept>
@@ -24,6 +25,7 @@
 #include <complex>
 #include <clocale>
 #include <cerrno>
+#include <ctype.h>
 // **************************************************************** Libraries //
 
 
@@ -39,30 +41,21 @@
 
 
 // Enums ******************************************************************** //
-typedef enum e_char	{
+typedef enum e_val	{
 	truechar,
-	nondisplayable
-}			t_char;
-
-typedef enum e_int	{
+	nondisplayable,
 	trueint,
 	erange,
-	notdisplayable
-}			t_int;
-
-typedef enum e_float	{
+	notdisplayable,
 	truefloat,
 	neginff,
 	posinff,
-	nanf
-}			t_float;
-
-typedef enum e_double	{
+	fnanf,
 	truedouble,
 	neginf,
 	posinf,
-	nan
-}			t_double;
+	dnan
+}			t_val;
 // ******************************************************************** Enums //
 
 
@@ -91,19 +84,19 @@ class Convert	{
 		void		setDouble(double d);
 		double		getDouble(void) const;
 
-		void		setCharSt(bool b);
-		bool		getCharSt(void) const;
-		void		setIntSt(bool b);
-		bool		getIntSt(void) const;
+		void		setCharSt(int i);
+		int			getCharSt(void) const;
+		void		setIntSt(int i);
+		int			getIntSt(void) const;
 		void		setFloatSt(int i);
 		int			getFloatSt(void) const;
 		void		setDoubleSt(int i);
 		int			getDoubleSt(void) const;
 
-		void		tryChar(void);
-		void		tryInt(void);
-		void		tryFloating(void);
-		void		tryElse(void);
+		bool		tryChar(void);
+		bool		tryInt(void);
+		bool		tryFloating(void);
+		bool		tryElse(void);
 		void		tryConvertion(void);
 
 		void		findType(void);
@@ -124,7 +117,7 @@ class Convert	{
 	class	Erange : public std::exception	{
 		public:
 		virtual const char *what() const throw();
-	}
+	};
 
 	class	NonDisplayable : public std::exception	{
 		public:
@@ -145,7 +138,7 @@ class Convert	{
 		float			_f;
 		double			_d;
 
-		bool			_char;
+		int				_char;
 		int				_int;
 		int				_float;
 		int				_double;
