@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:05:31 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/13 18:20:32 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/14 12:14:45 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 // Libraries **************************************************************** //
 #include <iostream>
+#include <iomanip>
 #include <string>
 #include <string.h>
 #include <stdexcept>

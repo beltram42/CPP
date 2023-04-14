@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:05:25 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/13 19:20:51 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/14 12:19:07 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,7 @@ void			Convert::setFloatSt(int i)	{
 	this->_float = i;
 }
 
-bool			Convert::getFloatSt(void) const	{
+int			Convert::getFloatSt(void) const	{
 	return (this->_float);
 }
 
@@ -123,7 +123,7 @@ void			Convert::setDoubleSt(int i)	{
 	this->_double = i;
 }
 
-bool			Convert::getDoubleSt(void) const	{
+int			Convert::getDoubleSt(void) const	{
 	return (this->_double);
 }
 // ------------------------------------------------------------- Accessors -- //
@@ -227,7 +227,7 @@ void			Convert::tryFloating(void)	{
 			throw Convert::Erange();
 			if (d == HUGE_VAL || d > __FLT_MAX__ || (d > 0 && d < __FLT_MIN__))
 				this->setFloatSt(posinff);
-			else if (d == -HUGE_VAL)
+			else if (d == -HUGE_VAL || d < -__FLT_MAX__  || (d < 0 && d > -__FLT_MIN__))
 				this->setFloatSt(neginff);
 			return;
 		}
@@ -280,7 +280,7 @@ void			Convert::findType(void)	{
 		std::cerr << e.what() << '\n';
 	}
 	try	{
-		this->tryType(void);
+		this->tryElse(void);
 	}
 	catch(const std::exception& e)	{
 		std::cerr << e.what() << '\n';
@@ -312,7 +312,7 @@ void			Convert::tryConvertion(void)	{
 			this->setIntSt(notdisplayable);
 			this->setDoubleSt(nan);
 		}
-		else if (this->getFloatSt() == neginff || this->getFloatSt() == posinff))	{
+		else if (this->getFloatSt() == neginff || this->getFloatSt() == posinff)	{
 			this->setCharSt(nondisplayable);
 			this->setIntSt(erange);
 			this->setDoubleSt(getFloatSt());
@@ -341,7 +341,7 @@ void			Convert::tryConvertion(void)	{
 			this->setIntSt(notdisplayable);
 			this->setFloatSt(nanf);
 		}
-		else if (this->getDoubleSt() == neginf || this->getDoubleSt() == posinf))	{
+		else if (this->getDoubleSt() == neginf || this->getDoubleSt() == posinf)	{
 			this->setCharSt(nondisplayable);
 			this->setIntSt(erange);
 			this->setFloatSt(getFloatSt());
@@ -375,20 +375,49 @@ void			Convert::tryConvertion(void)	{
 
 
 // Non Member functions ***************************************************** //
-std::ostream &operator<<( std::ostream &out, Convert const &inst )	{
-	if (this->getType() == 'c')	{
-		out << YELLOW << << "********************************************" << CLEAR << std::endl;
-		if (!std::isprint(getChar()))
-			out << "char: " << e.what() << std::endl;
-		else
+std::ostream &operator<<(std::ostream &out, Convert const &inst)	{
+	
+		out << std::endl;
+		out << YELLOW << "********************************************" << std::endl;
+		out << std::endl;
+
+		if (inst.getCharSt() == nondisplayable)
+			out << "char: " << "non displayable" << std::endl;
+		else if (inst.getCharSt() == truechar)
 			out << "char: " << inst.getChar() << std::endl;
-		out << "int: " << inst.getInt() << std::endl;
-		out << "float: " << inst.getFloat() << std::endl;
-		out << "double: " << inst.getDouble() << std::endl;
-		out << YELLOW << "********************************************" << CLEAR << std::endl;
+		out << std::endl;
+
+		if (inst.getIntSt() == notdisplayable)
+			out << "int: " << "non displayable" << std::endl;
+		else if (inst.getIntSt() == erange)
+			out << "int: " << "overflow" << std::endl;
+		else if (inst.getIntSt() == trueint)
+			out << "int: " << inst.getInt() << std::endl;
+		out << std::endl;
+
+		if (inst.getFloatSt() == nanf)
+			out << "float: " << "nanf" << std::endl;
+		else if (inst.getFloatSt() == posinff)
+			out << "float: " << "+inff" << std::endl;
+		else if (inst.getFloatSt() == neginff)
+			out << "float: " << "-inff" << std::endl;
+		else if (inst.getFloatSt() == truefloat)
+			out << "float: " << std::setprecision(4) << inst.getFloat() << std::endl;
+		out << std::endl;
+		
+		if (inst.getDoubleSt() == nan)
+			out << "float: " << "nan" << std::endl;
+		else if (inst.getDoubleSt() == posinf)
+			out << "float: " << "+inf" << std::endl;
+		else if (inst.getDoubleSt() == neginf)
+			out << "float: " << "-inf" << std::endl;
+		else if (inst.getDoubleSt() == truedouble)
+			out << "float: " << std::setprecision(4) << inst.getDouble() << std::endl;
+
+		out << std::endl;
+		out << "********************************************" << CLEAR << std::endl;
+		out << std::endl;
+		
 		return (out);
 	}
-
-
-}
 // ***************************************************** Non Member functions //
