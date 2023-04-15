@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 16:34:46 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/15 14:51:35 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/15 16:40:27 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	main(int ac, char **av)	{
 	// Convert		i("1.402823466e+98");
 	// Convert		i("3.402823466e+38");
 	// Convert		i("-3.402823466e+39");
-
+	// ADD LES MIN !!!! 
 
 	// Convert		i("0");
 	// Convert		i("p");

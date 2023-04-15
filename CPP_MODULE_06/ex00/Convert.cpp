@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:05:25 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/15 15:43:42 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/15 18:42:23 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -201,18 +201,24 @@ bool			Convert::tryFloating(void)	{
 			errno = ERANGE;
 			if (d > FLT_MAX || (d > 0 && d < FLT_MIN))	{
 				this->setFloatSt(posinff);
-				if (d < DBL_MAX && d > DBL_MIN)
+				if (d < DBL_MAX && d > DBL_MIN) {
 					this->setDouble(d);
+					this->setDoubleSt(truedouble);
+					this->setType('d');
+				}
 			}
 			else if (d < -FLT_MAX  || (d < 0 && d > -FLT_MIN))	{
 				this->setFloatSt(neginff);
-				if (d > -DBL_MAX && d < -DBL_MIN)
+				if (d > -DBL_MAX && d < -DBL_MIN)	{
 					this->setDouble(d);
+					this->setDoubleSt(truedouble);
+					this->setType('d');
+				}
 			}
 			return 1;
 		}
 		else	{
-			this->setFloat((float)d);
+			this->setFloat(static_cast<float>(d));
 			this->setFloatSt(truefloat);
 			return 1;
 		}
@@ -226,7 +232,7 @@ bool			Convert::tryFloating(void)	{
 				this->setDoubleSt(neginf);
 			return 1;
 		}
-		else if (*endptr == '\0')	{
+		else	{
 			this->setDouble(d);
 			this->setDoubleSt(truedouble);
 			return 1;
@@ -297,6 +303,7 @@ void			Convert::findType(void)	{
 
 // -- Convert from type to type --------------------------------------------- //
 void			Convert::tryConvertion(void)	{
+	
 	if (this->getType() == 'c')	{
 		this->setIntSt(trueint);
 		this->setInt(static_cast<int>(this->getChar()));
@@ -415,7 +422,7 @@ std::ostream &operator<<(std::ostream &out, Convert const &inst)	{
 		}
 		else	{
 			out << std::endl;
-			out << YELLOW << "********************************************" << std::endl;
+			out << YELLOW << "*****************************************************************" << std::endl;
 			out << std::endl;
 			out << "Type: " << inst.getType() << std::endl;
 			out << std::endl;
@@ -451,7 +458,7 @@ std::ostream &operator<<(std::ostream &out, Convert const &inst)	{
 				out << "double: " << std::fixed << std::setprecision(1) << inst.getDouble() << std::endl;
 
 			out << std::endl;
-			out << "********************************************" << CLEAR << std::endl;
+			out << "*****************************************************************" << CLEAR << std::endl;
 			out << std::endl;
 			
 			return (out);
