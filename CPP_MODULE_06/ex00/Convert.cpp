@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:05:25 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/15 11:49:01 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/15 14:55:25 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,15 @@ Convert::~Convert(void)	{
 // -- Operators overload ---------------------------------------------------- //
 Convert&		Convert::operator=(Convert const & rhs)	{
 	this->setStr(rhs.getStr());
+	this->setType(rhs.getType());
+	this->setChar(rhs.getChar());
+	this->setCharSt(rhs.getCharSt());
+	this->setInt(rhs.getInt());
+	this->setIntSt(rhs.getIntSt());
+	this->setFloat(rhs.getFloat());
+	this->setFloatSt(rhs.getFloatSt());
+	this->setDouble(rhs.getDouble());
+	this->setDoubleSt(rhs.getDoubleSt());
 	return *this;
 }
 // ---------------------------------------------------- Operators overload -- //
@@ -48,11 +57,11 @@ Convert&		Convert::operator=(Convert const & rhs)	{
 
 // -- Accessors ------------------------------------------------------------- //
 void			Convert::setStr(std::string str)	{
-	this->_privateNumber = str;
+	this->_privateStr = str;
 }
 
 std::string		Convert::getStr(void) const	{
-	return (this->_privateNumber);
+	return (this->_privateStr);
 }
 
 void			Convert::setChar(char c)	{
@@ -129,26 +138,6 @@ int			Convert::getDoubleSt(void) const	{
 // ------------------------------------------------------------- Accessors -- //
 
 
-// -- Exceptions ------------------------------------------------------------ //
-char const *	Convert::ConvertionImpossible::what(void) const throw()	{
-	return ((char *)"Convert: Error: ConvertionImpossible");
-}
-
-char const *	Convert::NanInfinite::what(void) const throw()	{
-	return ((char *)"Convert: Error: Infinite/Nan");
-}
-
-char const *	Convert::Erange::what(void) const throw()	{
-	std::cout << strerror(errno) << std::endl;
-	return ((char *)"Convert: Error: ERANGE");
-}
-
-char const *	Convert::NonDisplayable::what(void) const throw()	{
-	return ((char *)"Convert: Error: NonDisplayable");
-}
-// ------------------------------------------------------------ Exceptions -- //
-
-
 // -- Detect usr entry ------------------------------------------------------ //
 bool			Convert::tryChar(void)	{
 	std::string str = this->getStr();
@@ -159,7 +148,6 @@ bool			Convert::tryChar(void)	{
 	else if (str.size() == 1 && (std::isdigit(*startptr)))
 		return 0;
 	else if (str.size() == 1 && (!std::isprint(*startptr)))	{
-		throw Convert::NonDisplayable();
 		this->setCharSt(nondisplayable);
 		return 1;
 	}
@@ -180,7 +168,7 @@ bool			Convert::tryInt(void)	{
 
 	errno = 0;
 	l = strtol(startptr, &endptr, 10);
-	if (*endptr == '.')	{
+	if (*endptr == '.' || (endptr - startptr == 0))	{
 		return 0;
 	}
 	else if (errno == ERANGE || (l < INT_MIN || l > INT_MAX))	{
@@ -205,11 +193,32 @@ bool			Convert::tryFloating(void)	{
 
 	errno = 0;
 	d = strtod(startptr, &endptr);
-	std::cout << "*endptr = " << *endptr << std::endl;
 	
-	if (*endptr != 'f' || *endptr != 'F')	{
+	if ((*endptr == 'f' || *endptr == 'F') && (endptr - startptr) != 0)	{
+		this->setType('f');
+		if (d != 0 && (d < -FLT_MAX || (d > -FLT_MIN && d < FLT_MIN) || d > FLT_MAX))	{
+			errno = ERANGE;
+			if (d > FLT_MAX || (d > 0 && d < FLT_MIN))	{
+				this->setFloatSt(posinff);
+				if (d < DBL_MAX && d > DBL_MIN)
+					this->setDouble(d);
+			}
+			else if (d < -FLT_MAX  || (d < 0 && d > -FLT_MIN))	{
+				this->setFloatSt(neginff);
+				if (d > -DBL_MAX && d < -DBL_MIN)
+					this->setDouble(d);
+			}
+			return 1;
+		}
+		else	{
+			this->setFloat((float)d);
+			this->setFloatSt(truefloat);
+			return 1;
+		}
+	}
+	else if ((endptr - startptr) != 0)	{
+		this->setType('d');
 		if (errno == ERANGE)	{
-			throw Convert::Erange();
 			if (d == HUGE_VAL)
 				this->setDoubleSt(posinf);
 			else if (d == -HUGE_VAL)
@@ -217,27 +226,8 @@ bool			Convert::tryFloating(void)	{
 			return 1;
 		}
 		else if (*endptr == '\0')	{
-			this->setType('d');
 			this->setDouble(d);
 			this->setDoubleSt(truedouble);
-			return 1;
-		}
-	}
-	else if (*endptr == 'f' || *endptr == 'F')	{
-		std::cout << "tF test" << std::endl;
-		if (d != 0 && (d < -FLT_MAX || (d > -FLT_MIN && d < FLT_MIN) || d > FLT_MAX))	{
-			errno = ERANGE;
-			throw Convert::Erange();
-			if (d == HUGE_VAL || d > FLT_MAX || (d > 0 && d < FLT_MIN))
-				this->setFloatSt(posinff);
-			else if (d == -HUGE_VAL || d < -FLT_MAX  || (d < 0 && d > -FLT_MIN))
-				this->setFloatSt(neginff);
-			return 1;
-		}
-		else	{
-			this->setType('f');
-			this->setFloat((float)d);
-			this->setFloatSt(truefloat);
 			return 1;
 		}
 	}
@@ -246,8 +236,6 @@ bool			Convert::tryFloating(void)	{
 
 bool			Convert::tryElse(void)	{
 	std::string str = getStr();
-
-	std::cout << str << std::endl;
 
 	if (!str.compare("nan"))	{
 		this->setDoubleSt(dnan);
@@ -287,29 +275,26 @@ void			Convert::findType(void)	{
 	this->setType(0);
 
 	if (str.size() == 0)	{
-		throw Convert::ConvertionImpossible();
+		this->setType('n');
 		return;
 	}
-	if (this->tryElse())	{
-		std::cout << "type: " << this->getType() << std::endl;
-		return;
+	else if (str.size() != 0)	{
+		if (this->tryElse())
+			return;
+		if	(this->tryChar())
+			return;
+		if (this->tryInt())
+			return;
+		if (this->tryFloating())
+			return;
+		if (this->getType() == 0)
+			this->setType('n');
 	}
-	if	(this->tryChar())	{
-		std::cout << "type: " << this->getType() << std::endl;
-		return;
-		}
-	if (this->tryInt())	{
-		std::cout << "type: " << this->getType() << std::endl;
-		return;
-		}
-	if (this->tryFloating())	{
-		std::cout << "type: " << this->getType() << std::endl;
-		return;
-	}
-	std::cout << "fT: type: " << this->getType() << std::endl;
 }
-
 // ------------------------------------------------------ Detect usr entry -- //
+
+
+// -- Convert from type to type --------------------------------------------- //
 void			Convert::tryConvertion(void)	{
 	if (this->getType() == 'c')	{
 		this->setIntSt(trueint);
@@ -343,12 +328,18 @@ void			Convert::tryConvertion(void)	{
 		else if (this->getFloatSt() == neginff)	{
 			this->setCharSt(nondisplayable);
 			this->setIntSt(erange);
-			this->setDoubleSt(neginf);
+			if (this->getDouble() && this->getDouble() > -DBL_MAX && this->getDouble() < -DBL_MIN)
+				this->setDoubleSt(truedouble);
+			else
+				this->setDoubleSt(neginf);
 		}
 		else if (this->getFloatSt() == posinff)	{
 			this->setCharSt(nondisplayable);
 			this->setIntSt(erange);
-			this->setDoubleSt(posinf);
+			if (this->getDouble() && this->getDouble() < DBL_MAX && this->getDouble() > DBL_MIN)
+					this->setDoubleSt(truedouble);
+			else
+				this->setDoubleSt(posinf);
 		}
 		else if (this->getFloatSt() == truefloat)	{
 			if (this->getFloat() <  32 || this->getFloat() > 126)
@@ -406,14 +397,9 @@ void			Convert::tryConvertion(void)	{
 				this->setFloat(static_cast<float>(this->getDouble()));
 			}
 		}
-		std::cout << "tC: getCharSt() = " << this->getCharSt() << std::endl;
-		std::cout << "tC: getIntSt() = " << this->getIntSt() << std::endl;
-		std::cout << "tC: getFloatSt() = " << this->getFloatSt() << std::endl;
-		std::cout << "tC: getDoubleSt() = " << this->getDoubleSt() << std::endl;
 	}
 }
-
-
+// --------------------------------------------- Convert from type to type -- //
 // ********************************************************* Member functions //
 
 
@@ -421,52 +407,53 @@ void			Convert::tryConvertion(void)	{
 // Non Member functions ***************************************************** //
 std::ostream &operator<<(std::ostream &out, Convert const &inst)	{
 		std::string	str = inst.getStr();
-		out << "<< getCharSt() = " << inst.getCharSt() << std::endl;
-		out << "<< getIntSt() = " << inst.getIntSt() << std::endl;
-		out << "<< getFloatSt() = " << inst.getFloatSt() << std::endl;
-		out << "<< getDoubleSt() = " << inst.getDoubleSt() << std::endl;
 
-		out << std::endl;
-		out << YELLOW << "********************************************" << std::endl;
-		out << std::endl;
+		if (inst.getType() == 'n')	{
+			out << ">" << inst.getStr() << "<" <<" cannot be converted to a char or an int or a float or a double." << std::endl;
+			return (out);
+		}
+		else	{
+			out << std::endl;
+			out << YELLOW << "********************************************" << std::endl;
+			out << std::endl;
+			out << "Type: " << inst.getType() << std::endl;
+			out << std::endl;
 
-		if (inst.getCharSt() == nondisplayable)
-			out << "char: " << "non displayable" << std::endl;
-		else if (inst.getCharSt() == truechar)
-			out << "char: " << inst.getChar() << std::endl;
-		out << std::endl;
+			if (inst.getCharSt() == nondisplayable)
+				out << "char: " << "non displayable" << std::endl;
+			else if (inst.getCharSt() == truechar)
+				out << "char: " << inst.getChar() << std::endl;
 
-		if (inst.getIntSt() == notdisplayable)
-			out << "int: " << "non displayable" << std::endl;
-		else if (inst.getIntSt() == erange)
-			out << "int: " << "ERANGE" << std::endl;
-		else if (inst.getIntSt() == trueint)
-			out << "int: " << inst.getInt() << std::endl;
-		out << std::endl;
+			if (inst.getIntSt() == notdisplayable)
+				out << "int: " << "non displayable" << std::endl;
+			else if (inst.getIntSt() == erange)
+				out << "int: " << "ERANGE" << std::endl;
+			else if (inst.getIntSt() == trueint)
+				out << "int: " << inst.getInt() << std::endl;
 
-		if (inst.getFloatSt() == fnanf)
-			out << "float: " << "nanf" << std::endl;
-		else if (inst.getFloatSt() == posinff)
-			out << "float: " << "+inff" << std::endl;
-		else if (inst.getFloatSt() == neginff)
-			out << "float: " << "-inff" << std::endl;
-		else if (inst.getFloatSt() == truefloat)
-			out << "float: " << std::setprecision(str.size() + 2) << inst.getFloat() << std::endl;
-		out << std::endl;
-		
-		if (inst.getDoubleSt() == dnan)
-			out << "double: " << "nan" << std::endl;
-		else if (inst.getDoubleSt() == posinf)
-			out << "double: " << "+inf" << std::endl;
-		else if (inst.getDoubleSt() == neginf)
-			out << "double: " << "-inf" << std::endl;
-		else if (inst.getDoubleSt() == truedouble)
-			out << "double: " << std::setprecision(str.size() + 2) << inst.getDouble() << std::endl;
+			if (inst.getFloatSt() == fnanf)
+				out << "float: " << "nanf" << std::endl;
+			else if (inst.getFloatSt() == posinff)
+				out << "float: " << "+inff" << std::endl;
+			else if (inst.getFloatSt() == neginff)
+				out << "float: " << "-inff" << std::endl;
+			else if (inst.getFloatSt() == truefloat)
+				out << "float: " << std::setprecision(str.size() + 2) << inst.getFloat() << "f" << std::endl;
+			
+			if (inst.getDoubleSt() == dnan)
+				out << "double: " << "nan" << std::endl;
+			else if (inst.getDoubleSt() == posinf)
+				out << "double: " << "+inf" << std::endl;
+			else if (inst.getDoubleSt() == neginf)
+				out << "double: " << "-inf" << std::endl;
+			else if (inst.getDoubleSt() == truedouble)
+				out << "double: " << std::setprecision(str.size() + 2) << inst.getDouble() << std::endl;
 
-		out << std::endl;
-		out << "********************************************" << CLEAR << std::endl;
-		out << std::endl;
-		
-		return (out);
+			out << std::endl;
+			out << "********************************************" << CLEAR << std::endl;
+			out << std::endl;
+			
+			return (out);
+		}
 	}
 // ***************************************************** Non Member functions //

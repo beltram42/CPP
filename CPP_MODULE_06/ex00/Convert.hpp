@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:05:31 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/15 10:39:38 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/15 14:33:57 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,35 +103,13 @@ class Convert	{
 		void		findType(void);
 
 		
-
-	// -- Exception classes ------------------------------------------------- //
-	class	ConvertionImpossible : public std::exception	{
-		public:
-		virtual const char *what() const throw();
-	};
-
-	class	NanInfinite : public std::exception	{
-		public:
-		virtual const char *what() const throw();
-	};
-
-	class	Erange : public std::exception	{
-		public:
-		virtual const char *what() const throw();
-	};
-
-	class	NonDisplayable : public std::exception	{
-		public:
-		virtual const char *what() const throw();
-	};
-	// ------------------------------------------------- Exception classes -- //
 	protected:
 		/*dATA*/
 	
 	private:
 		Convert(void);										// Canonical
 		
-		std::string		_privateNumber;
+		std::string		_privateStr;
 		char			_type;
 		
 		char			_c;
