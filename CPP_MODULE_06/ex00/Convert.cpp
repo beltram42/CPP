@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:05:25 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/15 14:55:25 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/15 15:43:42 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ Convert::Convert(Convert const & inst)	{
 }
 
 Convert::Convert(std::string str) {
+	str.erase(0, strspn(str.c_str(), " "));
 	this->setStr(str);
 	std::cout << "Convert: constructor called for: " << this->getStr() << std::endl;	
 }
@@ -438,7 +439,7 @@ std::ostream &operator<<(std::ostream &out, Convert const &inst)	{
 			else if (inst.getFloatSt() == neginff)
 				out << "float: " << "-inff" << std::endl;
 			else if (inst.getFloatSt() == truefloat)
-				out << "float: " << std::setprecision(str.size() + 2) << inst.getFloat() << "f" << std::endl;
+				out << "float: " << std::fixed << std::setprecision(1) << inst.getFloat() << "f" << std::endl;
 			
 			if (inst.getDoubleSt() == dnan)
 				out << "double: " << "nan" << std::endl;
@@ -447,7 +448,7 @@ std::ostream &operator<<(std::ostream &out, Convert const &inst)	{
 			else if (inst.getDoubleSt() == neginf)
 				out << "double: " << "-inf" << std::endl;
 			else if (inst.getDoubleSt() == truedouble)
-				out << "double: " << std::setprecision(str.size() + 2) << inst.getDouble() << std::endl;
+				out << "double: " << std::fixed << std::setprecision(1) << inst.getDouble() << std::endl;
 
 			out << std::endl;
 			out << "********************************************" << CLEAR << std::endl;
