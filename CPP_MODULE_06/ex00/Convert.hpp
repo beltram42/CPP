@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:05:31 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/14 18:42:20 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/15 10:39:38 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 #include <cmath>
 #include <complex>
 #include <clocale>
+#include <cfloat>
 #include <cerrno>
 #include <ctype.h>
 // **************************************************************** Libraries //

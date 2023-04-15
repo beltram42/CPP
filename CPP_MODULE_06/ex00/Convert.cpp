@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:05:25 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/14 19:31:43 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/15 11:49:01 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -205,6 +205,8 @@ bool			Convert::tryFloating(void)	{
 
 	errno = 0;
 	d = strtod(startptr, &endptr);
+	std::cout << "*endptr = " << *endptr << std::endl;
+	
 	if (*endptr != 'f' || *endptr != 'F')	{
 		if (errno == ERANGE)	{
 			throw Convert::Erange();
@@ -221,13 +223,14 @@ bool			Convert::tryFloating(void)	{
 			return 1;
 		}
 	}
-	else	{
-		if (d != 0 && (d < -__FLT_MAX__ || (d > -__FLT_MIN__ && d < __FLT_MIN__) || d > __FLT_MAX__))	{
+	else if (*endptr == 'f' || *endptr == 'F')	{
+		std::cout << "tF test" << std::endl;
+		if (d != 0 && (d < -FLT_MAX || (d > -FLT_MIN && d < FLT_MIN) || d > FLT_MAX))	{
 			errno = ERANGE;
 			throw Convert::Erange();
-			if (d == HUGE_VAL || d > __FLT_MAX__ || (d > 0 && d < __FLT_MIN__))
+			if (d == HUGE_VAL || d > FLT_MAX || (d > 0 && d < FLT_MIN))
 				this->setFloatSt(posinff);
-			else if (d == -HUGE_VAL || d < -__FLT_MAX__  || (d < 0 && d > -__FLT_MIN__))
+			else if (d == -HUGE_VAL || d < -FLT_MAX  || (d < 0 && d > -FLT_MIN))
 				this->setFloatSt(neginff);
 			return 1;
 		}
@@ -303,28 +306,29 @@ void			Convert::findType(void)	{
 		std::cout << "type: " << this->getType() << std::endl;
 		return;
 	}
+	std::cout << "fT: type: " << this->getType() << std::endl;
 }
 
 // ------------------------------------------------------ Detect usr entry -- //
 void			Convert::tryConvertion(void)	{
 	if (this->getType() == 'c')	{
+		this->setIntSt(trueint);
 		this->setInt(static_cast<int>(this->getChar()));
+		this->setFloatSt(truefloat);
 		this->setFloat(static_cast<float>(this->getChar()));
-		this->setInt(static_cast<double>(this->getChar()));
+		this->setDoubleSt(truedouble);
+		this->setDouble(static_cast<double>(this->getChar()));
 	}
 
 	else if (this->getType() == 'i')	{
+		this->setFloatSt(truefloat);
 		this->setFloat(static_cast<float>(this->getInt()));
-		this->setInt(static_cast<double>(this->getInt()));
-		std::cout << "tryConvertion: " << this->getInt() << std::endl;
-		// std::cout << std::isprint(this->getInt()) << std::endl;
-		// if (!isprint(214748364))	{
-		// 	std::cout << "weee" << std::endl;
+		this->setDoubleSt(truedouble);
+		this->setDouble(static_cast<double>(this->getInt()));
 		if (this->getInt() < 32 || this->getInt() > 126)	{
 			this->setCharSt(nondisplayable);
 		}
 		else {
-			// std::cout << "weee2" << std::endl;
 			this->setCharSt(truechar);
 			this->setChar(static_cast<char>(this->getInt()));
 		}
@@ -346,19 +350,19 @@ void			Convert::tryConvertion(void)	{
 			this->setIntSt(erange);
 			this->setDoubleSt(posinf);
 		}
-		else if (this->getFloat() <  32 || this->getFloat() > 126)
-			this->setCharSt(nondisplayable);
-		else if (this->getFloat() >= 32 && this->getFloat() <= 126)	{
-			this->setCharSt(truechar);
-			this->setChar(static_cast<char>(this->getFloat()));
-		}
-		else if (this->getFloat() < (float)INT_MIN || this->getFloat() > (float)INT_MAX)
-			this->setIntSt(erange);
-		else if (this->getFloat() > (float)INT_MIN && this->getFloat() < (float)INT_MAX)	{
-			this->setIntSt(trueint);
-			this->setInt(static_cast<int>(this->getFloat()));
-		}
-		else {
+		else if (this->getFloatSt() == truefloat)	{
+			if (this->getFloat() <  32 || this->getFloat() > 126)
+				this->setCharSt(nondisplayable);
+			else if (this->getFloat() >= 32 && this->getFloat() <= 126)	{
+				this->setCharSt(truechar);
+				this->setChar(static_cast<char>(this->getFloat()));
+			}
+			if (this->getFloat() < (float)INT_MIN || this->getFloat() > (float)INT_MAX)
+				this->setIntSt(erange);
+			else if (this->getFloat() > (float)INT_MIN && this->getFloat() < (float)INT_MAX)	{
+				this->setIntSt(trueint);
+				this->setInt(static_cast<int>(this->getFloat()));
+			}
 			this->setDoubleSt(truedouble);
 			this->setDouble(static_cast<double>(this->getFloat()));
 		}
@@ -380,26 +384,32 @@ void			Convert::tryConvertion(void)	{
 			this->setIntSt(erange);
 			this->setFloatSt(posinff);
 		}
-		else if (this->getDouble() < 32 || this->getDouble() > 126)
-			this->setCharSt(nondisplayable);
-		else if (this->getDouble() >= 32 && this->getDouble() <= 126)	{
-			this->setCharSt(truechar);
-			this->setChar(static_cast<char>(this->getDouble()));
+		else if (this->getDoubleSt() == truedouble)	{
+			if (this->getDouble() < 32 || this->getDouble() > 126)
+				this->setCharSt(nondisplayable);
+			else if (this->getDouble() >= 32 && this->getDouble() <= 126)	{
+				this->setCharSt(truechar);
+				this->setChar(static_cast<char>(this->getDouble()));
+			}
+			if (this->getDouble() < INT_MIN || this->getDouble() > INT_MAX)
+				this->setIntSt(erange);
+			else if (this->getDouble() > INT_MIN && this->getDouble() < INT_MAX)	{
+				this->setIntSt(trueint);
+				this->setInt(static_cast<int>(this->getDouble()));
+			}
+			if (this->getDouble() < 0 && (this->getDouble() < -FLT_MAX || this->getDouble() > -FLT_MIN))
+				this->setFloatSt(neginff);
+			else if (this->getDouble() > 0 && (this->getDouble() < FLT_MIN || this->getDouble() > FLT_MAX))
+				this->setFloatSt(posinff);
+			else {
+				this->setFloatSt(truefloat);
+				this->setFloat(static_cast<float>(this->getDouble()));
+			}
 		}
-		else if (this->getDouble() < INT_MIN || this->getDouble() > INT_MAX)
-			this->setIntSt(erange);
-		else if (this->getDouble() > INT_MIN && this->getDouble() < INT_MAX)	{
-			this->setIntSt(trueint);
-			this->setInt(static_cast<int>(this->getDouble()));
-		}
-		else if (this->getDouble() < 0 && (this->getDouble() < -__FLT_MAX__ || this->getDouble() > -__FLT_MIN__))
-			this->setFloatSt(neginff);
-		else if (this->getDouble() > 0 && (this->getDouble() < __FLT_MIN__ || this->getDouble() > __FLT_MAX__))
-			this->setFloatSt(posinff);
-		else {
-			this->setFloatSt(truefloat);
-			this->setFloat(static_cast<float>(this->getDouble()));
-		}
+		std::cout << "tC: getCharSt() = " << this->getCharSt() << std::endl;
+		std::cout << "tC: getIntSt() = " << this->getIntSt() << std::endl;
+		std::cout << "tC: getFloatSt() = " << this->getFloatSt() << std::endl;
+		std::cout << "tC: getDoubleSt() = " << this->getDoubleSt() << std::endl;
 	}
 }
 
@@ -410,7 +420,12 @@ void			Convert::tryConvertion(void)	{
 
 // Non Member functions ***************************************************** //
 std::ostream &operator<<(std::ostream &out, Convert const &inst)	{
-	
+		std::string	str = inst.getStr();
+		out << "<< getCharSt() = " << inst.getCharSt() << std::endl;
+		out << "<< getIntSt() = " << inst.getIntSt() << std::endl;
+		out << "<< getFloatSt() = " << inst.getFloatSt() << std::endl;
+		out << "<< getDoubleSt() = " << inst.getDoubleSt() << std::endl;
+
 		out << std::endl;
 		out << YELLOW << "********************************************" << std::endl;
 		out << std::endl;
@@ -436,7 +451,7 @@ std::ostream &operator<<(std::ostream &out, Convert const &inst)	{
 		else if (inst.getFloatSt() == neginff)
 			out << "float: " << "-inff" << std::endl;
 		else if (inst.getFloatSt() == truefloat)
-			out << "float: " << std::setprecision(6) << inst.getFloat() << std::endl;
+			out << "float: " << std::setprecision(str.size() + 2) << inst.getFloat() << std::endl;
 		out << std::endl;
 		
 		if (inst.getDoubleSt() == dnan)
@@ -446,7 +461,7 @@ std::ostream &operator<<(std::ostream &out, Convert const &inst)	{
 		else if (inst.getDoubleSt() == neginf)
 			out << "double: " << "-inf" << std::endl;
 		else if (inst.getDoubleSt() == truedouble)
-			out << "double: " << std::setprecision(6) << inst.getDouble() << std::endl;
+			out << "double: " << std::setprecision(str.size() + 2) << inst.getDouble() << std::endl;
 
 		out << std::endl;
 		out << "********************************************" << CLEAR << std::endl;
