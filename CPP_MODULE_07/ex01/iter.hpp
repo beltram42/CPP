@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:05:31 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/17 13:43:15 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/17 16:08:27 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,24 @@
 #define YELLOW "\e[33m"
 #define MAGENTA "\e[35m"
 // ****************************************************************** Colours //
+
+// Templates **************************************************************** //
+template <typename T> void iter(T const *array, size_t size, void(*f)(T const & arg))	{
+	if (!array || size <= 0)
+		return;
+	for (size_t i = 0; i < size; i++)
+		f(array[i]);
+	return;
+}
+
+template <typename T> void printAddress(T const & arg)	{
+	std::cout << & arg << " ";
+}
+
+template <typename T> void printArg(T const & arg)	{
+	std::cout << arg  << " ";
+}
+// **************************************************************** Templates //
 
 
 
