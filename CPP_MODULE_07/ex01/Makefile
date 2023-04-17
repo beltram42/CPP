@@ -6,7 +6,7 @@
 #    By: alambert <alambert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/29 16:34:50 by alambert          #+#    #+#              #
-#    Updated: 2023/04/17 09:04:36 by alambert         ###   ########.fr        #
+#    Updated: 2023/04/17 14:39:41 by alambert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,6 @@ NAME = Identify
 
 
 # Sources ==================================================================== #
-SRCS += whatever.cpp
 SRCS += main.cpp
 
 HEADER += whatever.hpp
