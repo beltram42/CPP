@@ -6,20 +6,23 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:05:31 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/24 10:37:10 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/26 21:14:28 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EASYFIND_H
-# define EASYFIND_H
+#ifndef SPAN_H
+# define SPAN_H
 
 // Libraries **************************************************************** //
 #include <iostream>
-#include <list>
-#include <vector>
 #include <exception>
+#include <vector>
+#include <numeric>
 #include <algorithm>
+#include <list>
 #include <iterator>
+#include <limits>
+#include <cstdlib>
 // **************************************************************** Libraries //
 
 
@@ -40,7 +43,7 @@
 
 // Templates **************************************************************** //
 // **************************************************************** Templates //
-
+#include <limits>
 // Structs ****************************************************************** //
 // ****************************************************************** Structs //
 
@@ -48,37 +51,51 @@
 class Span
 {
 public:
-	Span(Span const & toCopy);						// Cananical
+	Span(Span const & toCopy);										// Canonical
 	Span(unsigned int number);
-	virtual ~Span();								// Cananical
+	virtual ~Span();												// Canonical
 
-	Span const	&operator=(Span const & toCopy);	// Cananical
+	Span &						operator=(Span const & toCopy);					// Canonical
 
-	void			setN(unsigned int);
-	unsigned int	getN(void) const;
+	void						setN(unsigned int number);
+	unsigned int				getN(void) const;
+	std::vector<int> &			getV(void);
 
-	void			addNumber(unsigned int);
-	unsigned int	shortestSpan(void);
-	unsigned int	longestSpan(void);
+	void						addNumber(unsigned int number);
+
+	template <typename Iterator>
+    void 						addNumbers(std::vector<unsigned int>::iterator its, std::vector<unsigned int>::iterator ite);
+
+	unsigned int				shortestSpan(void);
+	unsigned int				longestSpan(void);
+
+
+	class NotEnoughNumbersException : public std::exception	{
+	public:
+		virtual const char*	what() const throw();
+	};
+
+	class ArleadyFullException : public std::exception	{
+	public:
+		virtual const char*	what() const throw();
+	};
+
+protected:
+	/* dATA */
 
 private:
-	Span(/* args */);								// Cananical
-	unsigned int	_N
+	unsigned int		_N;
+	std::vector<int>	_V;
+	
+	Span(void);														// Canonical
 };
 
-
-
-class ArleadyFullException : public std::exception	{
-public:
-	virtual const char *what() const throw();
-};
 // ****************************************************************** Classes //
 
 
 
 // Non Member functions ***************************************************** //
-template <typename T> 
-typename T::iterator   easyfind(T & container, int & toFind);
+std::ostream &operator<<(std::ostream & out, Span & rhs);
 // ***************************************************** Non Member functions //
 
-#endif // ******************************************************** EASYFIND_H //
+#endif // ************************************************************ SPAN_H //

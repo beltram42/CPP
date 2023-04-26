@@ -33,6 +33,16 @@
 		"cstring": "cpp",
 		"ctime": "cpp",
 		"iomanip": "cpp",
-		"*.tpp": "cpp"
+		"*.tpp": "cpp",
+		"deque": "cpp",
+		"list": "cpp",
+		"vector": "cpp",
+		"array": "cpp",
+		"unordered_map": "cpp",
+		"functional": "cpp",
+		"tuple": "cpp",
+		"utility": "cpp",
+		"bit": "cpp",
+		"numeric": "cpp"
 	}
 }
