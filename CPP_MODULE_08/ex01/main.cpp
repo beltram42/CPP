@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 16:34:46 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/26 21:15:31 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/26 21:19:50 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int main() {
     s.addNumber(2);
     s.addNumber(8);
     s.addNumber(4);
+	std::cout << s << std::endl;
     std::cout << "Shortest span: " << s.shortestSpan() << std::endl; // Output: 1
     std::cout << "Longest span: " << s.longestSpan() << std::endl; // Output: 6
     try {
