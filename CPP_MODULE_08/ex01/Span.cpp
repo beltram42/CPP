@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:05:31 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/26 21:14:45 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/27 15:39:11 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ const char*			Span::NotEnoughNumbersException::what() const throw()	{
 }
 
 const char*			Span::ArleadyFullException::what() const throw()	{
-	return ("Span already full");
+	return ("Span is full");
 }
 
 // ------------------------------------------------------------ Exceptions -- //
@@ -128,7 +128,6 @@ std::ostream &				operator<<(std::ostream & out, Span & rhs)	{
 	
 	out << std::endl;
 	out << "*****************************************************************" << CLEAR << std::endl;
-	out << std::endl;
 
 	out << "> ";
 	for (it = its; it != ite; it++)	{
@@ -136,11 +135,9 @@ std::ostream &				operator<<(std::ostream & out, Span & rhs)	{
 		if (it + 1 != ite)
 			out << " | ";
 	}
-	out << " < ";
+	out << " < " << std::endl;
 
-	out << std::endl;
 	out << "*****************************************************************" << CLEAR << std::endl;
-	out << std::endl;
 
 	return (out);
 }

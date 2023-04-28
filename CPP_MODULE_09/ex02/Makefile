@@ -6,18 +6,19 @@
 #    By: alambert <alambert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/29 16:34:50 by alambert          #+#    #+#              #
-#    Updated: 2023/04/27 15:49:34 by alambert         ###   ########.fr        #
+#    Updated: 2023/04/28 15:18:36 by alambert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # File name ================================================================== #
-NAME = EasyFind
+NAME = PmergeMe
 
 
 # Sources ==================================================================== #
+SRCS += PmergeMe.cpp
 SRCS += main.cpp
 
-HEADER += easyfind.hpp
+HEADER += PmergeMe.hpp
 
 
 OBJS = ${SRCS:.cpp=.o}

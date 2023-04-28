@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   MutantStack.hpp                                    :+:      :+:    :+:   */
+/*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:05:31 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/27 14:56:16 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/28 15:22:14 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MUTANTSTACK_H
-# define MUTANTSTACK_H
+#ifndef RPN_H
+# define RPN_H
 
 // Libraries **************************************************************** //
 #include <iostream>
-#include <exception>
-#include <list>
 #include <stack>
-#include <iterator>
+#include <exception>
 #include <algorithm>
 #include <numeric>
 // **************************************************************** Libraries //
@@ -46,27 +44,7 @@
 // ****************************************************************** Structs //
 
 // Classes ****************************************************************** //
-template <typename T>
-class MutantStack : public std::stack<T>	{
-public:
-	MutantStack(void);												// Canonical
-	MutantStack(MutantStack const & toCopy);						// Canonical
-	~MutantStack(void);												// Canonical
-		
-	MutantStack const &	operator=(MutantStack const &toCopy);		// Canonical
 
-	typedef typename std::stack<T>::container_type::iterator	iterator; 
-		
-	iterator	begin(void);
-	iterator	end(void);
-
-protected:
-	/* dATA */
-private:
-	/* dATA */
-};
-
-# include "MutantStack.tpp"
 // ****************************************************************** Classes //
 
 
@@ -74,4 +52,4 @@ private:
 
 // ***************************************************** Non Member functions //
 
-#endif // ************************************************************ MUTANTSTACK_H //
+#endif // ************************************************************* RPN_H //
