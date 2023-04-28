@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:05:31 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/28 15:17:05 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/28 19:28:02 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@
 #include <map>
 #include <exception>
 #include <algorithm>
-#include <numeric>
+#include <fstream>
+#include <sstream>
+#include <string>
 // **************************************************************** Libraries //
 
 
@@ -44,7 +46,24 @@
 // ****************************************************************** Structs //
 
 // Classes ****************************************************************** //
+class BitcoinExchange {
+public:
+	BitcoinExchange(void);												// Canonical
+	BitcoinExchange(BitcoinExchange const & toCopy);					// Canonical
 
+    BitcoinExchange(std::string const & filename);
+
+	~BitcoinExchange(void);												// Canonical
+
+
+	BitcoinExchange const & operator=(BitcoinExchange const & toCopy);	// Canonical
+
+
+    float getPrice(const std::string& date_str) const;
+
+private:
+    std::map<std::string, float> _prices;
+};
 // ****************************************************************** Classes //
 
 
