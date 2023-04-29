@@ -43,6 +43,18 @@
 		"tuple": "cpp",
 		"utility": "cpp",
 		"bit": "cpp",
-		"numeric": "cpp"
+		"numeric": "cpp",
+		"atomic": "cpp",
+		"cstdarg": "cpp",
+		"cstddef": "cpp",
+		"map": "cpp",
+		"algorithm": "cpp",
+		"iterator": "cpp",
+		"memory": "cpp",
+		"memory_resource": "cpp",
+		"optional": "cpp",
+		"random": "cpp",
+		"ranges": "cpp",
+		"span": "cpp"
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:05:31 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/28 19:37:33 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/29 19:02:14 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ BitcoinExchange::BitcoinExchange(void) 	{
 }
 
 BitcoinExchange::BitcoinExchange(BitcoinExchange const & toCopy): _prices(toCopy._prices)	{
-	std::cout << "Copy constructor calle for: " << this << ", from: " << &toCopy << std::endl;
+	std::cout << "Copy constructor called for: " << this << ", from: " << &toCopy << std::endl;
 }
 
 BitcoinExchange::BitcoinExchange(std::string const & filename) {
-	std::cout << "Constructor calle for: " << filename << std::endl;
-    std::ifstream file(filename);
+	std::cout << "Constructor called for: " << this << " " << filename << std::endl;
+    std::ifstream file(filename.c_str());
     if (!file) {
         std::cerr << "Error: could not open file.\n";
         return;
@@ -66,7 +66,7 @@ float 	BitcoinExchange::getPrice(std::string const & date_str) const {
             return -1;
         }
 		
-        std::map<int> it = _prices.find(date_str);
+        std::map<std::string, float>::const_iterator it = _prices.find(date_str);
         if (it == _prices.end()) {
             it = _prices.lower_bound(date_str);
             if (it == _prices.begin()) {

@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 16:34:46 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/28 19:13:45 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/29 19:50:29 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,19 @@ int main(int argc, char** argv) {
     }
 
     std::string input_filename = argv[1];
-    std::ifstream input_file(input_filename);
+    std::ifstream input_file(input_filename.c_str());
     if (!input_file) {
         std::cerr << "Error: could not open input file.\n";
         return 1;
     }
 
-    BitcoinExchange exchange("bitcoin_prices.csv");
+    BitcoinExchange exchange("data.csv");
 
     std::string line;
     while (std::getline(input_file, line)) {
         std::istringstream iss(line);
         std::string date_str;
+		std::cout << line << std::endl;
         float value;
         if (std::getline(iss, date_str, '|') && iss >> value) {
             if (value <= 0 || value > 1000) {
@@ -44,14 +45,15 @@ int main(int argc, char** argv) {
                 continue;
             }
 
-            float exchange_rate = exchange.get_price(date_str);
+            float exchange_rate = exchange.getPrice(date_str);
             if (exchange_rate < 0) {
                 continue;
             }
 
             float result = value * exchange_rate;
             std::cout << date_str << " => " << value << " = " << result << "\n";
-        } else {
+        } 
+		else {
             std::cerr << "Error: bad input => " << line << "\n";
         }
     }
