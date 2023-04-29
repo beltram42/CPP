@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 16:34:46 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/29 19:50:29 by alambert         ###   ########.fr       */
+/*   Updated: 2023/04/29 20:17:40 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,19 @@ int main(int argc, char** argv) {
     while (std::getline(input_file, line)) {
         std::istringstream iss(line);
         std::string date_str;
-		std::cout << line << std::endl;
+		//std::cout << line << std::endl;
         float value;
         if (std::getline(iss, date_str, '|') && iss >> value) {
             if (value <= 0 || value > 1000) {
                 std::cerr << "Error: invalid value.\n";
                 continue;
             }
+
+			char const *s = date_str.c_str();
+			if (date_str.size() != 11 || s[4] != '-' || s[7] != '-')	{
+				std::cerr << "Error: invalid date.\n";
+				continue;
+			}
 
             float exchange_rate = exchange.getPrice(date_str);
             if (exchange_rate < 0) {
@@ -53,6 +59,8 @@ int main(int argc, char** argv) {
             float result = value * exchange_rate;
             std::cout << date_str << " => " << value << " = " << result << "\n";
         } 
+		else if (!line.compare("date | value"))
+			continue;
 		else {
             std::cerr << "Error: bad input => " << line << "\n";
         }
