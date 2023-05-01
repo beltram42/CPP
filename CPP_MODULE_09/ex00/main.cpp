@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 16:34:46 by alambert          #+#    #+#             */
-/*   Updated: 2023/05/01 14:21:37 by alambert         ###   ########.fr       */
+/*   Updated: 2023/05/01 18:00:23 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,19 +44,18 @@ int main(int argc, char** argv) {
 				std::cerr << "Error: invalid date.\n";
 				continue;
 			}
-            float exchange_rate = exchange.getPrice(date_str);
+            double exchange_rate = exchange.getPrice(date_str);
             if (exchange_rate < 0) {
                 continue;
             }
-            float result = value * exchange_rate;
-            std::cout << date_str << " => " << value << " = " << result << "\n";
-        } 
+            double result = value * exchange_rate;
+            std::cout << date_str << " => " << std::fixed << std::setprecision(2) << value << " = " << result << "\n";
+        }
 		else if (!line.compare("date | value"))
 			continue;
 		else {
             std::cerr << "Error: bad input => " << line << "\n";
         }
     }
-
     return 0;
 }
