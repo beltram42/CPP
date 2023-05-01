@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:05:31 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/28 19:28:02 by alambert         ###   ########.fr       */
+/*   Updated: 2023/05/01 14:07:38 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 #include <fstream>
 #include <sstream>
 #include <string>
+#include <cstdlib>
 // **************************************************************** Libraries //
 
 
@@ -59,7 +60,7 @@ public:
 	BitcoinExchange const & operator=(BitcoinExchange const & toCopy);	// Canonical
 
 
-    float getPrice(const std::string& date_str) const;
+    float	getPrice(const std::string& date_str) const;
 
 private:
     std::map<std::string, float> _prices;
@@ -68,7 +69,7 @@ private:
 
 
 // Non Member functions ***************************************************** //
-
+bool	is_valid_date(const std::string& date_str);
 // ***************************************************** Non Member functions //
 
 #endif // ************************************************* BITCOINEXCHANGE_H //

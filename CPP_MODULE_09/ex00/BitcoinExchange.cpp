@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:05:31 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/29 19:02:14 by alambert         ###   ########.fr       */
+/*   Updated: 2023/05/01 14:49:47 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,22 +61,54 @@ BitcoinExchange::~BitcoinExchange(void)	{
 
 // -- Other member functions ------------------------------------------------ //
 float 	BitcoinExchange::getPrice(std::string const & date_str) const {
-        if (_prices.empty()) {
-            std::cerr << "Error: empty price database.\n";
+    if (_prices.empty()) {
+        std::cerr << "Error: empty price database.\n";
+        return -1;
+    }
+		
+    std::map<std::string, float>::const_iterator it = _prices.find(date_str);
+    if (it == _prices.end()) {
+        it = _prices.lower_bound(date_str);
+        if (it == _prices.begin()) {
+            std::cerr << "Error: no available date.\n";
             return -1;
         }
-		
-        std::map<std::string, float>::const_iterator it = _prices.find(date_str);
-        if (it == _prices.end()) {
-            it = _prices.lower_bound(date_str);
-            if (it == _prices.begin()) {
-                std::cerr << "Error: no available date.\n";
-                return -1;
-            }
-            --it;
-        }
-        return it->second;
+        --it;
     }
+       return it->second;
+}
+
+bool	is_valid_date(const std::string& date_str)	{
+    std::istringstream ss(date_str);
+
+    int year, month, day;
+
+    if (ss >> year && ss.get() == '-' && ss >> month && ss.get() == '-' && ss >> day && ss.eof())	{
+        bool is_leap_year = (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+		// Check if the year is a leap year (divisible by 4 but not by 100, or divisible by 400)
+        if (month >= 1 && month <= 12)	{
+        // Check if the month is valid (between 1 and 12)
+            switch (month)	{
+            // Check if the day is valid (between 1 and 31, or between 1 and 30 for some months, or between 1 and 28/29 for February)
+                case 2:
+                    if (day >= 1 && day <= (is_leap_year ? 29 : 28))
+                        return true;
+                    break;
+                case 4:
+                case 6:
+                case 9:
+                case 11:
+                    if (day >= 1 && day <= 30)
+                        return true;
+                    break;
+                default:
+                    if (day >= 1 && day <= 31)
+                        return true;
+            }
+        }
+    }
+    return false;
+}
 // ----------------------------------------------- Other  member functions -- //
 
 // ********************************************************* Member functions //

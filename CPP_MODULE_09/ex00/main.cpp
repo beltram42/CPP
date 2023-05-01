@@ -6,17 +6,11 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 16:34:46 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/29 20:17:40 by alambert         ###   ########.fr       */
+/*   Updated: 2023/05/01 14:21:37 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
-
-/*
-https://www.icloud.com/iclouddrive/0abbhxMRJUy1O03Y2q7Kh6rjw#data
-https://www.icloud.com/iclouddrive/067R8O-wDMbxcdZ3iKl7XgTdg#input
-*/
-
 
 int main(int argc, char** argv) {
     if (argc < 2) {
@@ -35,27 +29,25 @@ int main(int argc, char** argv) {
 
     std::string line;
     while (std::getline(input_file, line)) {
-        std::istringstream iss(line);
-        std::string date_str;
-		//std::cout << line << std::endl;
+        std::istringstream 	iss(line);
+        std::string 		date_str;
         float value;
+
         if (std::getline(iss, date_str, '|') && iss >> value) {
             if (value <= 0 || value > 1000) {
                 std::cerr << "Error: invalid value.\n";
                 continue;
             }
-
+			date_str.erase(10, 1);
 			char const *s = date_str.c_str();
-			if (date_str.size() != 11 || s[4] != '-' || s[7] != '-')	{
+			if (is_valid_date(date_str) == 0 || date_str.size() != 10 || s[4] != '-' || s[7] != '-')	{
 				std::cerr << "Error: invalid date.\n";
 				continue;
 			}
-
             float exchange_rate = exchange.getPrice(date_str);
             if (exchange_rate < 0) {
                 continue;
             }
-
             float result = value * exchange_rate;
             std::cout << date_str << " => " << value << " = " << result << "\n";
         } 
