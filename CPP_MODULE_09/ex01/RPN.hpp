@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:05:31 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/28 15:22:14 by alambert         ###   ########.fr       */
+/*   Updated: 2023/05/02 23:15:13 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,11 @@
 #include <iostream>
 #include <stack>
 #include <exception>
-#include <algorithm>
-#include <numeric>
+#include <cstdlib>
+#include <climits>
+#include <cerrno>
+#include <string>
+#include <sstream>
 // **************************************************************** Libraries //
 
 
@@ -49,7 +52,9 @@
 
 
 // Non Member functions ***************************************************** //
-
+int		evaluate(char op, int x, int y);
+bool	checkLimits(char op, int x, int y);
+bool	checkDiv(char op, int x, int y);
 // ***************************************************** Non Member functions //
 
 #endif // ************************************************************* RPN_H //

@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:05:31 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/28 15:22:33 by alambert         ###   ########.fr       */
+/*   Updated: 2023/05/02 23:20:01 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,33 @@
 
 
 // Non Member functions ***************************************************** //
+bool	checkLimits(char op, int x, int y)	{
+	if (op == '+' && x > INT_MAX - y)
+		return (1);
+	if (op == '-' && x < INT_MIN - y)
+		return (1);
+	if (op == '*' && x > (INT_MAX / y))
+		return (1);
+	if (op == '*' && x < (INT_MIN / y))
+		return (1);
+	return (0);
+}
+
+bool	checkDiv(char op, int x, int y)	{
+	if (op == '/' && y == 0)
+		return (1);
+	(void)x;
+	return (0);
+}
+
+int		evaluate(char op, int x, int y) {
+    switch (op)	{
+        case '+': return (x + y);
+        case '-': return (x - y);
+        case '*': return (x * y);
+        case '/': return (x / y);
+        default: return 0;
+    }
+}
+
 // ***************************************************** Non Member functions //
