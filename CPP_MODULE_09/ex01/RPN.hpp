@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:05:31 by alambert          #+#    #+#             */
-/*   Updated: 2023/05/04 12:10:17 by alambert         ###   ########.fr       */
+/*   Updated: 2023/05/04 14:28:27 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 #include <sstream>
 #include <cctype>
 #include <cstdlib>
+#include <limits>
 #include <climits>
 #include <exception>
 #include <cerrno>
@@ -58,10 +59,13 @@ public:
 
 	RPN const &	operator=(RPN const & toCopy);						// canonical
 
-	int		evaluate(const std::string& input);
+ 	int evaluate(const std::string& expression);
 
 private:
-    int		doOperation(const char& op, const int& x, const int& y);
+    // int			doOperation(const char& op, const int& x, const int& y);
+	bool check_overflow_add(int x, int y);
+	bool check_overflow_subtract(int x, int y);
+	bool check_overflow_multiply(int x, int y);
 };
 // ****************************************************************** Classes //
 
