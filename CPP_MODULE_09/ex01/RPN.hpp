@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:05:31 by alambert          #+#    #+#             */
-/*   Updated: 2023/05/02 23:15:13 by alambert         ###   ########.fr       */
+/*   Updated: 2023/05/04 12:10:17 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,13 @@
 // Libraries **************************************************************** //
 #include <iostream>
 #include <stack>
-#include <exception>
-#include <cstdlib>
-#include <climits>
-#include <cerrno>
 #include <string>
 #include <sstream>
+#include <cctype>
+#include <cstdlib>
+#include <climits>
+#include <exception>
+#include <cerrno>
 // **************************************************************** Libraries //
 
 
@@ -47,14 +48,25 @@
 // ****************************************************************** Structs //
 
 // Classes ****************************************************************** //
+class RPN
+{
+public:
+	RPN(void);														// canonical
+	RPN(RPN const & toCopy);										// canonical
 
+	~RPN();															// canonical
+
+	RPN const &	operator=(RPN const & toCopy);						// canonical
+
+	int		evaluate(const std::string& input);
+
+private:
+    int		doOperation(const char& op, const int& x, const int& y);
+};
 // ****************************************************************** Classes //
 
 
 // Non Member functions ***************************************************** //
-int		evaluate(char op, int x, int y);
-bool	checkLimits(char op, int x, int y);
-bool	checkDiv(char op, int x, int y);
 // ***************************************************** Non Member functions //
 
 #endif // ************************************************************* RPN_H //
