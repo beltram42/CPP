@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:05:31 by alambert          #+#    #+#             */
-/*   Updated: 2023/05/04 17:49:27 by alambert         ###   ########.fr       */
+/*   Updated: 2023/05/04 18:36:40 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,27 +49,16 @@
 // ****************************************************************** Structs //
 
 // Classes ****************************************************************** //
-// class RPN {
-// public:
-//     RPN(const std::string &expr);
-//     ~RPN();
-//     int calculate();
-// private:
-//     std::stack<int> _stack;
-//     std::string _expr;
-//     bool is_operator(const std::string& str);
-//     int perform_operation(const std::string& op, int left, int right);
-// };
-
 class RPN {
 public:
+    RPN();
     RPN(const std::string &expr);
     ~RPN();
     RPN(const RPN &src);
     RPN &operator=(const RPN &rhs);
 
-    void    parseInput(const std::string &expr);
     int     getResult() const;
+    void    parseInput(const std::string &expr);
 
     class Error : public std::runtime_error {
     public:
@@ -78,8 +67,6 @@ public:
     };
 
 private:
-    RPN();
-
     std::stack<int> _stack;
     int _result;
 

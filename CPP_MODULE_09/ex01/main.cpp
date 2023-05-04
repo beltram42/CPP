@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 16:34:46 by alambert          #+#    #+#             */
-/*   Updated: 2023/05/04 17:36:25 by alambert         ###   ########.fr       */
+/*   Updated: 2023/05/04 18:37:20 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ int main(int argc, char **argv) {
     RPN rpn(argv[1]);
     int result = rpn.calculate();
     std::cout << result << std::endl;
-  } catch (std::exception &e) {
+  }
+  catch (std::exception &e) {
     std::cerr << "Error: " << e.what() << std::endl;
     return 1;
   }
