@@ -6,14 +6,16 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:05:31 by alambert          #+#    #+#             */
-/*   Updated: 2023/05/04 17:38:33 by alambert         ###   ########.fr       */
+/*   Updated: 2023/05/04 17:41:35 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
 
 // Constructor Destructor *************************************************** //
-RPN::RPN() {}
+RPN(const std::string &expr)	{
+	
+}
 
 RPN::~RPN() {}
 // *************************************************** Constructor Destructor //
