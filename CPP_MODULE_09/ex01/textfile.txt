@@ -1,0 +1,66 @@
+You will find below, after the * separation line, the infos as follow:
+1. the subject of exercise I want you to help me with;
+2. where to go to get my code, on which you will have to make modifications.
+Parts 1. and 2. will be separated with a * separation line as well.
+******************************************************************************
+1. Subject of the exercise:
+
+Exercise 01: Reverse Polish Notation
+
+Name of exec: RPN.
+Container to use: <map>.
+Compilation: c++ with CFLAGS = -g3 -Wall -Wextra -Werror -std=c++98.
+Forbidden functions : None.
+When possible, use as much as possible STL algorithms, split the input with a std::isstringstream named iss in a while loop.
+
+Don't forget to parse properly: 
+• argc < 2 and argc > 2,
+• INT_MIN and INT_MAX overflows with operators '-', '+' and '*',
+• Division by zero with operator '/',
+
+You must create a program with these constraints:
+• The program name is RPN.
+• Your program must take an inverted Polish mathematical expression as an argument.
+• Signed integers, between -10 and 10, will be used in this operation and passed as arguments in a string such as:
+"1 2 * 2 / 2 + 5 * 6 - 1 3 * - 4 5 * * 8 /" (output: 15) 
+or
+"9 8 * 4 * 4 / 2 + 9 - 8 - 8 - 1 - 6 -" (output: 42)
+or
+"8 9 * 9 - 9 - 9 - 4 - 1 +" (output: 42)
+or
+"1 1 1 1 + + + 1 1 1 + + +" (output: 7)
+or
+"6 5 * 4 3 * +" (output: 42)
+or
+"6 -5 * 4 3 * +" (output: -42)
+The calculation itself but also the result do not take into account this rule.
+• The program is not required to handle expressions with parenthesis or decimals
+number.
+• Your program must process this expression and output the correct result on the
+standard output.
+• If an error occurs during the execution of the program an error message should be
+displayed on the standard output, using exceptions, try and catch. If an error is displayed in the ouptut, no result nor rest of the stack should be displayed.
+• Your program must be able to handle operations with these tokens: "+ - / *".
+• You don’t need to manage the brackets or decimal numbers.
+• Check that the program runs correctly using different formulas of your choice.
+
+Here is an example of a standard use:
+$> ./RPN "8 9 * 9 - 9 - 9 - 4 - 1 +"
+42
+$> ./RPN "7 7 * 7 -"
+42
+$> ./RPN "1 2 * 2 / 2 * 2 4 - +"
+0
+$> ./RPN "(1 + 1)"
+Error
+$>
+
+******************************************************************************
+2. Where to go to get my code:
+. Makefile: https://github.com/beltram42/CPP/blob/main/CPP_MODULE_09/ex01/Makefile
+. RPN.hpp:
+https://github.com/beltram42/CPP/blob/main/CPP_MODULE_09/ex01/RPN.hpp
+. RPN.cpp:
+https://github.com/beltram42/CPP/blob/main/CPP_MODULE_09/ex01/RPN.cpp
+. main.cpp:
+https://github.com/beltram42/CPP/blob/main/CPP_MODULE_09/ex01/main.cpp
