@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:05:31 by alambert          #+#    #+#             */
-/*   Updated: 2023/05/05 17:34:44 by alambert         ###   ########.fr       */
+/*   Updated: 2023/05/05 17:56:00 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,7 @@
 #include <stack>
 #include <string>
 #include <sstream>
-#include <cctype>
-#include <cstdlib>
-#include <limits>
-#include <climits>
 #include <exception>
-#include <cerrno>
 // **************************************************************** Libraries //
 
 
@@ -55,7 +50,7 @@ public:
     RPN(const std::string &expr);	
     RPN(const RPN &toCopy);										// Canonical
     ~RPN();														// Canonical
-    RPN &operator=(const RPN &rhs);								// Canonical
+    RPN &operator=(const RPN &toCopy);								// Canonical
 
     int     getResult() const;
     void    parseInput(const std::string &expr);

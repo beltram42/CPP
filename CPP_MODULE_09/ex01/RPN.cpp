@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:05:31 by alambert          #+#    #+#             */
-/*   Updated: 2023/05/05 17:29:38 by alambert         ###   ########.fr       */
+/*   Updated: 2023/05/05 17:54:16 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ RPN::~RPN() {}
 // Member functions ********************************************************* //
 
 // -- Operators overload ---------------------------------------------------- //
-RPN &RPN::operator=(const RPN &rhs) {
-    if (this != &rhs) {
-        _result = rhs._result;
-        _stack = rhs._stack;
+RPN &RPN::operator=(const RPN &toCopy) {
+    if (this != &toCopy) {
+        _result = toCopy._result;
+        _stack = toCopy._stack;
     }
     return *this;
 }
@@ -95,7 +95,7 @@ void RPN::parseInput(const std::string &expr) {
         }
     }
     if (s.size() != 1)
-        throw std::invalid_argument("Invalid input 1");
+        throw std::invalid_argument("Invalid input 2");
     _result = s.top();
 }
 
