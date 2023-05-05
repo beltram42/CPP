@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 16:34:46 by alambert          #+#    #+#             */
-/*   Updated: 2023/05/04 18:37:20 by alambert         ###   ########.fr       */
+/*   Updated: 2023/05/05 15:35:02 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 int main(int argc, char **argv) {
   if (argc != 2) {
-    std::cerr << "Error: Invalid number of arguments\n";
+    throw std::invalid_argument("Invalid input m");
     return 1;
   }
 
   try {
     RPN rpn(argv[1]);
-    int result = rpn.calculate();
+    int result = rpn.getResult();
     std::cout << result << std::endl;
   }
   catch (std::exception &e) {

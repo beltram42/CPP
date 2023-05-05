@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:05:31 by alambert          #+#    #+#             */
-/*   Updated: 2023/05/04 18:36:40 by alambert         ###   ########.fr       */
+/*   Updated: 2023/05/05 17:34:44 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,26 +51,22 @@
 // Classes ****************************************************************** //
 class RPN {
 public:
-    RPN();
-    RPN(const std::string &expr);
-    ~RPN();
-    RPN(const RPN &src);
-    RPN &operator=(const RPN &rhs);
+    RPN();														// Canonical
+    RPN(const std::string &expr);	
+    RPN(const RPN &toCopy);										// Canonical
+    ~RPN();														// Canonical
+    RPN &operator=(const RPN &rhs);								// Canonical
 
     int     getResult() const;
     void    parseInput(const std::string &expr);
 
-    class Error : public std::runtime_error {
-    public:
-        Error(const std::string &msg);
-        virtual ~Error() throw();
-    };
+	bool	isOperator(int c);
 
 private:
     std::stack<int> _stack;
     int _result;
 
-    int performOperation(const std::string &op, int left, int right) const;
+    int doOperation(const std::string &op, int left, int right) const;
 };
 // ****************************************************************** Classes //
 
