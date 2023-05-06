@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 16:34:46 by alambert          #+#    #+#             */
-/*   Updated: 2023/05/06 14:43:50 by alambert         ###   ########.fr       */
+/*   Updated: 2023/05/06 15:14:05 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main(int argc, char **argv) {
   if (argc != 2) {
-   std::cerr << "Invalid input." << std::endl;
+	std::cerr << "Invalid input." << std::endl;
     return 1;
   }
 
@@ -30,6 +30,22 @@ int main(int argc, char **argv) {
 
   return 0;
 }
+// FOREWORDS **************************************************************** //
+// This exercise's subject states "The numbers used in this operation and  
+// passed as arguments will always be less than 10" -- which is quite vague -- 
+// and gives an example of typical output:
+	// $> ./RPN "8 9 * 9 - 9 - 9 - 4 - 1 +"
+	// 42
+	// $> ./RPN "7 7 * 7 -"
+	// 42
+	// $> ./RPN "1 2 * 2 / 2 * 2 4 - +"
+	// 0
+	// $> ./RPN "(1 + 1)"
+	// Error
+	// $>
+// Since RPN calculators should take negative numbers as input, I chose to 
+// accept integers from -9 to 9 only, even if the code should work with other
+// values, as long as you make sure they're in the type _MIN _MAX frame.
 
 
 // EXAMPLES OF OUTPUTS ****************************************************** //
