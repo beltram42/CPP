@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 16:34:46 by alambert          #+#    #+#             */
-/*   Updated: 2023/05/06 15:14:05 by alambert         ###   ########.fr       */
+/*   Updated: 2023/05/06 16:13:04 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main(int argc, char **argv) {
   if (argc != 2) {
-	std::cerr << "Invalid input." << std::endl;
+	std::cerr << "Error: Invalid input." << std::endl;
     return 1;
   }
 

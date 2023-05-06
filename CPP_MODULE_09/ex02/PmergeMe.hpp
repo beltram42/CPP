@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:05:31 by alambert          #+#    #+#             */
-/*   Updated: 2023/04/28 15:20:22 by alambert         ###   ########.fr       */
+/*   Updated: 2023/05/06 21:44:18 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@
 // Libraries **************************************************************** //
 #include <iostream>
 #include <list>
-#include <vector>
+#include <sstream>
+#include <cmath>
+#include <iterator>
 #include <exception>
 #include <algorithm>
-#include <numeric>
 // **************************************************************** Libraries //
 
 
@@ -50,7 +51,7 @@
 
 
 // Non Member functions ***************************************************** //
-
+void ford_johnson_sort(std::list<int>& lst);
 // ***************************************************** Non Member functions //
 
 #endif // ******************************************************** PMERGEME_H //
