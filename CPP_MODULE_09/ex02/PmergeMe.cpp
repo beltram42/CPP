@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:05:31 by alambert          #+#    #+#             */
-/*   Updated: 2023/05/08 18:47:08 by alambert         ###   ########.fr       */
+/*   Updated: 2023/05/10 13:29:32 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,63 @@
 
 // Constructor Destructor *************************************************** //
 listMIS::listMIS(void)	{}
-listMIS::listMIS(listMIS const & toCopy)	{
-	if (this != &toCopy)
-		*this = toCopy;
+listMIS::listMIS(listMIS const & toCopy) : _j(toCopy._j), _N(toCopy._N), _subLQ(toCopy._subLQ), _timeS(toCopy._timeS), _timeE(toCopy._timeE)	{
+	std::copy(toCopy._lst.begin(), toCopy._lst.end(), _lst.begin());
 }
 listMIS::listMIS(int argc, char ** argv) : _j(0), _N(argc - 1), _subLQ(((argc % 2) == 0 ? (argc - 1) : (argc)))	{
-	std::copy(argv, argv + argc, _lst.begin());
+	std::string	input;
+	for (int i = 1; i < argc; i++)	{
+		input += argv[i];
+		input += ' ';
+	}
+
+	if (input.empty() != 0)
+		throw std::invalid_argument("listMIS: Invalid argument input: string input");
+
+	std::istringstream	iss(input);
+	unsigned int num;
+
+	while (iss >> num)
+		this->_lst.push_back(num);
+
+	if (this->_lst.empty() != 0 || this->_lst.size() != static_cast<unsigned long>(argc -1))
+		throw std::invalid_argument("listMIS: Invalid argument input: list push_back issue");
+	
+	std::cout << "listMIS with arguments constructor called" << std::endl;
 }
-listMIS::~listMIS(void)	{}
+listMIS::~listMIS(void)	{
+	std::cout << "listMIS destructor called" << std::endl;
+}
 
 
 vectorMIS::vectorMIS(void)	{}
-vectorMIS::vectorMIS(vectorMIS const & toCopy)	{
-	if (this != &toCopy)
-		*this = toCopy;
+vectorMIS::vectorMIS(vectorMIS const & toCopy) : _j(toCopy._j), _N(toCopy._N), _subVQ(toCopy._subVQ), _timeS(toCopy._timeS), _timeE(toCopy._timeE)	{
+	std::copy(toCopy._vec.begin(), toCopy._vec.end(), _vec.begin());
 }
 vectorMIS::vectorMIS(int argc, char ** argv) : _j(0), _N(argc - 1), _subVQ(((argc % 2) == 0 ? (argc - 1) : (argc)))	{
-	std::copy(argv, argv + argc, _vec.begin());
+	std::string	input;
+	for (int i = 1; i < argc; i++)	{
+		input += argv[i];
+		input += ' ';
+	}
+
+	if (input.empty() != 0)
+		throw std::invalid_argument("vectorMIS: Invalid argument input: : string input");
+
+	std::istringstream	iss(input);
+	unsigned int num;
+
+	while (iss >> num)
+		this->_vec.push_back(num);
+
+	if (this->_vec.empty() != 0 || this->_vec.size() != static_cast<unsigned long>(argc -1))
+		throw std::invalid_argument("vectorMIS: Invalid argument input: vector push_back issue");
+	
+	std::cout << "vectorMIS with arguments constructor called" << std::endl;
 }
-vectorMIS::~vectorMIS(void)	{}
+vectorMIS::~vectorMIS(void)	{
+	std::cout << "vectorMIS destructor called" << std::endl;
+}
 // *************************************************** Constructor Destructor //
 
 
@@ -40,14 +78,22 @@ vectorMIS::~vectorMIS(void)	{}
 
 // -- Operators overload ---------------------------------------------------- //
 listMIS		&listMIS::operator=(listMIS const & toCopy)	{
-	if (this != &toCopy)
-		*this = toCopy;
+	this->_j = toCopy._j;
+	this->_N = toCopy._N;
+	this->_subLQ = toCopy._subLQ;
+	this->_timeS = toCopy._timeS;
+	this->_timeE = toCopy._timeE;
+	std::copy(toCopy._lst.begin(), toCopy._lst.end(), _lst.begin());
 	return (*this);
 }
 
 vectorMIS	&vectorMIS::operator=(vectorMIS const & toCopy)	{
-	if (this != &toCopy)
-		*this = toCopy;
+	this->_j = toCopy._j;
+	this->_N = toCopy._N;
+	this->_subVQ = toCopy._subVQ;
+	this->_timeS = toCopy._timeS;
+	this->_timeE = toCopy._timeE;
+	std::copy(toCopy._vec.begin(), toCopy._vec.end(), _vec.begin());
 	return (*this);
 }
 // ---------------------------------------------------- Operators overload -- //
@@ -126,6 +172,7 @@ std::vector<unsigned int>	&vectorMIS::getV(void)	{
 
 // Non Member functions ***************************************************** //
 std::ostream &operator<<(std::ostream &out, listMIS &input)	{
+	out << std::endl;
 	out << "// List merge insert sort =================================================== //" << std::endl;
 	out << "   Before:" << std::endl;
 	out << "   -------" << std::endl;
@@ -135,7 +182,7 @@ std::ostream &operator<<(std::ostream &out, listMIS &input)	{
 		out << *it << " ";
 		it++;
 	}
-	out << std::endl << std::endl;
+	out << std::endl << std::endl << std::endl;
 
 	return (out);
 }

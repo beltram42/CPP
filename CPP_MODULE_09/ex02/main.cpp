@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 16:34:46 by alambert          #+#    #+#             */
-/*   Updated: 2023/05/08 18:23:27 by alambert         ###   ########.fr       */
+/*   Updated: 2023/05/10 13:25:45 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,16 @@ int	main(int argc, char ** argv)	{
 		std::cerr << "Error: Invalid number of arguments." << std::endl;
 		return (1);
 	}
-	listMIS		l(argc, &argv);
-	vectorMIS	v(argc, &argv);
-
-	std::cout << l;
-	std::cout << v;
+	try	{
+		listMIS		lst(argc, argv);
+		vectorMIS	vec(argc, argv);
+	
+		std::cout << lst;
+		std::cout << vec;
+	}
+	catch(const std::exception& e)	{
+		std::cerr << e.what() << '\n';
+	}
 	
 	return (0);
 }

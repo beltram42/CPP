@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:05:31 by alambert          #+#    #+#             */
-/*   Updated: 2023/05/08 18:36:49 by alambert         ###   ########.fr       */
+/*   Updated: 2023/05/10 13:27:06 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,8 +92,8 @@ private:
 
 
 // Non Member functions ***************************************************** //
-std::ostream &operator<<(std::ostream &out, listMIS const &input);
-std::ostream &operator<<(std::ostream &out, vectorMIS const &input);
+std::ostream &operator<<(std::ostream &out, listMIS &input);
+std::ostream &operator<<(std::ostream &out, vectorMIS &input);
 // ***************************************************** Non Member functions //
 
 #endif // ******************************************************** PMERGEME_H //
