@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 16:34:46 by alambert          #+#    #+#             */
-/*   Updated: 2023/05/31 19:29:53 by alambert         ###   ########.fr       */
+/*   Updated: 2023/07/11 15:27:21 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	printArgs(int argc, char ** argv)	{
 	std::cout << "// Args ===================================================================== //" << std::endl;
 	for (int i = 1; i < argc; i++)
 		std::cout << argv[i] << " ";
-	std::cout << std::endl << std::endl;
+	std::cout << "\n\n";
 }
 
 int	main(int argc, char ** argv)	{

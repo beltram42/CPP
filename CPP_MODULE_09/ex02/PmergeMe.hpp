@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:05:31 by alambert          #+#    #+#             */
-/*   Updated: 2023/05/31 19:19:52 by alambert         ###   ########.fr       */
+/*   Updated: 2023/07/11 15:26:23 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ class vectorMIS	{
 	int 							vBinarySearch(const std::vector<int>& arr, int low, int high, int target);
 
 private:
-	std::vector<int> 		_vec;
+	std::vector<int> 				_vec;
 	clock_t							_timeS;				// time start
 	clock_t							_timeE;				// time end
 };

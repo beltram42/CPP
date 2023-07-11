@@ -6,7 +6,7 @@
 /*   By: alambert <alambert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 13:05:31 by alambert          #+#    #+#             */
-/*   Updated: 2023/05/31 19:29:44 by alambert         ###   ########.fr       */
+/*   Updated: 2023/07/11 15:25:57 by alambert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -202,7 +202,7 @@ void	vectorMIS::vImplMIS(void) {
     }
     std::cout << "\n\n";
 
-	// Generate the Jacobsthal sequence of increments up to the size of pendingValues
+	// Generate Jacobsthal sequence of increments up to the size of pendingValues
 	unsigned long pendingSize = pendingValues.size();
 	unsigned long jacobsthal[pendingSize];
 	unsigned long jacobsthalSize = 0;
